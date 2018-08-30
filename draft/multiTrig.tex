@@ -1,6 +1,4 @@
-\documentclass{amsart}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -27,36 +25,30 @@
 \usepackage{multirow}
 
 \usepackage{hyperref}
-\hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue}
 
 \usepackage[noabbrev,capitalise]{cleveref}
 \usepackage{autonum}
 \usepackage{xspace}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{ce}[theorem]{Counter-example}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{notation}[theorem]{Notation}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{ce}[thm]{Counter-example}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem*{ack*}{Acknowledgment}
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}[section]
-\newtheorem{example}{Example}
+\newtheorem{rem}{Remark}[section]
+\newtheorem{ex}{Example}
 \newtheorem{algo}{Algorithm}
-\newtheorem*{example*}{Example}
+\newtheorem*{ex*}{Example}
 
-\crefname{theorem}{Theorem}{Theorems}
-\crefname{lemma}{Lemma}{Lemmas}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{lem}{Lemma}{Lemmas}
+%
 
-\definecolor{darkblue}{rgb}{0,0,0.7} % darkblue color
-\newcommand{\darkblue}{\color{darkblue}} % darkblue command
-\newcommand{\defn}[1]{\textsl{\darkblue #1}} % emphasis of a definition
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*{\dual}[1]{{#1^*}}
 \newcommand*{\nbd}[0]{neighbourhood\xspace}
@@ -64,71 +56,73 @@
 \newcommand*{\vf}[0]{V-finite\xspace}
 \newcommand*{\ktg}[0]{$k$-triangulation\xspace}
 
+%%%%%% Données document
+
+
+
+%% define your title in the usual way
+\title{Structure of multi-triangulations on any surface}
+
+%% define your authors in the usual way
+%% use \addressmark{1}, \addressmark{2} etc for the institutions, and use \thanks{} for contact details
+\author{Mathias Lepoutre \thanks{\href{mailto:mathias.lepoutre@polytechnique.edu}{mathias.lepoutre@polytechnique.edu}
+. Partially supported by the project ANR-16-CE40-0009.}
+, Vincent Pilaud
+\thanks{\href{mailto:vincent.pilaud@lix.polytechnique.fr}{vincent.pilaud@lix.polytechnique.fr}}}
+
+
+
+%\keywords{combinatorics, triangulation, surface}
+
 \graphicspath{{../images/}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Infinite multitriangulations and multitriangulations of surfaces}
 
-\thanks{ML was partially supported by the French ANR grant GATO~(16\,CE40\,0009). \\ \indent VP was partially supported by the French ANR grants SC3A~(15\,CE40\,0004\,01) and CAPPS~(17\,CE40\,0018).}
-
-\author{Mathias Lepoutre}
-\address{LIX, \'Ecole Polytechnique, Palaiseau}
-\email{mathias.lepoutre@lix.polytechnique.fr}
-\urladdr{\url{http://www.lix.polytechnique.fr/Labo/Mathias.Lepoutre/}}
-
-\author{Vincent Pilaud}
-\address{CNRS \& LIX, \'Ecole Polytechnique, Palaiseau}
-\email{vincent.pilaud@lix.polytechnique.fr}
-\urladdr{\url{http://www.lix.polytechnique.fr/~pilaud/}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
+\maketitle
 \begin{abstract}
 We extend previous work on the structure of $k$-stars of a multi-triangulation on a convex polygon to the case of multi-triangulations on any surface, orientable or not. 
 
 To that extent, we use the universal cover construction, that makes a map on a surface into a periodic map of an infinite polygon. We generalize the work of Pilaud and Santos to multi-triangulation of an infinite polygon, with some additional constraints, and then conclude about the case of multi-triangulations on any surface.
 \end{abstract}
 
-\maketitle
-
 \section{Definitions}
 
 
-\begin{definition}[infinite polygon]
-An \defn{infinite polygon} is a circle with an infinite but ordered set of points on it.
-\end{definition}
+\begin{defn}[infinite polygon]
+An \emph{infinite polygon} is a circle with an infinite but ordered set of points on it.
+\end{defn}
 
 From now on, the word polygon will be used equally for both finite and infinite polygons.
 
-\begin{definition}[left/right neighbour, \nbd]
-If $x$ and $y$ are two points of a polygon, such that the interval $[x,y]$ is empty, we say that $y$ is the \defn{right neighbour} of $x$, while $x$ is the \defn{left neighbour} of $y$.
+\begin{defn}[left/right neighbour, \nbd]
+If $x$ and $y$ are two points of a polygon, such that the interval $[x,y]$ is empty, we say that $y$ is the \emph{right neighbour} of $x$, while $x$ is the \emph{left neighbour} of $y$.
 
 A polygon is a \nbd if each point has both a right and a left neighbour.
-\end{definition}
+\end{defn}
 
 In particular, any finite polygon is a \nbd.
 
-\begin{definition}[$k$-triangulation]
+\begin{defn}[$k$-triangulation]
 A $k$-triangulation of a polygon $P$ is a maximal set of edges of the points of $P$ with no $(k+1)$-crossing.
-\end{definition}
+\end{defn}
 
-\begin{definition}[\ef, \vf]
+\begin{defn}[\ef, \vf]
 A $k$-triangulation is \ef if any of its edge is crossed be a finite number of edges.
 
 A $k$-triangulation is \vf if all its vertices have finite degree.
-\end{definition}
+\end{defn}
 
-\begin{definition}[periodic]
+\begin{defn}[periodic]
 
-\end{definition}
+\end{defn}
 
 
-\begin{theorem}\label{thm:flip}
+\begin{thm}\label{thm:flip}
 Any edge of a \ef \ktg of a \nbd can be flipped.
-\end{theorem}
+\end{thm}
 
 \section{Proof of \cref{thm:flip}}
 
@@ -136,17 +130,17 @@ Any edge of a \ef \ktg of a \nbd can be flipped.
 
 La formulation exacte des lemmes devra être vérifiée au moment d'en écrire les preuves.
 
-\begin{lemma}
+\begin{lem}
 Any angle of a \ktg of a \nbd is crossed by a $(k-1)$-crossing.
-\end{lemma}
+\end{lem}
 \begin{proof}
 The $k$-border always contains such a crossing.
 \end{proof}
 
 
-\begin{lemma}
+\begin{lem}
 The set of $(k-1)$-crossings crossing a given angle of a \ktg forms a distributive lattice.
-\end{lemma}
+\end{lem}
 \begin{proof}
 Let $AB=\{(a_1,b_1),\cdots,(a_{k-1},b_{k-1})\}$ and $CD=\{(c_1,d_1),\cdots,(c_{k-1},d_{k-1})\}$ be two $(k-1)$-crossings crossing the angle $(u,v,w)$.
 
@@ -158,18 +152,18 @@ Hence $AB$ and $CD$ are edgewise comparable.
 We define the meet (resp. join) of $AB$ and $CD$ as their edgewise minimum (resp. maximum). With this definition it is easy to see that we obtain a distributive lattice.
 \end{proof}
 
-\begin{lemma}
+\begin{lem}
 Any angle of a \ef \ktg which is crossed by a $(k-1)$-crossing, is maximally crossed by a $(k-1)$-crossing.
-\end{lemma}
+\end{lem}
 \begin{proof}
 Since the \ktg is \ef, the angle is crossed by a finite number of $(k-1)$-crossings. Hence the distributive lattice of such crossings is finite, and has a maximum.
 \end{proof}
 
 \subsection{any angle belongs to a $k$-star}
 
-\begin{lemma}
+\begin{lem}
 Any angle of a \ktg which is maximally crossed by a $(k-1)$-crossing belongs to a $k$-star.
-\end{lemma}
+\end{lem}
 \begin{proof}
 cf thm4.1 of  Pilaud Santos, but to be rewritten.
 
@@ -238,23 +232,23 @@ We may need the \ktg to be \vf?
 
 \subsection{any edge belongs to $2$ $k$-stars, and can be flipped}
 
-\begin{lemma}
+\begin{lem}
 When $k\geq 2$, any \ef \ktg of a \nbd is \vf.
-\end{lemma}
+\end{lem}
 \begin{proof}
 Any edge of the $k$-border surrounding a given vertex intersects all edges adjacent to this vertex.
 \end{proof}
 
-\begin{lemma}
+\begin{lem}
 Any edge of a \vf \ktg belongs to $4$ angles.
-\end{lemma}
+\end{lem}
 \begin{proof}
 The vertices adjacent to the edge have finite degree. Take the neighbours just before and after the other vertex. The $4$ hereby obtained edges form angles with the first one.
 \end{proof}
 
-\begin{lemma}
+\begin{lem}
 Any edge adjacent to $2$ $k$-star can be flipped.
-\end{lemma}
+\end{lem}
 \begin{proof}
 cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any additional hypothesis. quite long though : section 3.
 \end{proof}
@@ -263,9 +257,9 @@ cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any add
 
 \subsection{more lemmas}
 
-\begin{lemma} 
+\begin{lem} 
 Any edge of a \ef \ktg of a \nbd belongs to 4 angles. 
-\end{lemma}
+\end{lem}
 \begin{proof}
 see direct proof on sheet.
 \end{proof}
