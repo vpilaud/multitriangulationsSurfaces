@@ -64,7 +64,24 @@
 \newcommand*{\vf}[0]{V-finite\xspace}
 \newcommand*{\ktg}[0]{$k$-triangulation\xspace}
 
+\newcommand{\set}[2]{\left\{ #1 \;\middle|\; #2 \right\}} % set notation
+\newcommand{\bigset}[2]{\big\{ #1 \;\big|\; #2 \big\}} % big set notation
+\newcommand{\Bigset}[2]{\Big\{ #1 \;\Big|\; #2 \Big\}} % Big set notation
+\newcommand{\setangle}[2]{\left\langle #1 \;\middle|\; #2 \right\rangle} % set notation
+\newcommand{\ssm}{\smallsetminus} % small set minus
+\newcommand{\dotprod}[2]{\left\langle \, #1 \; \middle| \; #2 \, \right\rangle} % dot product
+\newcommand{\symdif}{\,\triangle\,} % symmetric difference
+\newcommand{\one}{{1\!\!1}} % the all one vector
+\newcommand{\eqdef}{\mbox{\,\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}}\ensuremath{=}\,}} % :=
+\newcommand{\defeq}{\mbox{~\ensuremath{=}\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}} }} % =:
+\newcommand{\viceversa}{\textit{vice versa}} % vice versa
+
 \graphicspath{{../images/}}
+
+% marginal comments
+\usepackage{todonotes}
+\newcommand{\vincent}[1]{\todo[color=blue!30]{#1 \\ \hfill --- V.}}
+\newcommand{\mathias}[1]{\todo[color=red!30]{#1 \\ \hfill --- M.}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -96,45 +113,68 @@ To that extent, we use the universal cover construction, that makes a map on a s
 
 \section{Definitions}
 
+\subsection{Infinite polygons}
 
-\begin{definition}[infinite polygon]
-An \defn{infinite polygon} is a circle with an infinite but ordered set of points on it.
+\begin{definition}%[infinite polygon]
+A \defn{polygon}~$P$ is a cyclically ordered set, that might be finite or infinite.
+We write~$a < b < c$ for the cyclic order.
+The elements of~$P$ are called \defn{points} and pairs of elements of~$P$ are called \defn{diagonals}.
+For two points~$a,b \in P$, we define the intervals~$[a,b] \eqdef \set{c \in P}{a \le c \le b}$, and similarly~$[a,b[$, $]a,b]$ and~$]a,b[$.
+Two edges~$(a,c)$ and~$(b,d)$ of~$P$ \defn{cross} if~$a < b < c < d$.
 \end{definition}
 
-From now on, the word polygon will be used equally for both finite and infinite polygons.
-
-\begin{definition}[left/right neighbour, \nbd]
-If $x$ and $y$ are two points of a polygon, such that the interval $[x,y]$ is empty, we say that $y$ is the \defn{right neighbour} of $x$, while $x$ is the \defn{left neighbour} of $y$.
-
-A polygon is a \nbd if each point has both a right and a left neighbour.
+\begin{definition}%[left/right neighbour, \nbd]
+If $x$ and $y$ are two points of a polygon~$P$, such that the interval~$[x,y]$ is empty, we say that~$x$ is the \defn{predecessor} of~$Y$ and that~$y$ us the \defn{successor} of~$x$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
 \end{definition}
 
-In particular, any finite polygon is a \nbd.
-
-\begin{definition}[$k$-triangulation]
-A $k$-triangulation of a polygon $P$ is a maximal set of edges of the points of $P$ with no $(k+1)$-crossing.
-\end{definition}
-
-\begin{definition}[\ef, \vf]
-A $k$-triangulation is \ef if any of its edge is crossed be a finite number of edges.
-
-A $k$-triangulation is \vf if all its vertices have finite degree.
+\begin{definition}%[\ef, \vf]
+A set~$X$ of edges of a polygon~$P$ is 
+\begin{itemize}
+\item \defn{\ef} if each edge of~$X$ is crossed by a finite number of edges of~$X$,
+\item \defn{\vf} if each vertex of~$P$ is incident to finitely many edges of~$X$.
+\end{itemize}
 \end{definition}
 
 \begin{definition}[periodic]
 
 \end{definition}
 
+\subsection{Infinite multitriangulations}
 
-\begin{theorem}\label{thm:flip}
-Any edge of a \ef \ktg of a \nbd can be flipped.
+\begin{definition}%[$k$-triangulation]
+A \defn{$k$-triangulation} of a polygon~$P$ is a maximal set of edges of the points of~$P$ with no $(k+1)$-crossing.
+\end{definition}
+
+\begin{definition}
+The \defn{length} of an edge~$(a,b)$ of a polygon~$P$ is the minimum~$\ell(a,b)$ of~$|{]a,b[}|$ and~$|{]b,a[}|$ (note that this might be infinite).
+An edge~$(a,b)$ with~$\ell(a,b) > k$ (resp.~$\ell(a,b) = k$, resp.~$\ell(a,b) < k$) is a \defn{$k$-relevant} (resp.~\defn{$k$-boundary}, resp.~\defn{$k$-irrelevant}) edge.
+\end{definition}
+
+
+\begin{definition}
+A \defn{$k$-star} of a polygon~$P$ is a set of edges of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 < \dots < s_{2k}$ (the indices are understood modulo~$2k+1$).
+\end{definition}
+
+\begin{definition}
+An \defn{angle} of a set~$X$ of edges of a polygon~$P$ is a pair of edges~$\{(u,v), (v,w)\}$ with~$u < v < w$ such that~$X$ contains no edge of the form~$(v,t)$ with~$w < t < u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if none of its edges is $k$-irrelevant.
+\end{definition}
+
+One of the objectives of this paper is to prove the following structural results on infinite multitriangulations
+
+\begin{theorem}
+\label{thm:flip}
+For any \ef \ktg~$T$ of a tidy polygon~$P$,
+\begin{enumerate}
+\item Each $k$-relevant angle of~$T$ is contained in precisely one $k$-star of~$T$.
+\item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) edge of~$P$ is contained in precisely two (resp.~one, resp.~none) $k$-stars of~$T$.
+\item For any $k$-relevant edge~$e$ of~$T$, there exists a unique edge~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation. The edge~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
+\item Let~$P'$ denote a polygon obtained by replacing $k+1$ consecutive points of~$P$ by~$k$ points. Then there exists a flattening (resp.~inflating) operation that transforms the \ktg{}s of~$P$ into the \ktg{}s of~$P'$ (resp.~and \viceversa).
+\end{enumerate}
 \end{theorem}
 
 \section{Proof of \cref{thm:flip}}
 
 \subsection{crossings crossing an angle}
-
-La formulation exacte des lemmes devra être vérifiée au moment d'en écrire les preuves.
 
 \begin{lemma}
 Any angle of a \ktg of a \nbd is crossed by a $(k-1)$-crossing.
