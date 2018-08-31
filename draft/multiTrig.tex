@@ -273,59 +273,57 @@ In a \ktg of a tidy polygon, for any angle~$\angle(u,v,w)$, there exists a $v$-f
 \subsection{any angle belongs to a $k$-star}
 
 \begin{lemma}
-Any angle of a \ktg which is maximally crossed by a $(k-1)$-crossing belongs to a $k$-star.
+In a \ktg, any angle which is maximally crossed by a $(k-1)$-crossing belongs to a $k$-star.
 \end{lemma}
 \begin{proof}
 cf thm4.1 of  Pilaud Santos, but to be rewritten.
 
 
 
-Let $\{e_1, \cdots , e{_k-1}\}$ (with $e_i = [a_i, b_i]$) be a $(k - 1)$-crossing intersecting $\wedge(u, v, w)$ and assume that it is $v$-maximal. 
-We will prove that the edges $[u, b_1],[a_1, b_2]\cdots[a_{k-2}, b_{k-1}], [a_{k-1}, w]$ are in $T$ such that the points $u$, $a_1,\cdots,a_{k-1}$, $v$, $b_1,\cdots,b_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\wedge(u, v, w)$. 
 
-To get this result, we use two steps: first we prove that $\wedge(a_1, b_1, u)$ is an angle of $T$, and then we prove that the edges $e_2,\cdots, e_{k-1}, [v, w]$ form a $(k-1)$-crossing intersecting $\wedge(a_1, b_1, u)$ and $b_1$-maximal (so that we can reiterate the argument).
+
+Let $E=\{(e_1,e'_1), \cdots , (e_{k-1},e'_{k-1})\}$ be a $(k - 1)$-crossing intersecting $\angle(u, v, w)$ and assume that it is $v$-maximal. 
+We will prove that the edges $(u, e'_1),(e_1, e'_2)\cdots(e_{k-2}, e'_{k-1}), (e_{k-1}, w)$ are in $T$ such that the points $u$, $e_1,\cdots,e_{k-1}$, $v$, $e'_1,\cdots,e'_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
+
+To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the edges $e_2,\cdots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
 
 {\bf First step.}
-Suppose that $[u, b_1]$ is not in $T$. 
-Thus we have a $k$-crossing $F$ that prevents the edge $[u, b1]$.
-Let $f_1 = [c_1, d_1],\cdots, f_k = [c_k, d_k]$ denote its
-edges with $u \cl c_1 \cl \cdots \cl c_k \cl b_1$ and $b_1 \cl d_1 \cl \cdots \cl d_k \cl u$.
+Suppose that $(u, e'_1)$ is not in $T$. 
+Since $T$ is a triangulation, there is a $k$-crossing $F=(f_1, f'_1),\cdots, (f_k, f'_k)$ that prevents the edge $(u, b1)$, so that: $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$.
 
-Note first that $v \cl d_k \cle w$. Indeed, if it is not the case, then
-$d_k \in ]w, u[$ and $c_k \neq v$, because $\wedge(u, v, w)$ is an angle. 
-Thus either $c_k \in ]u, v[$ and then $F \cup \{[u, v]\}$ forms a $(k + 1)$-crossing, 
-or $c_k \in ]v, b_1[$ and then $E \cup \{[c_k, d_k]\}$ forms a $(k + 1)$-crossing. 
-Consequently, we have $b_1 \cl d_1 \cl \cdots \cl d_{k-1} \cl w$.
+Note first that $v \cl f'_k \cle w$. Indeed, if it is not the case, then
+$f'_k \in ]w, u[$ and $f_k \neq v$, because $\angle(u, v, w)$ is an angle. 
+Thus either $f_k \in ]u, v[$ and then $F \cup \{[u, v]\}$ forms a $(k + 1)$-crossing, 
+or $f_k \in ]v, e'_1[$ and then $E \cup \{[f_k, f'_k]\}$ forms a $(k + 1)$-crossing. 
+Consequently, we have $e'_1 \cl f'_1 \cl \cdots \cl f'_{k-1} \cl w$.
 
-Let $\ell = \text{max}\{1 \leq j \leq k - 1 | b_i \cl d_i \cl w, \forall i \setminus 1 \leq i \leq j\}$.
+Let $\ell = \text{max}\{1 \leq j \leq k - 1 | e'_i \cl f'_i \cl w, \forall i \setminus 1 \leq i \leq j\}$.
 Then for any $1 \leq i \leq \ell$, since $\{e_1, \cdots , e_i\} \cup \{f_i, \cdots , f_k\}$ does not form
-a $(k + 1)$-crossing, we have $u \cl c_i \cle a_i$. Thus for any $1 \leq i \leq \ell$, $u \cl c_i \cle a_i \cl v \cl b_i \cl d_i \cl w$, so that $f_i$
+a $(k + 1)$-crossing, we have $u \cl f_i \cle e_i$. Thus for any $1 \leq i \leq \ell$, $u \cl f_i \cle e_i \cl v \cl e'_i \cl f'_i \cl w$, so that $f_i$
 is $v$-farther than $e_i$.
-Furthermore, we have $u \cl c_1 \cl \cdots \cl c_\ell \cl a_{\ell+1} \cl \cdots \cl a_{k-1} \cl v \cl d_1 \cl \cdots \cl d_\ell \cl b_{\ell+1} \cl \cdots \cl b_{k-1} \cl w$. 
+Furthermore, we have $u \cl f_1 \cl \cdots \cl f_\ell \cl e_{\ell+1} \cl \cdots \cl e_{k-1} \cl v \cl f'_1 \cl \cdots \cl f'_\ell \cl e'_{\ell+1} \cl \cdots \cl e'_{k-1} \cl w$. 
 Consequently, we get a $(k - 1)$-crossing $\{f_1, \cdots , f_\ell
 , e_{\ell+1}, \cdots , e_{k-1}\}$ which is $v$-farther than $\{e_1, \cdots , e_{k-1}\}$; this contradicts the definition of $\{e_1, \cdots , e_{k-1}\}$. 
-Thus we obtain $[u, b_1] \in  T$.
+Thus we obtain $[u, e'_1] \in  T$.
 
-Suppose now that $\wedge(a_1, b_1, u)$ is not an angle of $T$. 
-Then there exists $a_0 \in ]u, a_1[$ such that $[b_1, a_0] \in  T$. 
-But then the $(k - 1)$-crossing $\{[a_0, b_1], e_2, \cdots , e_{k-1}\}$ is $v$-farther than $\{e_1, \cdots , e_{k-1}\}$. 
-This implies that $\wedge(a_1, b_1, u)$ is an angle of $T$.
+Suppose now that $\angle(e_1, e'_1, u)$ is not an angle of $T$. 
+Then there exists $e_0 \in ]u, e_1[$ such that $[e'_1, e_0] \in  T$. 
+But then the $(k - 1)$-crossing $\{[e_0, e'_1], e_2, \cdots , e_{k-1}\}$ is $v$-farther than $\{e_1, \cdots , e_{k-1}\}$. 
+This implies that $\angle(e_1, e'_1, u)$ is an angle of $T$.
 
 {\bf Second step.}
-Let $F$ be a $(k - 1)$-crossing intersecting $\wedge(a_1, b_1, u)$ and $b_1$-farther than the $(k-1)$-crossing $\{e_2, \cdots , e_{k-1}, [v, w]\}$. 
-Let $f_2 = [c_2, d_2], \cdots , f_k = [c_k, d_k]$ denote its edges, with $a_1 \cl c_2 \cl \cdots \cl c_k \cl b_1 \cl d_2 \cl \cdots \cl d_k \cl u$.
+Let $F$ be a $(k - 1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-farther than the $(k-1)$-crossing $\{e_2, \cdots , e_{k-1}, [v, w]\}$. 
+Let $f_2 = [f_2, f'_2], \cdots , f_k = [f_k, f'_k]$ denote its edges, with $e_1 \cl f_2 \cl \cdots \cl f_k \cl e'_1 \cl f'_2 \cl \cdots \cl f'_k \cl u$.
 
-Note first that $b_k \leq d_k \leq w$. 
-Indeed, if it is not the case, then $d_k \in ]w, u[$ and $c_k \neq v$, because $\wedge(u, v, w)$ is an angle. 
-Thus either $c_k \in ]a_1, v[$ and then $F \cup \{[u, v], e_1\}$ forms a $(k + 1)$-crossing, or $c_k \in ]v, b_1[$ and then $E \cup \{[c_k, d_k]\}$ forms a $(k + 1)$-crossing. 
-Consequently, we have $b_1 \cl d_2 \cl \cdots \cl d_{k-1} \cl w$.
+Note first that $e'_k \leq f'_k \leq w$. 
+Indeed, if it is not the case, then $f'_k \in ]w, u[$ and $f_k \neq v$, because $\angle(u, v, w)$ is an angle. 
+Thus either $f_k \in ]e_1, v[$ and then $F \cup \{[u, v], e_1\}$ forms a $(k + 1)$-crossing, or $f_k \in ]v, e'_1[$ and then $E \cup \{[f_k, f'_k]\}$ forms a $(k + 1)$-crossing. 
+Consequently, we have $e'_1 \cl f'_2 \cl \cdots \cl f'_{k-1} \cl w$.
 
-Furthermore, for any $2 \leq i \leq k - 1$, $f_i$ is $\wedge(a_1, b_1, u)$-farther than $e_i$, so that $a_1 \cl c_i \cle a_i \cl b_1 \cl b_i \cle d_i \cl u$. 
-In particular, $a_1 \cl c_{k-1} \cle a_{k-1} \cl v$ and we get $u \cl a_1 \cl c_2 \cl \cdots \cl c_{k-1} \cl v \cl b_1 \cl d_2 \cl \cdots \cl d_{k-1} \cl w$.
+Furthermore, for any $2 \leq i \leq k - 1$, $f_i$ is $\angle(e_1, e'_1, u)$-farther than $e_i$, so that $e_1 \cl f_i \cle e_i \cl e'_1 \cl e'_i \cle f'_i \cl u$. 
+In particular, $e_1 \cl f_{k-1} \cle e_{k-1} \cl v$ and we get $u \cl e_1 \cl f_2 \cl \cdots \cl f_{k-1} \cl v \cl e'_1 \cl f'_2 \cl \cdots \cl f'_{k-1} \cl w$.
 Consequently, the $(k - 1)$-crossing $\{e_1, f_2, \cdots , f_{k-1}\}$ is
 $v$-farther than $\{e_1, \cdots , e_{k-1}\}$, which is a contradiction.
-
-
 
 
 
