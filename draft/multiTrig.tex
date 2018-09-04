@@ -124,19 +124,19 @@ To that extent, we use the universal cover construction, that makes a map on a s
 A \defn{polygon}~$P$ is a cyclically ordered set, that might be finite or infinite.
 We write~$a \cl b \cl c$ for the cyclic order.
 The elements of~$P$ are called \defn{points} and pairs of elements of~$P$ are called \defn{diagonals}.
-For two points~$a,b \in P$, we define the intervals~$[a,b] \eqdef \set{c \in P}{a \le c \le b}$, and similarly~$[a,b[$, $]a,b]$ and~$]a,b[$.
-Two edges~$(a,c)$ and~$(b,d)$ of~$P$ \defn{cross} if~$a \cl b \cl c \cl d$.
+For two points~$a,b \in P$, let~$[a,b] \eqdef \set{c \in P}{a \le c \le b}$, and define similarly the intervals~$[a,b[$, $]a,b]$ and~$]a,b[$ (with open brackets for strict inequalitites).
+Two diagonals~$(a,c)$ and~$(b,d)$ of~$P$ \defn{cross} if~$a \cl b \cl c \cl d$.
 \end{definition}
 
 \begin{definition}
-If $x$ and $y$ are two points of a polygon~$P$, such that the interval~$[x,y]$ is empty, we say that~$x$ is the \defn{predecessor} of~$Y$ and that~$y$ us the \defn{successor} of~$x$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
+If $x$ and $y$ are two points of a polygon~$P$ such that the interval~$]x,y[$ is empty, we say that~$x$ is the \defn{predecessor} of~$y$ and that~$y$ is the \defn{successor} of~$x$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
 \end{definition}
 
 \begin{definition}
-A set~$X$ of edges of a polygon~$P$ is 
+A set~$X$ of diagonals of a polygon~$P$ is 
 \begin{itemize}
-\item \defn{\ef} if each edge of~$X$ is crossed by a finite number of edges of~$X$,
-\item \defn{\vf} if each vertex of~$P$ is incident to finitely many edges of~$X$.
+\item \defn{\ef} if each diagonal of~$X$ is crossed by a finite number of diagonals of~$X$,
+\item \defn{\vf} if each vertex of~$P$ is incident to finitely many diagonals of~$X$.
 \end{itemize}
 \end{definition}
 
@@ -147,27 +147,27 @@ A set~$X$ of edges of a polygon~$P$ is
 \subsection{Infinite multitriangulations}
 
 \begin{definition}
-A \defn{$k$-crossing} of a polygon~$P$ is a set of~$k$ pairwise crossing edges of~$P$
-A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of edges of~$P$ with no $(k+1)$-crossing.
+A \defn{$k$-crossing} of a polygon~$P$ is a set of~$k$ pairwise crossing diagonals of~$P$.
+A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
 \end{definition}
 
 \begin{definition}
-The \defn{length} of an edge~$(a,b)$ of a polygon~$P$ is the minimum~$\ell(a,b)$ of~$|{]a,b[}|$ and~$|{]b,a[}|$ (note that this might be infinite).
-An edge~$(a,b)$ with~$\ell(a,b) > k$ (resp.~$\ell(a,b) = k$, resp.~$\ell(a,b) < k$) is a \defn{$k$-relevant} (resp.~\defn{$k$-boundary}, resp.~\defn{$k$-irrelevant}) edge.
+The \defn{length} of a diagonal~$(a,b)$ of a polygon~$P$ is the minimum~$\ell(a,b)$ of~$|{]a,b[}|$ and~$|{]b,a[}|$ (note that this might be infinite).
+A diagonal~$(a,b)$ with~$\ell(a,b) > k$ (resp.~$\ell(a,b) = k$, resp.~$\ell(a,b) < k$) is a \defn{$k$-relevant} (resp.~\defn{$k$-boundary}, resp.~\defn{$k$-irrelevant}) diagonal.
 \end{definition}
 
 \begin{remark}
-Observe that an edge contained in a $(k+1)$-crossing must be $k$-relevant.
-Therefore, any \ktg contains all $k$-irrelevant and $k$-boundary edges by maximality.
+Observe that a diagonal contained in a $(k+1)$-crossing must be $k$-relevant.
+Therefore, any \ktg contains all $k$-irrelevant and $k$-boundary diagonals by maximality.
 \end{remark}
 
 
 \begin{definition}
-A \defn{$k$-star} of a polygon~$P$ is a set of edges of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 \cl \dots \cl s_{2k}$ (the indices are understood modulo~$2k+1$).
+A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 \cl \dots \cl s_{2k}$ (the indices are understood modulo~$2k+1$).
 \end{definition}
 
 \begin{definition}
-An \defn{angle} of a set~$X$ of edges of a polygon~$P$ is a pair of edges~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no edge of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if none of its edges is $k$-irrelevant. A set~$Y$ of edges of~$P$ crosses the angle~$\angle(u,v,w)$ if each edge of~$Y$ crosses both~$(u,v)$ and~$(v,w)$.
+An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if none of its diagonals is $k$-irrelevant. A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$.
 \end{definition}
 
 One of the objectives of this paper is to prove the following structural results on infinite multitriangulations
@@ -177,8 +177,8 @@ One of the objectives of this paper is to prove the following structural results
 Let~$T$ be a \ef \ktg of a tidy polygon~$P$.
 \begin{enumerate}
 \item Each $k$-relevant angle of~$T$ is contained in precisely one $k$-star of~$T$.
-\item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) edge of~$P$ is contained in precisely two (resp.~one, resp.~none) $k$-stars of~$T$.
-\item For any $k$-relevant edge~$e$ of~$T$, there exists a unique edge~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation. The edge~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
+\item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of~$P$ is contained in precisely two (resp.~one, resp.~none) $k$-stars of~$T$.
+\item For any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation. The diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
 \item Let~$P'$ denote a polygon obtained by replacing $k+1$ consecutive points of~$P$ by~$k$ points. Then there exists a flattening (resp.~inflating) operation that transforms the \ktg{}s of~$P$ into the \ktg{}s of~$P'$ (resp.~and \viceversa).
 \item For any point~$p$ of the plane, the $k$-depth of~$p$ in~$P$ is equal to the sum of the winding numbers around~$p$ of the $k$-stars of~$T$.
 \vincent{Vrai ?}
@@ -206,7 +206,7 @@ Universal cover~$\pi : \bar\surface \to \surface$.
 
 \begin{definition}
 A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\bar\alpha_1, \dots, \bar\alpha_k$ in the universal cover~$\bar\surface$.
-A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of edges of~$P$ with no $(k+1)$-crossing.
+A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
 \end{definition}
 
 \begin{remark}
@@ -222,7 +222,7 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 
 \begin{remark}
 \begin{itemize}
-\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of te $n$-gon contains at most $k(n-2p-1)$ $p$-relevant edges. Extension for surfaces.
+\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of te $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
 \item flip graph connected? Increasing flip graph?
 \item duality? Line space of the surface?
 \item punctures?
@@ -237,11 +237,11 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 In a \ktg of a tidy polygon, any $k$-relevant angle is crossed by a $(k-1)$-crossing.
 \end{lemma}
 \begin{proof}
-Any angle~$\angle(u,v,w)$ is crossed by the $(k-1)$-crossing~$\set{(v-k+i, v+i)}{i \in [k-1]}$ of $k$-boundary edges, which belongs to the \ktg.
+Any angle~$\angle(u,v,w)$ is crossed by the $(k-1)$-crossing~$\set{(v-k+i, v+i)}{i \in [k-1]}$ of $k$-boundary diagonals, which belongs to the \ktg.
 \end{proof}
 
 \begin{definition}
-Let $\angle(u,v,w)$ be a $k$-relevant angle of $T$ and let $(a, a')$ and $(b ,b')$ be two edges of $T$ that cross $\angle(u,v,w)$ such that $u \cl a \cl v \cl a' \cl w$ and $u \cl b \cl v \cl b' \cl w$. we say that $(a, a')$ is \defn{$v$-farther} than $(b, b')$ if $u \cl a \cle b \cl v \cl b' \cle a' \cl w$. Let $A = \{(a_1, a'_1), \dots, (a_{k-1}, a'_{k-1})\}$ and $B = \{(b_1, b'_1), \dots,(b_{k-1}, b'_{k-1})\}$ be two $(k-1)$-crossings that cross $\angle(u,v,w)$ such that $u \cl a_1 \cl a_2 \cl \dots \cl a_{k-1} \cl v \cl a'_1 \cl a'_2 \cl \dots \cl a'_{k-1} \cl w$ and $u \cl b_1 \cl b_2 \cl \dots \cl b_{k-1} \cl v \cl b'_1 \cl b'_2 \cl \dots \cl b'_{k-1} \cl w$. Then we say that $A$ is \defn{$v$-farther} than $B$ if $(a_i, a'_i)$ is $v$-farther than $(b_i, b'_i)$ for every $i \in [k-1]$. We say that $A$ is the \defn{$v$-farthest} $(k-1)$-crossing if it is $v$-farther than any other $(k-1)$-crossing crossing~$\angle(u,v,w)$.
+Let $\angle(u,v,w)$ be a $k$-relevant angle of $T$ and let $(a, a')$ and $(b ,b')$ be two diagonals of $T$ that cross $\angle(u,v,w)$ such that $u \cl a \cl v \cl a' \cl w$ and $u \cl b \cl v \cl b' \cl w$. we say that $(a, a')$ is \defn{$v$-farther} than $(b, b')$ if $u \cl a \cle b \cl v \cl b' \cle a' \cl w$. Let $A = \{(a_1, a'_1), \dots, (a_{k-1}, a'_{k-1})\}$ and $B = \{(b_1, b'_1), \dots,(b_{k-1}, b'_{k-1})\}$ be two $(k-1)$-crossings that cross $\angle(u,v,w)$ such that $u \cl a_1 \cl a_2 \cl \dots \cl a_{k-1} \cl v \cl a'_1 \cl a'_2 \cl \dots \cl a'_{k-1} \cl w$ and $u \cl b_1 \cl b_2 \cl \dots \cl b_{k-1} \cl v \cl b'_1 \cl b'_2 \cl \dots \cl b'_{k-1} \cl w$. Then we say that $A$ is \defn{$v$-farther} than $B$ if $(a_i, a'_i)$ is $v$-farther than $(b_i, b'_i)$ for every $i \in [k-1]$. We say that $A$ is the \defn{$v$-farthest} $(k-1)$-crossing if it is $v$-farther than any other $(k-1)$-crossing crossing~$\angle(u,v,w)$.
 \end{definition}
 
 \begin{lemma}
@@ -283,13 +283,13 @@ cf thm4.1 of  Pilaud Santos, but to be rewritten.
 
 
 Let $E=\{(e_1,e'_1), \cdots , (e_{k-1},e'_{k-1})\}$ be a $(k - 1)$-crossing intersecting $\angle(u, v, w)$ and assume that it is $v$-maximal. 
-We will prove that the edges $(u, e'_1),(e_1, e'_2)\cdots(e_{k-2}, e'_{k-1}), (e_{k-1}, w)$ are in $T$ such that the points $u$, $e_1,\cdots,e_{k-1}$, $v$, $e'_1,\cdots,e'_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
+We will prove that the diagonals $(u, e'_1),(e_1, e'_2)\cdots(e_{k-2}, e'_{k-1}), (e_{k-1}, w)$ are in $T$ such that the points $u$, $e_1,\cdots,e_{k-1}$, $v$, $e'_1,\cdots,e'_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
 
-To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the edges $e_2,\cdots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
+To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2,\cdots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
 
 {\bf First step.}
 Suppose that $(u, e'_1)$ is not in $T$. 
-Since $T$ is a triangulation, there is a $k$-crossing $F=(f_1, f'_1),\cdots, (f_k, f'_k)$ that prevents the edge $(u, b1)$, so that: $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$.
+Since $T$ is a triangulation, there is a $k$-crossing $F=(f_1, f'_1),\cdots, (f_k, f'_k)$ that prevents the diagonal $(u, b1)$, so that: $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$.
 
 Note first that $v \cl f'_k \cle w$. Indeed, if it is not the case, then
 $f'_k \in ]w, u[$ and $f_k \neq v$, because $\angle(u, v, w)$ is an angle. 
@@ -313,7 +313,7 @@ This implies that $\angle(e_1, e'_1, u)$ is an angle of $T$.
 
 {\bf Second step.}
 Let $F$ be a $(k - 1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-farther than the $(k-1)$-crossing $\{e_2, \cdots , e_{k-1}, [v, w]\}$. 
-Let $f_2 = [f_2, f'_2], \cdots , f_k = [f_k, f'_k]$ denote its edges, with $e_1 \cl f_2 \cl \cdots \cl f_k \cl e'_1 \cl f'_2 \cl \cdots \cl f'_k \cl u$.
+Let $f_2 = [f_2, f'_2], \cdots , f_k = [f_k, f'_k]$ denote its diagonals, with $e_1 \cl f_2 \cl \cdots \cl f_k \cl e'_1 \cl f'_2 \cl \cdots \cl f'_k \cl u$.
 
 Note first that $e'_k \leq f'_k \leq w$. 
 Indeed, if it is not the case, then $f'_k \in ]w, u[$ and $f_k \neq v$, because $\angle(u, v, w)$ is an angle. 
@@ -339,24 +339,24 @@ $v$-farther than $\{e_1, \cdots , e_{k-1}\}$, which is a contradiction.
 
 We may need the \ktg to be \vf?
 
-\subsection{any edge belongs to $2$ $k$-stars, and can be flipped}
+\subsection{any diagonal belongs to $2$ $k$-stars, and can be flipped}
 
 \begin{lemma}
 When $k\geq 2$, any \ef \ktg of a \nbd is \vf.
 \end{lemma}
 \begin{proof}
-Any edge of the $k$-border surrounding a given vertex intersects all edges adjacent to this vertex.
+Any diagonal of the $k$-border surrounding a given vertex intersects all diagonals adjacent to this vertex.
 \end{proof}
 
 \begin{lemma}
-Any edge of a \vf \ktg belongs to $4$ angles.
+Any diagonal of a \vf \ktg belongs to $4$ angles.
 \end{lemma}
 \begin{proof}
-The vertices adjacent to the edge have finite degree. Take the neighbours just before and after the other vertex. The $4$ hereby obtained edges form angles with the first one.
+The vertices adjacent to the diagonal have finite degree. Take the neighbours just before and after the other vertex. The $4$ hereby obtained diagonals form angles with the first one.
 \end{proof}
 
 \begin{lemma}
-Any edge adjacent to $2$ $k$-star can be flipped.
+Any diagonal adjacent to $2$ $k$-star can be flipped.
 \end{lemma}
 \begin{proof}
 cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any additional hypothesis. quite long though : section 3.
@@ -367,7 +367,7 @@ cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any add
 \subsection{more lemmas}
 
 \begin{lemma} 
-Any edge of a \ef \ktg of a \nbd belongs to 4 angles. 
+Any diagonal of a \ef \ktg of a \nbd belongs to 4 angles. 
 \end{lemma}
 \begin{proof}
 see direct proof on sheet.
