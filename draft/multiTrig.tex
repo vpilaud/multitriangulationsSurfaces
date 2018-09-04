@@ -294,19 +294,11 @@ cf thm4.1 of  Pilaud Santos, but to be rewritten.
 Let $E=\{(e_1,e'_1), \cdots , (e_{k-1},e'_{k-1})\}$ be a $(k - 1)$-crossing intersecting $\angle(u, v, w)$ and assume that it is $v$-maximal. 
 We will prove that the diagonals $(u, e'_1),(e_1, e'_2)\cdots(e_{k-2}, e'_{k-1}), (e_{k-1}, w)$ are in $T$ such that the points $u$, $e_1,\cdots,e_{k-1}$, $v$, $e'_1,\cdots,e'_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
 
-<<<<<<< HEAD
-To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the edges $(e_2,e'_2),\cdots, (e_{k-1},e'_{k-1}), (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
+To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the diagonals $(e_2,e'_2),\cdots, (e_{k-1},e'_{k-1}), (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
 
 {\bf First step.}
 Suppose that $(u, e'_1)$ is not in $T$. 
-Since $T$ is a triangulation, there is a $k$-crossing $F=\{(f_1, f'_1),\cdots, (f_k, f'_k)\}$ (with $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$) that prevents the edge $(u, e'_1)$.
-=======
-To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2,\cdots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
-
-{\bf First step.}
-Suppose that $(u, e'_1)$ is not in $T$. 
-Since $T$ is a triangulation, there is a $k$-crossing $F=(f_1, f'_1),\cdots, (f_k, f'_k)$ that prevents the diagonal $(u, b1)$, so that: $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$.
->>>>>>> dead106192b2d8786fef886effffa436c0b2fcb6
+Since $T$ is a triangulation, there is a $k$-crossing $F=\{(f_1, f'_1),\cdots, (f_k, f'_k)\}$ (with $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$) that prevents the diagonal $(u, e'_1)$.
 
 Note first that $f_k \in [v,e'_1[$. Indeed, if $f_k \in ]u, v[$, then $F \cup \{(u, v)\}$ forms a $(k + 1)$-crossing.
 Note also that $f'_k \in ]f'_{k-1},w]$. Indeed, if it is not the case, then $f'_k \in ]w, u[$, and $f_k \neq v$, because $\angle(u, v, w)$ is an angle, and $E \cup \{(v,w),(f_k, f'_k)\}$ forms a $(k + 1)$-crossing. 
@@ -328,12 +320,7 @@ This implies that $\angle(e_1, e'_1, u)$ is an angle of $T$.
 
 
 {\bf Second step.}
-<<<<<<< HEAD
 Let $F=\{(f_2,f'_2), \cdots , (f_{k},f'_{k})\}$ (with $e_1 \cl f_2 \cl \cdots \cl f_{k} \cl e'_1 \cl f'_2 \cl \cdots \cl f'_{k} \cl u$) be a $(k - 1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-farther than the $(k-1)$-crossing $\{(e_2,e'_2), \cdots , (e_{k-1},e'_{k-1}), (v, w)\}$.
-=======
-Let $F$ be a $(k - 1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-farther than the $(k-1)$-crossing $\{e_2, \cdots , e_{k-1}, [v, w]\}$. 
-Let $f_2 = [f_2, f'_2], \cdots , f_k = [f_k, f'_k]$ denote its diagonals, with $e_1 \cl f_2 \cl \cdots \cl f_k \cl e'_1 \cl f'_2 \cl \cdots \cl f'_k \cl u$.
->>>>>>> dead106192b2d8786fef886effffa436c0b2fcb6
 
 Note first that $f'_{k} = w$. 
 Indeed, if it is not the case, then $f'_{k} \in ]w, u[$ (because $(f_k,f'_k)$ is $e'_1$-farther than $(v,w)$), and $f_{k} \in ]u,v[$ (because $\angle(u, v, w)$ is an angle, and $(f_k,f'_k)$ is $e'_1$-farther than $(v,w)$).
