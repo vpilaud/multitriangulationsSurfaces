@@ -176,7 +176,7 @@ A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\se
 \end{definition}
 
 \begin{definition}
-An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if none of its diagonals is $k$-irrelevant. A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$.
+An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if none of its diagonals is $k$-irrelevant. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
 \end{definition}
 
 One of the objectives of this paper is to prove the following structural results on infinite multitriangulations
@@ -242,110 +242,107 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 
 \subsection{$(k-1)$-crossings crossing an angle}
 
+We say that a $(k-1)$-crossing~$A = \{a_1, \dots, a_{k-1}\}$ crosses an angle~$\angle(u,v,w)$ if each diagonal~$a_i$ crosses both~$(u,v)$ and~$(v,w)$. We stick to the convention to label the diagonals of~$A$ in such a way that $u \cl a^\bullet_1 \cl \dots \cl a^\bullet_{k-1} \cl v \cl a^\circ_1 \cl \dots \cl a^\circ_{k-1} \cl w$. We use this convention throughout this section without further notice.
+
 \begin{lemma}
+\label{lem:tidyExists}
 In a \ktg of a tidy polygon, any $k$-relevant angle is crossed by a $(k-1)$-crossing.
 \end{lemma}
+
 \begin{proof}
 Any angle~$\angle(u,v,w)$ is crossed by the $(k-1)$-crossing~$\set{(v-k+i, v+i)}{i \in [k-1]}$ of $k$-boundary diagonals, which belongs to the \ktg.
 \end{proof}
 
 \begin{definition}
-Let $\angle(u,v,w)$ be a $k$-relevant angle of $T$ and let $(a, a')$ and $(b ,b')$ be two diagonals of $T$ that cross $\angle(u,v,w)$ such that $u \cl a \cl v \cl a' \cl w$ and $u \cl b \cl v \cl b' \cl w$. we say that $(a, a')$ is \defn{$v$-farther} than $(b, b')$ if $u \cl a \cle b \cl v \cl b' \cle a' \cl w$. Let $A = \{(a_1, a'_1), \dots, (a_{k-1}, a'_{k-1})\}$ and $B = \{(b_1, b'_1), \dots,(b_{k-1}, b'_{k-1})\}$ be two $(k-1)$-crossings that cross $\angle(u,v,w)$ such that $u \cl a_1 \cl a_2 \cl \dots \cl a_{k-1} \cl v \cl a'_1 \cl a'_2 \cl \dots \cl a'_{k-1} \cl w$ and $u \cl b_1 \cl b_2 \cl \dots \cl b_{k-1} \cl v \cl b'_1 \cl b'_2 \cl \dots \cl b'_{k-1} \cl w$. Then we say that $A$ is \defn{$v$-farther} than $B$ if $(a_i, a'_i)$ is $v$-farther than $(b_i, b'_i)$ for every $i \in [k-1]$. We say that $A$ is the \defn{$v$-farthest} $(k-1)$-crossing if it is $v$-farther than any other $(k-1)$-crossing crossing~$\angle(u,v,w)$.
+Let $\angle(u,v,w)$ be a $k$-relevant angle of $T$.
+For two diagonals~$a$ and~$b$ of $T$ that cross $\angle(u,v,w)$, we say that $a$ is \defn{$v$-farther} than $b$ if $u \cl a^\bullet \cle b^\bullet \cl v \cl b^\circ \cle a^\circ \cl w$. For two $(k-1)$-crossings $A = \{a_1, \dots, a_{k-1}\}$ and $B = \{b_1, \dots, b_{k-1}\}$ that cross $\angle(u,v,w)$, we say that $A$ is \defn{$v$-farther} than $B$ if $a_i$ is $v$-farther than $b_i$ for every $i \in [k-1]$. We say that $A$ is the \defn{$v$-farthest} $(k-1)$-crossing if it is $v$-farther than any other $(k-1)$-crossing that crosses~$\angle(u,v,w)$.
 \end{definition}
 
 \begin{lemma}
 In a \ktg, the set of $(k-1)$-crossings crossing a given $k$-relevant angle forms a distributive lattice.
 \end{lemma}
-\begin{proof}
-Let $A = \{(a_1, a'_1), \dots, (a_{k-1}, a'_{k-1})\}$ and $B = \{(b_1, b'_1), \dots,(b_{k-1}, b'_{k-1})\}$ be two $(k-1)$-crossings crossing the angle $(u,v,w)$.
 
-There is no $i$ such that $(a_i, a'_i)$ crosses $(b_i, b'_i)$. 
-Indeed, suppose $a_i \cl b_i \cl v \cl a'_i \cl b'_i$. Then $\{(u, v), (a_1, a'_1), \dots, (a_i, a'_i), (b_i, b'_i), \dots, (b_{k-1}, b'_{k-1})\}$ forms a $(k+1)$-crossing. 
-Similarly, if $b_i \cl a_i \cl v \cl b'_i \cl a'_i$, then $\{(u, v), (b_1, b'_1), \dots, (b_i, b'_i), (a_i, a'_i), \dots, (a_{k-1}, a'_{k-1})\}$ forms a $(k+1)$-crossings.
+\begin{proof}
+Consider two $(k-1)$-crossings $A = \{a_1, \dots, a_{k-1}\}$ and $B = \{b_1, \dots, b_{k-1}\}$ that cross the angle~$(u,v,w)$.
+
+There is no $i$ such that $a_i$ crosses $b_i$. 
+Indeed, suppose $a^\bullet_i \cl b^\bullet_i \cl v \cl a^\circ_i \cl b^\circ_i$. Then $\{(u, v), a_1, \dots, a_i, b_i, \dots, b_{k-1}\}$ forms a $(k+1)$-crossing. 
+Similarly, if $b^\bullet_i \cl a^\bullet_i \cl v \cl b^\circ_i \cl a^\circ_i$, then $\{(u, v), b_1, \dots, b_i, a_i, \dots, a_{k-1}\}$ forms a $(k+1)$-crossings.
 Hence $A$ and $B$ are edgewise comparable.
 
 We define the meet (resp.~join) of $A$ and $B$ as their edgewise minimum (resp.~maximum). With this definition it is easy to see that we obtain a distributive lattice.
 \end{proof}
 
 \begin{lemma}
-In a \ktg, for any angle~$\angle(u,v,w)$ crossed by at least one $(k-1)$-crossing, there exists a $v$-farthest $(k-1)$-crossing crossing~$\angle(u,v,w)$.
+\label{lem:efMax}
+In a \ef \ktg, for any angle~$\angle(u,v,w)$ crossed by at least one $(k-1)$-crossing, there exists a $v$-farthest $(k-1)$-crossing that crosses~$\angle(u,v,w)$.
 \end{lemma}
+
 \begin{proof}
 By \ef{}ness, the angle~$\angle(u,v,w)$ is crossed by a finite number of $(k-1)$-crossings. Hence the distributive lattice of such $(k-1)$-crossings is finite, and has a unique maximum.
 \end{proof}
 
+Combining \cref{lem:tidyExists,lem:efMax}, we obtain the following statement.
+
 \begin{corollary}
-In a \ktg of a tidy polygon, for any angle~$\angle(u,v,w)$, there exists a $v$-farthest $(k-1)$-crossing crossing~$\angle(u,v,w)$.
+\label{coro:farthestTidy}
+In a \ef \ktg of a tidy polygon, for any angle~$\angle(u,v,w)$, there exists a $v$-farthest $(k-1)$-crossing that crosses~$\angle(u,v,w)$.
+\end{corollary}
+
+\subsection{Any angle belongs to a $k$-star}
+
+\begin{proposition}
+\label{prop:angleBelongStar}
+For any angle~$\angle(u,v,w)$ of a \ktg, if there is a $v$-farthest $(k-1)$-crossing that crosses~$\angle(u,v,w)$, then~$\angle(u,v,w)$ belongs to a $k$-star.
+\end{proposition}
+
+\begin{proof}
+The proof follows the same lines as that of~\cite[Thm.~4.1]{PilaudSantos-multitriangulations}. We repeat the argument here for the convenience of the reader.
+
+Let $E=\{e_1, \dots , e_{k-1}\}$ be the $v$-maximal $(k-1)$-crossing that crosses $\angle(u, v, w)$.
+We will prove that the diagonals $(u, e^\circ_1), (e^\bullet_1, e^\circ_2) \dots (e^\bullet_{k-2}, e^\circ_{k-1}), (e^\bullet_{k-1}, w)$ are in $T$ such that the points $u$, $e^\bullet_1, \dots, e^\bullet_{k-1}$, $v$, $e^\circ_1, \dots, e^\circ_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
+
+To get this result, we use two steps: first we prove that $\angle(e^\bullet_1, e^\circ_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2, \dots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e^\bullet_1, e^\circ_1, u)$ and $e^\circ_1$-maximal (so that we can reiterate the argument).
+
+\medskip
+\paragraph{\bf First step.}
+Suppose that $(u, e^\circ_1)$ is not in $T$. 
+Since $T$ is a $k$-triangulation, there is a $k$-crossing $F=\{f_1, \dots, f_k\}$ (with $u \cl f^\bullet_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$) that prevents the diagonal~$(u, e^\circ_1)$. We will now exhibit a $(k-1)$-crossing of the form~$\{f_1, \dots, f_\ell, e_{\ell+1}, \dots, e_{k-1}\}$ that will cross~$\angle(u,v,w)$ and be $v$-farther than~$E$, contradicting the maximality of~$E$.
+
+Note first that~$f^\bullet_k \in [v, e^\circ_1[$, as otherwise~$F \cup \{(u, v)\}$ would form a $(k + 1)$-crossing.
+Additionnaly, $f^\circ_k \in {]e^\circ_1, w]}$, as otherwise $E \cup \{(v,w), (f^\bullet_k, f^\circ_k)\}$ would form a $(k + 1)$-crossing. 
+Consequently, we have~$f^\circ_1 \in {]e^\circ_1, w[}$ $e^\circ_1 \cl f^\circ_1 \cl \cdots \cl f^\circ_{k-1} \cl w$.
+
+Let $\ell = \max \set{j\in[k-1]}{\, f^\circ_i \in {]e^\circ_i, w[} \text{ for all } i \le j}$.
+Then $f^\bullet_i \in {]u, e^\bullet_i]}$ for any $i \le \ell$, as otherwise $\{e_1, \dots , e_i, f_i, \dots , f_k\}$ would form a $(k + 1)$-crossing.
+Thus~$f_i$ crosses~$\angle(u,v,w)$ and is $v$-farther than~$e_i$ for any~$i \le \ell$.
+Furthermore, we have $f^\circ_\ell \cl f^\circ_{\ell+1} \cl e^\circ_{\ell+1}$ (by maximality of~$\ell$) and~$f^\bullet_\ell \cl e^\bullet_{\ell} \cl e^\bullet_{\ell+1}$, so that~$f_\ell$ crosses~
+$e_{\ell+1}$. 
+Consequently, we get a $(k-1)$-crossing $\{f_1, \dots , f_\ell, e_{\ell+1}, \dots , e_{k-1}\}$ which is $v$-farther than $\{e_1, \dots , e_{k-1}\}$, contradicting the maximality of~$E$. 
+We conclude that~$(u, e^\circ_1)$ belongs to~$T$.
+
+Suppose now that~$\angle(e^\bullet_1, e^\circ_1, u)$ is not an angle of~$T$. 
+Then there exists $e^\bullet_0 \in {]u, e^\bullet_1[}$ such that $(e^\bullet_0, e^\circ_1) \in T$. 
+But then the $(k-1)$-crossing $\{(e^\bullet_0, e^\circ_1), e_2, \dots, e_{k-1}\}$ is $v$-farther than~$E$. 
+This implies that~$\angle(e^\bullet_1, e^\circ_1, u)$ is an angle of~$T$.
+
+\medskip
+\paragraph{\bf Second step.}
+Assume now that there exists a $(k-1)$-crossing~$F=\{f_2, \dots , f_k\}$ that crosses $\angle(e^\bullet_1, e^\circ_1, u)$ and is $e^\circ_1$-farther than the $(k-1)$-crossing $\{e_2, \dots, e_{k-1}, (v, w)\}$.
+
+Note first that~$f_k = (v,w)$. Indeed, since~$f_k$ is $e^\circ_1$-farther than~$(v,w)$, we have~$f^\bullet_k \in {]e^\bullet_1, v]}$ and~$f^\circ_k \in [w,u[$. Therefore~$f^\bullet_k = v$ (as otherwise~$\{(u,v), e_1\} \cup F$ would form a $(k+1)$-crossing), and~$f^\circ_k = w$ (since~$\angle(u,v,w)$ is an angle of~$T$).
+
+Since~$f_k = (v,w)$, we obtain that~$\{e_1, f_2, \dots, f_{k-1}\}$ is a $(k-1)$-crossing that crosses~$\angle(u,v,w)$. For any $i \in [2,k-1]$, the diagonal~$f_i$ is $e^\circ_1$-farther than~$e_i$, and thus also $v$-farther than~$e_i$. Therefore, $\{e_1, f_2, \dots, f_{k-1}\}$ is $v$-farther than~$E$, contradicting the maximality of~$E$.
+\end{proof}
+
+Combining \cref{coro:farthestTidy} and \cref{prop:angleBelongStar}, we obtain the proof of \cref{thm:structureInfinite}\,(1):
+
+\begin{corollary}
+In a \ef \ktg of a tidy polygon, any angle belongs to a $k$-star.
 \end{corollary}
 
 
-\subsection{any angle belongs to a $k$-star}
-
-\begin{lemma}
-In a \ktg, any angle which is maximally crossed by a $(k-1)$-crossing belongs to a $k$-star.
-\end{lemma}
-\begin{proof}
-cf thm4.1 of  Pilaud Santos, but to be rewritten.
-
-
-
-
-
-Let $E=\{(e_1,e'_1), \cdots , (e_{k-1},e'_{k-1})\}$ be a $(k - 1)$-crossing intersecting $\angle(u, v, w)$ and assume that it is $v$-maximal. 
-We will prove that the diagonals $(u, e'_1),(e_1, e'_2)\cdots(e_{k-2}, e'_{k-1}), (e_{k-1}, w)$ are in $T$ such that the points $u$, $e_1,\cdots,e_{k-1}$, $v$, $e'_1,\cdots,e'_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
-
-To get this result, we use two steps: first we prove that $\angle(e_1, e'_1, u)$ is an angle of $T$, and then we prove that the diagonals $(e_2,e'_2),\cdots, (e_{k-1},e'_{k-1}), (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-maximal (so that we can reiterate the argument).
-
-{\bf First step.}
-Suppose that $(u, e'_1)$ is not in $T$. 
-Since $T$ is a triangulation, there is a $k$-crossing $F=\{(f_1, f'_1),\cdots, (f_k, f'_k)\}$ (with $u \cl f_1 \cl \cdots \cl f_k \cl e'_1 \cl f'_1 \cl \cdots \cl f'_k \cl u$) that prevents the diagonal $(u, e'_1)$.
-
-Note first that $f_k \in [v,e'_1[$. Indeed, if $f_k \in ]u, v[$, then $F \cup \{(u, v)\}$ forms a $(k + 1)$-crossing.
-Note also that $f'_k \in ]f'_{k-1},w]$. Indeed, if it is not the case, then $f'_k \in ]w, u[$, and $f_k \neq v$, because $\angle(u, v, w)$ is an angle, and $E \cup \{(v,w),(f_k, f'_k)\}$ forms a $(k + 1)$-crossing. 
-Consequently, we have $e'_1 \cl f'_1 \cl \cdots \cl f'_{k-1} \cl w$.
-
-Let $\ell = \text{max}\set{j\in[k-1]}{\forall i\in[j],e'_i \cl f'_i \cl w}$.
-Then for any $i\in[\ell]$, since $\{(e_1,e'_1), \cdots , (e_i,e'_i)\} \cup \{(f_i,f'_i), \cdots , (f_k,f'_k)\}$ does not form a $(k + 1)$-crossing, we have $f_i \in ]u, e_i]$. 
-Thus for any $i\in[\ell]$, $u \cl f_i \cle e_i \cl v \cl e'_i \cl f'_i \cl w$, so that $f_i$ is $v$-farther than $e_i$.
-Furthermore, we have $u \cl f_1 \cl \cdots \cl f_\ell \cl e_{\ell+1} \cl \cdots \cl e_{k-1} \cl v \cl f'_1 \cl \cdots \cl f'_\ell \cl e'_{\ell+1} \cl \cdots \cl e'_{k-1} \cl w$. 
-Consequently, we get a $(k - 1)$-crossing $\{f_1, \cdots , f_\ell
-, e_{\ell+1}, \cdots , e_{k-1}\}$ which is $v$-farther than $\{e_1, \cdots , e_{k-1}\}$; this contradicts the definition of $\{e_1, \cdots , e_{k-1}\}$. 
-Thus we obtain: $(u, e'_1) \in  T$.
-
-Suppose now that $\angle(e_1, e'_1, u)$ is not an angle of $T$. 
-Then there exists $e_0 \in ]u, e_1[$ such that $(e'_1, e_0) \in  T$. 
-But then the $(k - 1)$-crossing $\{(e_0, e'_1), (e_2,e'_2), \cdots , (e_{k-1},e'_{k-1})\}$ is $v$-farther than $E$. 
-This implies that $\angle(e_1, e'_1, u)$ is an angle of $T$.
-
-
-
-{\bf Second step.}
-Let $F=\{(f_2,f'_2), \cdots , (f_{k},f'_{k})\}$ (with $e_1 \cl f_2 \cl \cdots \cl f_{k} \cl e'_1 \cl f'_2 \cl \cdots \cl f'_{k} \cl u$) be a $(k - 1)$-crossing intersecting $\angle(e_1, e'_1, u)$ and $e'_1$-farther than the $(k-1)$-crossing $\{(e_2,e'_2), \cdots , (e_{k-1},e'_{k-1}), (v, w)\}$.
-
-Note first that $f'_{k} = w$. 
-Indeed, if it is not the case, then $f'_{k} \in ]w, u[$ (because $(f_k,f'_k)$ is $e'_1$-farther than $(v,w)$), and $f_{k} \in ]u,v[$ (because $\angle(u, v, w)$ is an angle, and $(f_k,f'_k)$ is $e'_1$-farther than $(v,w)$).
-Thus either $f_k \in ]e_1, v[$ and then $F \cup \{(u, v), (e_1,e'_1)\}$ forms a $(k + 1)$-crossing, or $f_k \in ]v, e'_1[$ and then $E \cup \{(v,w),(f_k, f'_k)\}$ forms a $(k + 1)$-crossing. 
-Consequently, we have $e'_1 \cl f'_2 \cl \cdots \cl f'_{k-1} \cl w$.
-
-Furthermore, for any $i\in[2,k-1]$, $(f_i,f'_i)$ is $e'_1$-farther than $(e_i,e'_i)$, so that $e_1 \cl f_i \cle e_i \cl e'_1 \cl e'_i \cle f'_i \cl u$. 
-In particular, $e_1 \cl f_{k-1} \cle e_{k-1} \cl v$ and we get $u \cl e_1 \cl f_2 \cl \cdots \cl f_{k-1} \cl v \cl e'_1 \cl f'_2 \cl \cdots \cl f'_{k-1} \cl w$.
-Consequently, the $(k - 1)$-crossing $\{(e_1,e'_1), (f_2,f'_2), \cdots , (f_{k-1},f'_{k-1})\}$ is $v$-farther than $E$, which is a contradiction.
-
-
-
-
-
-
-
-
-
-
-
-\end{proof}
-
-We may need the \ktg to be \vf?
-
-\subsection{any diagonal belongs to $2$ $k$-stars, and can be flipped}
+\subsection{Any $k$-relevant diagonal belongs to $2$ $k$-stars, and can be flipped}
 
 \begin{lemma}
 When $k\geq 2$, any \ef \ktg of a \nbd is \vf.
@@ -368,18 +365,9 @@ Any diagonal adjacent to $2$ $k$-star can be flipped.
 cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any additional hypothesis. quite long though : section 3.
 \end{proof}
 
-\section{More}
+\subsection{Flattening a boundary $k$-star, inflating a boundary $k$-crossing}
 
-\subsection{more lemmas}
-
-\begin{lemma} 
-Any diagonal of a \ef \ktg of a \nbd belongs to 4 angles. 
-\end{lemma}
-\begin{proof}
-see direct proof on sheet.
-\end{proof}
-
-\subsection{some counter-examples}
+\section{Some counter-examples}
 
 \begin{ce}
 The polygon of a periodic \ktg is not necessarily a \nbd.
