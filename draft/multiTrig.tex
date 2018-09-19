@@ -119,9 +119,9 @@ To that extent, we use the universal cover construction, that makes a map on a s
 
 \begin{figure}[h]
 	\capstart
-	\centerline{\includegraphics[scale=.42]{torus}}
-	\caption{A $2$-triangulation of a torus with a hole.}
-	\label{fig:torus}
+	\centerline{\includegraphics[scale=.42]{torusClean}}
+	\caption{The universal cover of the $2$-triangulation of a torus with a hole, represented in \cref{fig:torus}}
+	\label{fig:UCtorus}
 \end{figure}
 
 
@@ -238,6 +238,14 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 \end{itemize}
 \end{remark}
 
+
+\begin{figure}[h]
+	\capstart
+	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
+	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}}
+	\label{fig:torus}
+\end{figure}
+
 \section{Proof of \cref{thm:structureInfinite}}
 
 \subsection{$(k-1)$-crossings crossing an angle}
@@ -302,7 +310,22 @@ The proof follows the same lines as that of~\cite[Thm.~4.1]{PilaudSantos-multitr
 Let $E=\{e_1, \dots , e_{k-1}\}$ be the $v$-maximal $(k-1)$-crossing that crosses $\angle(u, v, w)$.
 We will prove that the diagonals $(u, e^\circ_1), (e^\bullet_1, e^\circ_2) \dots (e^\bullet_{k-2}, e^\circ_{k-1}), (e^\bullet_{k-1}, w)$ are in $T$ such that the points $u$, $e^\bullet_1, \dots, e^\bullet_{k-1}$, $v$, $e^\circ_1, \dots, e^\circ_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
 
-To get this result, we use two steps: first we prove that $\angle(e^\bullet_1, e^\circ_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2, \dots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e^\bullet_1, e^\circ_1, u)$ and $e^\circ_1$-maximal (so that we can reiterate the argument).
+To get this result, we use two steps, illustrated in \cref{fig:exProofStar}: first we prove that $\angle(e^\bullet_1, e^\circ_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2, \dots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e^\bullet_1, e^\circ_1, u)$ and $e^\circ_1$-maximal (so that we can reiterate the argument).
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{.48\textwidth}
+	\centering
+	\includegraphics[width=\textwidth,page=1]{exProofStar}
+  \end{subfigure}
+  \begin{subfigure}[b]{.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth,page=2]{exProofStar}
+  \end{subfigure}
+  \caption{Illustrations of the first and second steps of the proof of \cref{prop:angleBelongStar}. In both case, $k=4$, and on the left, $\ell=2$.}
+  \label{fig:exProofStar}
+\end{figure}
 
 \medskip
 \paragraph{\bf First step.}
@@ -366,6 +389,21 @@ cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any add
 \end{proof}
 
 \subsection{Flattening a boundary $k$-star, inflating a boundary $k$-crossing}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{.48\textwidth}
+	\centering
+	\includegraphics[width=\textwidth,page=1]{exFlattening}
+  \end{subfigure}
+  \begin{subfigure}[b]{.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth,page=2]{exFlattening}
+  \end{subfigure}
+  \caption{Illustrations of the flattening of a boundary $k$-star, with $k=3$.}
+  \label{fig:exProofStar}
+\end{figure}
+
 
 \section{Some counter-examples}
 
