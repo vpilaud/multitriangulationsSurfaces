@@ -18,4 +18,4 @@
 tmp_*
 *.ai
 *.DS_Store
-*.pdf
+draft/*.pdf
