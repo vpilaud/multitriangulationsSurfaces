@@ -59,17 +59,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand*{\dual}[1]{{#1^*}}
-\newcommand*{\nbd}[0]{neighbourhood\xspace}
-\newcommand*{\ef}[0]{E-finite\xspace}
-\newcommand*{\vf}[0]{V-finite\xspace}
-\newcommand*{\ktg}[0]{$k$-triangulation\xspace}
+% math special letters
+\newcommand{\R}{\mathbb{R}} % reals
+\newcommand{\N}{\mathbb{N}} % naturals
+\newcommand{\Z}{\mathbb{Z}} % integers
+\newcommand{\C}{\mathbb{C}} % complex
 
-\newcommand{\cl}{\prec}
-\newcommand{\cle}{\preccurlyeq}
-
-\newcommand{\surface}{\mathcal{S}}
-
+% math commands
 \newcommand{\set}[2]{\left\{ #1 \;\middle|\; #2 \right\}} % set notation
 \newcommand{\bigset}[2]{\big\{ #1 \;\big|\; #2 \big\}} % big set notation
 \newcommand{\Bigset}[2]{\Big\{ #1 \;\Big|\; #2 \Big\}} % Big set notation
@@ -81,6 +77,17 @@
 \newcommand{\eqdef}{\mbox{\,\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}}\ensuremath{=}\,}} % :=
 \newcommand{\defeq}{\mbox{~\ensuremath{=}\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}} }} % =:
 \newcommand{\viceversa}{\textit{vice versa}} % vice versa
+
+\newcommand*{\dual}[1]{{#1^*}}
+\newcommand*{\nbd}[0]{neighbourhood\xspace}
+\newcommand*{\ef}[0]{E-finite\xspace}
+\newcommand*{\vf}[0]{V-finite\xspace}
+\newcommand*{\ktg}[0]{$k$-triangulation\xspace}
+
+\newcommand{\cl}{\prec}
+\newcommand{\cle}{\preccurlyeq}
+
+\newcommand{\surface}{\mathcal{S}}
 
 \graphicspath{{../figures/}}
 
@@ -138,7 +145,7 @@ Two diagonals~$(a,c)$ and~$(b,d)$ of~$P$ \defn{cross} if~$a \cl b \cl c \cl d$.
 \end{definition}
 
 \begin{definition}
-If $x$ and $y$ are two points of a polygon~$P$ such that the interval~$]x,y[$ is empty, we say that~$x$ is the \defn{predecessor} of~$y$ and that~$y$ is the \defn{successor} of~$x$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
+If $x$ and $y$ are two points of a polygon~$P$ such that the interval~$]x,y[$ is empty, we say that~$x$ is the \defn{predecessor} of~$y$ and that~$y$ is the \defn{successor} of~$x$, and we use the notations~$y = x+1$ and~$x = y-1$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
 \end{definition}
 
 \begin{definition}
@@ -208,6 +215,10 @@ Let~$T$ be a \ef \ktg of a tidy polygon~$P$.
 Consider an connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary, with at least one marked point on each boundary component. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
 \end{definition}
 
+\begin{remark}
+We could also consider the case of a surface with no marked points on some boundaries. Be careful that the definition of $k$-relevant, $k$-boundary and $k$-irrelevant diagonals are not clear anymore in that case.
+\end{remark}
+
 \begin{definition}
 Universal cover~$\pi : \bar\surface \to \surface$.
 \vincent{Not clear}
@@ -246,9 +257,67 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 	\label{fig:torus}
 \end{figure}
 
-\subsection{Cylinder with two points on one boundary and none on the other}
+\subsection{Non-sequential flips}
 
+Consider the situation where the surface~$\surface$ is a cylinder with two points~$a,b$ on one boundary and none on the other.
+The universal cover is an infinite band, with points~$a_{\ell}, b_{\ell}$ for~$\ell \in \Z$ alternating on one boundary (so that~$a_\ell+1 = b_\ell = a_{\ell+1}-1$).
+For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k \eqdef  \in \{a,b\}^k$, consider a set~$T_w$ of diagonals of~$\surface$ formed by
+\begin{itemize}
+\item the diagonals~$(w^i_\ell, w^i_{\ell}+k+i)$ for all~$i \in [k]$ and~$\ell \in \Z$,
+\item all $k$-boundary and $k$-irrelevant diagonals~$(\epsilon_{\ell}, \epsilon_{\ell}+i)$ for~$i \in [k]$, $\epsilon \in \{a,b\}$ and~$\ell \in \Z$.
+%\item the outer $k$-boundary diagonals~$(a_{\ell}, a_{\ell}+2k)$ for~$\ell \in \Z$.
+\end{itemize}
+\vincent{Picture}
 
+\begin{lemma}
+\label{lem:noTwoDiagonalsEachLevel}
+The sets
+\begin{itemize}
+\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\epsilon \in \{a,b\} \text{ and } \ell \in \Z}$ for any~$i \in [k]$,
+\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\ell \in \Z}$ for any~$\epsilon \in \{a,b\}$ and~$i \ge k+1$,
+\end{itemize}
+all contain a $(k+1)$-crossing.
+\end{lemma}
+
+\begin{proposition}
+For any~$k \ge 1$ and~$w \eqdef  \in \{a,b\}^k$, the set~$T_w$ is a $k$-triangulation of~$\surface$.
+\end{proposition}
+
+\begin{proof}
+The maximality is immediate from \cref{lem:noTwoDiagonalsEachLevel}.
+To see that~$T_w$ is $(k+1)$-crossing-free, we use the following strategy:
+\begin{itemize}
+\item the set of diagonals~$\set{(\epsilon_\ell, \epsilon_\ell+2k)}{\ell \in \Z}$ has no $(k+1)$-crossing for any~$\epsilon \in \{a,b\}$,
+\item given any set~$X$ of pairwise crossing diagonals in~$T_w$, we can construct a new set~$X'$ of pairwise crossing diagonals in~$T_w$ by increasing the length of the smallest diagonal~$(u,v)$ of~$X$, provided this length is not~$2k$. Indeed, we just need to observe that the vertices~$u-1$ and~$v-1$ cannot be incident to diagonals of~$X$.
+\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+\label{coro:allkTriangCyclinder}
+The set of $k$-triangulations of~$\surface$ is~$\set{T_w}{w \in \{a,b\}^k}$.
+\end{corollary}
+
+\begin{proof}
+Any $(k+1)$-crossing free set of diagonals of~$\surface$ is a subset of a certain~$T_w$ by \cref{lem:noTwoDiagonalsEachLevel}.
+\end{proof}
+
+We denote by~$\delta_w^i$ the diagonal of~$\surface$ which lifts to the diagonals~$(w^i_\ell, w^i_{\ell}+k+1+i)$.
+
+\begin{proposition}
+%For any~$w \in \{a,b\}^k$ and~$i \in [k]$, the diagonal~$\delta_w^i$ of the $k$-triangulation~$T_w$ can be fli
+For any~$w, w' \in \{a,b\}^k$ which only differ at position~$i \in [k]$, the $k$-triangulations~$T_w$ and~$T_w'$ are the only two $k$-triangulations~$\surface$ which contain~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$. In other words, any diagonal~$\delta_w^i$ in the $k$-triangulation~$T_w$ can be uniquely flipped.
+\end{proposition}
+
+\begin{proof}
+By definition of~$T_w$ and~$T_{w'}$, we have~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$ so that the flip is possible.
+It is unique by \cref{coro:allkTriangCyclinder}.
+\end{proof}
+
+\begin{remark}
+The flip of $\delta_w^1$ is sequential (for the first flip, all points below $\delta_w^1$ are vertices of the star below~$\delta_w^1$ and we can determine which of these angles see each other; we have not worked out the other flips yet).
+In contrast, the flip of~$\delta_w^i$ is not sequential for~$i \in \{2, \dots, k-1\}$ (since the common bisector is still of length~$k+1$).
+\end{remark}
 
 \section{Proof of \cref{thm:structureInfinite}}
 
