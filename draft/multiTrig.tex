@@ -319,6 +319,45 @@ The flip of $\delta_w^1$ is sequential (for the first flip, all points below $\d
 In contrast, the flip of~$\delta_w^i$ is not sequential for~$i \in \{2, \dots, k-1\}$ (since the common bisector is still of length~$k+1$).
 \end{remark}
 
+\subsection{multi-triangulations of the half-cylinder}
+
+Let $\mathcal{C}$ be a cylinder with $p$ points $(v_i)_{i\in\mathcal{Z}/p\mathcal{Z}}$ on one border and no point on the other border. Let $T$ be a $k$-triangulation of $\mathcal{C}$. Suppose $T$ only have $1$ $k$-star $S$.
+
+The length of an edge of $T$ has to be greater or equal to $k$ ($k$-relevant) and smaller or equal to $pk$ (otherwise $k+1$ successive copies of this edges 
+form a $k+1$-crossing).
+
+We represent edges of $T$ as symbols on a square lattice.
+Let $e$ be an edge of $T$. Suppose the left point of $e$ is $v_i$, and $e$ has length $l$. 
+We define a symbol $\sigma(e)$ as being $\vee$ if $S$ is only on the upper side of $e$, $\wedge$ if it is only on the lower side, and $\times$ if it is on both sides.
+Then $e$ is represented by the symbol $\sigma(e)$ at position $(i,l)$.
+Additionally we add a symbol $\circ$ at every empty position $(i,l)$ such that there exists an edge $(i,l')$ with $l'>l$ and an edge $(i,l'')$ with $l''<l$.
+Note that this representation is entirely contained in a $p\times pk$ rectangle.
+
+The star $S$ can be represented on the lattice by an excursion from symbol to symbol corresponding to a counter-clockwise tour of $S$.
+In such a tour, whenever you reach an edge $(i,l)$ from an edge with smaller length, the next edge to follow is $(i,l')$ where $l'$ is the biggest length of an edge starting at vertex $v_i$, which is smaller than $l$.
+Similarly, whenever you reach an edge $(i,l)$ from an edge with higher length, the next edge to follow is $(j,l')$ where $l'$ is the smallest length of an edge $(j,l')$ finishing at vertex $v_{i+l}$, which is bigger than $l$.
+
+By consequence the walk can be entirely deduced from the disposition of the points. see example \mathias{à décrire}
+
+\begin{figure}
+\includegraphics{latticeRepresentation}
+\end{figure}
+
+Since there is only one star, all $k$-border edges have to be part of the star.
+
+A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
+
+We group edges by successive pairs: an edge followed by a smaller edge. this correspond in the lattice to a vertical descending edge. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a lenght corresponding to its length. In the end of the tour, you have to get back to your initial condition.
+
+By consequence, the total length of blue vertical edges, denoted $\Delta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
+
+Because all vertical edges between points are part of the excursion, we know that $\Delta=n_\vee+n_\wedge+n_\times+n_\circ$. 
+
+At each height, there is at least one position where there is no symbol (different from $\circ$). By consequence 
+
+
+
+
 \section{Proof of \cref{thm:structureInfinite}}
 
 \subsection{$(k-1)$-crossings crossing an angle}
