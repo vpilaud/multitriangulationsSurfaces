@@ -361,20 +361,21 @@ We represent edges of $T$ as symbols on a square lattice.
 Let $e$ be an edge of $T$. Suppose the left point of $e$ is $v_i$, and $e$ has length $l$. 
 We define a symbol $\sigma(e)$ as being $\vee$ if $S$ is only on the upper side of $e$, $\wedge$ if it is only on the lower side, and $\times$ if it is on both sides.
 Then $e$ is represented by the symbol $\sigma(e)$ at position $(i,l)$.
-Additionally we add a symbol $\circ$ at every empty position $(i,l)$ such that there exists an edge $(i,l')$ with $l'>l$ and an edge $(i,l'')$ with $l''<l$.
+Additionally we add a symbol $\circ$ at every empty position which is directly under a symbol $\wedge$ or $\times$ and directly over a symbol $\vee$ or $\times$.
 Note that this representation is entirely contained in a $p\times pk$ rectangle.
 
 The star $S$ can be represented on the lattice by an excursion from symbol to symbol corresponding to a counter-clockwise tour of $S$.
 In such a tour, whenever you reach an edge $(i,l)$ from an edge with smaller length, the next edge to follow is $(i,l')$ where $l'$ is the biggest length of an edge starting at vertex $v_i$, which is smaller than $l$.
-Similarly, whenever you reach an edge $(i,l)$ from an edge with higher length, the next edge to follow is $(j,l')$ where $l'$ is the smallest length of an edge $(j,l')$ finishing at vertex $v_{i+l}$, which is bigger than $l$.
+Similarly, whenever you reach an edge $(i,l)$ from an edge with higher length, the next edge to follow is $(j,l')$ where $l'$ is the smallest length of an edge $(j,l')$ finishing at vertex $v_{i+l}$, which is bigger than $l$. In case there is no such edge, then you have to follow the edge $(i+l,l')$ where $l'$ is maximal (red edge).
 
-By consequence the walk can be entirely deduced from the disposition of the points. see example \mathias{à décrire}
+By consequence the walk can be entirely deduced from the disposition of the points. see \cref{fig:exLattice}.
 
-\begin{figure}
+\begin{figure}\label{fig:exLattice}
 \includegraphics{latticeRepresentation}
+\caption{example of the lattice representation of $7$-triangulation with a unique star, on^ the half-cylinder with $4$ points.}
 \end{figure}
 
-Since there is only one star, all $k$-border edges have to be part of the star.
+Since there is only one star, all $k$-border edges have to be part of the star. We denote $L$ the maximal length of an edge.
 
 A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
 
@@ -382,9 +383,31 @@ We group edges by successive pairs: an edge followed by a smaller edge. this cor
 
 By consequence, the total length of blue vertical edges, denoted $\Delta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
 
-Because all vertical edges between points are part of the excursion, we know that $\Delta=n_\vee+n_\wedge+n_\times+n_\circ$. 
+Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of this sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
 
-At each height, there is at least one position where there is no symbol (different from $\circ$). By consequence 
+Let $l$ be a length such that $k<l<L$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq L-k-1$.
+
+By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<L$.
+
+By grouping everything together we obtain:
+
+\begin{align}
+0&=\Delta-h \\
+&=n_\wedge+n_\times+n_\circ-h\\
+&=k+n_\circ-h\\
+&=(k+n_\circ-L+1)+(L-1-h)
+\end{align}
+
+By consequence: $n_\circ=L-k-1$ and $h=L-1$.
+
+However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffice to exchange a blue crossing with a $\circ$ (as illustrated). 
+
+\begin{figure}\label{fig:problem}
+\includegraphics[scale=.8,page=2]{latticeRepresentation}
+\caption{problems may occur...}
+\end{figure}
+
+
 
 
 
