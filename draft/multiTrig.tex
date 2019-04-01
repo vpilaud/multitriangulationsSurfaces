@@ -372,22 +372,23 @@ By consequence the walk can be entirely deduced from the disposition of the poin
 
 \begin{figure}\label{fig:exLattice}
 \includegraphics{latticeRepresentation}
-\caption{example of the lattice representation of $7$-triangulation with a unique star, on^ the half-cylinder with $4$ points.}
+\caption{example of the lattice representation of $7$-triangulation with a unique star, on the half-cylinder with $4$ points.}
 \end{figure}
 
-Since there is only one star, all $k$-border edges have to be part of the star. We denote $L$ the maximal length of an edge.
+%Since there is only one star, all $k$-border edges have to be part of the star. 
+We denote $l_{min}$ and $l_{\max}$ the minimal and maximal length of an edge of $S$.
 
 A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
 
-We group edges by successive pairs: an edge followed by a smaller edge. this correspond in the lattice to a vertical descending edge. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a lenght corresponding to its length. In the end of the tour, you have to get back to your initial condition.
+We group edges by successive pairs: an edge followed by a smaller edge. This corresponds in the lattice to a vertical descending edge. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a lenght corresponding to its length. In the end of the tour, you have to get back to your initial condition.
 
 By consequence, the total length of blue vertical edges, denoted $\Delta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
 
 Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of this sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
 
-Let $l$ be a length such that $k<l<L$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq L-k-1$.
+Let $l$ be a length such that $l_{min}<l<l_{max}$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq l_{max}-l_{min}-1$.
 
-By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<L$.
+By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<L$.  Note also that $l_{min}\geq k$.
 
 By grouping everything together we obtain:
 
@@ -395,17 +396,33 @@ By grouping everything together we obtain:
 0&=\Delta-h \\
 &=n_\wedge+n_\times+n_\circ-h\\
 &=k+n_\circ-h\\
-&=(k+n_\circ-L+1)+(L-1-h)
+&=(k-l_{min})+(l_{min}+n_\circ-l_{max}+1)+(l_{max}-1-h)
 \end{align}
 
-By consequence: $n_\circ=L-k-1$ and $h=L-1$.
+By consequence: $l_{min}=k$, $n_\circ=L-k-1$ and $h=L-1$.
 
-However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffice to exchange a blue crossing with a $\circ$ (as illustrated). 
+Note that we did not use the fact that the star is unique, so that this is true for any star of a triangulation of the half-cylinder. In particular, the number of star of such a triangulation is (provably strictly) smaller than $p$. see \cref{fig:2stars}.
+
+\begin{figure}\label{fig:2stars}
+\includegraphics[page=3]{latticeRepresentation}
+\caption{an example of a $2$-triangulation of the half cylinder with $2$ points and $2$ stars.}
+\end{figure}
+
+\medskip
+
+NOT TRUE ANYMORE, BECAUSE THEY ARE NOT $K$-TRIANGULATIONS (see ultrafat edges on picture).
+However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffices to exchange a blue crossing with a $\circ$ (as illustrated in the second row of \cref{fig:problem}). 
 
 \begin{figure}\label{fig:problem}
-\includegraphics[scale=.8,page=2]{latticeRepresentation}
+\includegraphics[scale=.75,page=2]{latticeRepresentation}
 \caption{problems may occur...}
 \end{figure}
+
+NB (to be proved): an excursion in the lattice corresponds to a $k$-star if and only if it has length $k+1$ and exactly $1$ red point/edge.
+
+We showed that at each level between $k+1$ and $h$, there is exactly one point where the blue line goes through vertically. We can show in the exact same way that there is exactly one point where the blue line goes through diagonally.
+
+At a certain height, there is a sequence of blue $\setminus$, $|$, $X$ and $\bullet$. The previous paragraphs implies that there is at exactly $1$ $X$ or $1$ $|$, and exactly $1$ $X$ or $1$ $\setminus$ at each level between $k+1$ and $h$.
 
 
 
