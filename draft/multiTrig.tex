@@ -14,7 +14,7 @@
 \usepackage{wasysym}
 \usepackage{xspace}
 \usepackage{graphicx}
-%\usepackage[notcite,notref]{showkeys} % shows labels 
+\usepackage[notcite,notref]{showkeys} % shows labels 
 \usepackage{breqn}
 \usepackage{algorithm}
 \usepackage{algorithmic}
@@ -203,6 +203,8 @@ Let~$T$ be a \ef \ktg of a tidy polygon~$P$.
 \end{enumerate}
 \end{theorem}
 
+We prove \cref{thm:structureInfinite} (1-3) in \cref{sec:prfInfinite}.
+
 \begin{remark}
 \begin{itemize}
 \item flip graph connected? Increasing flip graph?
@@ -211,91 +213,24 @@ Let~$T$ be a \ef \ktg of a tidy polygon~$P$.
 \end{itemize}
 \end{remark}
 
-\section{Multitriangulations of surfaces}
-
-\begin{definition}
-Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary, with at least one marked point on each boundary component. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
-\end{definition}
-\mathias{Why do we disallow arcs homotopic to a boundary segment of~$\surface$? are they not just $k$-irrelevant diagonals of length $1$?}
-
-\begin{remark}
-We could also consider the case of a surface with no marked points on some boundaries. Be careful that the definition of $k$-relevant, $k$-boundary and $k$-irrelevant diagonals are not clear anymore in that case.
-\end{remark}
-
-\begin{definition}
-Universal cover~$\pi : \bar\surface \to \surface$.
-\vincent{Not clear}
-\end{definition}
-
-\begin{definition}
-A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\bar\alpha_1, \dots, \bar\alpha_k$ in the universal cover~$\bar\surface$.
-A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
-\end{definition}
-
-\begin{remark}
-Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossing arcs of~$\surface$. Namely, there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives. The simplest examples are self-crossing arcs, since their representative are not self-crossing. Further examples are given in \cref{fig:notkcrossing}.
-\vincent{Todo.}
-\end{remark}
-
-\begin{theorem}
-\label{thm:structureSurface}
-Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
-\end{theorem}
 
 
-\begin{remark}
-\begin{itemize}
-\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
-\item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
-\item duality? Line space of the surface?
-\item punctures?
-\end{itemize}
-\end{remark}
 
-
-\begin{figure}[h]
-	\capstart
-	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
-	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}}
-	\label{fig:torus}
-\end{figure}
-
-\subsection{Non-sequential flips and restriction to the cylinder}
-
-Consider a $k$-triangulation~$T$ of a surface~$\surface$.
-Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
-We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
-The natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in~$\bar T$.
-However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
-We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
-
-\begin{example}
-A non sequential flip.
-\end{example}
-
-
-The goal of this section is to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a cylinder~$\cylinder$.
-For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
-We distinguish three cases:\mathias{3?}
-\begin{itemize}
-\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
-\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\pi$ be the homomorphism of~$\bar\surface$ such that~$\pi(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\pi^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\pi$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
-\end{itemize}
-
-\begin{theorem}
-\label{thm:decompCylinder}
-The surface obtained this way is a half-cylinder.
-\end{theorem}
-
-Combined with \cref{thm:flipSaturated,thm:uniStarSaturated}, we obtain the following:
-
-\begin{theorem}
-\label{generalFlip}
-Any $k$-relevant edge of a $k$-triangulation on a surface can be flipped.
-\end{theorem}
-
-
+\section{multi-triangulations of the half-cylinder}
 \subsection{Flips of a saturated multi-triangulation of a half-cylinder}
+
+\begin{definition}
+A \defn{half-cylinder} is a cylinder with no point on the upper border.
+\end{definition}
+
+\begin{definition}
+Let $T$ be a \ktg of the half-cylinder with $p$ points. We denote $n_T^l$ the number of edges of length $l$ in $T$. We say that $T$ is \defn{saturated} if there exists $L>k$ such that:
+\begin{itemize}
+\item $n_T^l=p$, for any $l\leq k$ (these are $k$-irrelevant and $k$-boundary edges),
+\item $n_T^l=p-1$ for $l\in[k+1,L-1]$,
+\item $n_T^l=0$ for $l>L.$ 
+\end{itemize}
+\end{definition}
 
 \begin{theorem}
 \label{thm:flipSaturated}
@@ -456,7 +391,97 @@ However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. T
 
 
 
+\section{Multitriangulations of a general surface}
+
+\subsection{definitions}
+
+\begin{definition}
+Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary, with at least one marked point on each boundary component. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
+\end{definition}
+\mathias{Why should we disallow arcs homotopic to a boundary segment of~$\surface$? are they not just $k$-irrelevant diagonals of length $1$?}
+
+\begin{remark}
+We could also consider the case of a surface with no marked points on some boundaries. Be careful that the definition of $k$-relevant, $k$-boundary and $k$-irrelevant diagonals are not clear anymore in that case.
+\end{remark}
+
+\begin{definition}
+Universal cover~$\pi : \bar\surface \to \surface$.
+\vincent{UC Not clear}
+\end{definition}
+
+\begin{definition}
+A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\bar\alpha_1, \dots, \bar\alpha_k$ in the universal cover~$\bar\surface$.
+A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
+\end{definition}
+
+\begin{remark}
+Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossing arcs of~$\surface$. Namely, there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives. The simplest examples are self-crossing arcs, since their representative are not self-crossing. Further examples are given in \cref{fig:notkcrossing}.
+\vincent{Todo.}
+\end{remark}
+
+\begin{theorem}
+\label{thm:structureSurface}
+Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
+\end{theorem}
+
+
+\begin{remark}
+\begin{itemize}
+\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
+\item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
+\item duality? Line space of the surface?
+\item punctures?
+\end{itemize}
+\end{remark}
+
+
+\begin{figure}[h]
+	\capstart
+	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
+	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}}
+	\label{fig:torus}
+\end{figure}
+
+\subsection{Non-sequential flips and restriction to the cylinder}
+
+Consider a $k$-triangulation~$T$ of a surface~$\surface$.
+Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
+We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
+The natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in~$\bar T$.
+However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
+We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
+
+\begin{example}
+A non sequential flip.
+\end{example}
+
+
+The goal of this section is to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a cylinder~$\cylinder$.
+For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
+We distinguish three cases:\mathias{3?}
+\begin{itemize}
+\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
+\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\pi$ be the homomorphism of~$\bar\surface$ such that~$\pi(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\pi^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\pi$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
+\end{itemize}
+
+\begin{theorem}
+\label{thm:decompCylinder}
+The surface obtained this way is a half-cylinder.
+\end{theorem}
+
+Combined with \cref{thm:flipSaturated,thm:uniStarSaturated}, we obtain the following:
+
+\begin{theorem}
+\label{generalFlip}
+Any $k$-relevant edge of a $k$-triangulation on a surface can be flipped.
+\end{theorem}
+
+
+
+
+
 \section{Proof of \cref{thm:structureInfinite}}
+\label{sec:prfInfinite}
 
 \subsection{$(k-1)$-crossings crossing an angle}
 
