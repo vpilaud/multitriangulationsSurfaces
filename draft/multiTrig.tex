@@ -214,183 +214,6 @@ We prove \cref{thm:structureInfinite} (1-3) in \cref{sec:prfInfinite}.
 \end{remark}
 
 
-
-
-\section{multi-triangulations of the half-cylinder}
-\subsection{Flips of a saturated multi-triangulation of a half-cylinder}
-
-\begin{definition}
-A \defn{half-cylinder} is a cylinder with no point on the upper border.
-\end{definition}
-
-\begin{definition}
-Let $T$ be a \ktg of the half-cylinder with $p$ points. We denote $n_T^l$ the number of edges of length $l$ in $T$. We say that $T$ is \defn{saturated} if there exists $L>k$ such that:
-\begin{itemize}
-\item $n_T^l=p$, for any $l\leq k$ (these are $k$-irrelevant and $k$-boundary edges),
-\item $n_T^l=p-1$ for $l\in[k+1,L-1]$,
-\item $n_T^l=0$ for $l>L.$ 
-\end{itemize}
-\end{definition}
-
-\begin{theorem}
-\label{thm:flipSaturated}
-Any $k$-relevant edges of a saturated multi-triangulation of the half-cylinder can be flipped.
-\end{theorem}
-
-Consider the situation where the surface~$\surface$ is a cylinder with two points~$a,b$ on one boundary and none on the other.
-\mathias{to be extended}
-The universal cover is an infinite band, with points~$a_{\ell}, b_{\ell}$ for~$\ell \in \Z$ alternating on one boundary (so that~$a_\ell+1 = b_\ell = a_{\ell+1}-1$).
-For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k \eqdef  \in \{a,b\}^k$, consider a set~$T_w$ of diagonals of~$\surface$ formed by
-\begin{itemize}
-\item the diagonals~$(w^i_\ell, w^i_{\ell}+k+i)$ for all~$i \in [k]$ and~$\ell \in \Z$,
-\item all $k$-boundary and $k$-irrelevant diagonals~$(\epsilon_{\ell}, \epsilon_{\ell}+i)$ for~$i \in [k]$, $\epsilon \in \{a,b\}$ and~$\ell \in \Z$.
-%\item the outer $k$-boundary diagonals~$(a_{\ell}, a_{\ell}+2k)$ for~$\ell \in \Z$.
-\end{itemize}
-\vincent{Picture}
-
-\begin{lemma}
-\label{lem:noTwoDiagonalsEachLevel}
-The sets
-\begin{itemize}
-\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\epsilon \in \{a,b\} \text{ and } \ell \in \Z}$ for any~$i \in [k]$,
-\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\ell \in \Z}$ for any~$\epsilon \in \{a,b\}$ and~$i \ge k+1$,
-\end{itemize}
-all contain a $(k+1)$-crossing.
-\end{lemma}
-
-\begin{proposition}
-For any~$k \ge 1$ and~$w \eqdef  \in \{a,b\}^k$, the set~$T_w$ is a $k$-triangulation of~$\surface$.
-\end{proposition}
-
-\begin{proof}
-The maximality is immediate from \cref{lem:noTwoDiagonalsEachLevel}.
-To see that~$T_w$ is $(k+1)$-crossing-free, we use the following strategy:
-\begin{itemize}
-\item the set of diagonals~$\set{(\epsilon_\ell, \epsilon_\ell+2k)}{\ell \in \Z}$ has no $(k+1)$-crossing for any~$\epsilon \in \{a,b\}$,
-\item given any set~$X$ of pairwise crossing diagonals in~$T_w$, we can construct a new set~$X'$ of pairwise crossing diagonals in~$T_w$ by increasing the length of the smallest diagonal~$(u,v)$ of~$X$, provided this length is not~$2k$. Indeed, we just need to observe that the vertices~$u-1$ and~$v-1$ cannot be incident to diagonals of~$X$.
-\qedhere
-\end{itemize}
-\end{proof}
-
-\begin{corollary}
-\label{coro:allkTriangCyclinder}
-The set of $k$-triangulations of~$\surface$ is~$\set{T_w}{w \in \{a,b\}^k}$.
-\end{corollary}
-
-\begin{proof}
-Any $(k+1)$-crossing free set of diagonals of~$\surface$ is a subset of a certain~$T_w$ by \cref{lem:noTwoDiagonalsEachLevel}.
-\end{proof}
-
-We denote by~$\delta_w^i$ the diagonal of~$\surface$ which lifts to the diagonals~$(w^i_\ell, w^i_{\ell}+k+1+i)$.
-
-\begin{proposition}
-%For any~$w \in \{a,b\}^k$ and~$i \in [k]$, the diagonal~$\delta_w^i$ of the $k$-triangulation~$T_w$ can be fli
-For any~$w, w' \in \{a,b\}^k$ which only differ at position~$i \in [k]$, the $k$-triangulations~$T_w$ and~$T_w'$ are the only two $k$-triangulations~$\surface$ which contain~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$. In other words, any diagonal~$\delta_w^i$ in the $k$-triangulation~$T_w$ can be uniquely flipped.
-\end{proposition}
-
-\begin{proof}
-By definition of~$T_w$ and~$T_{w'}$, we have~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$ so that the flip is possible.
-It is unique by \cref{coro:allkTriangCyclinder}.
-\end{proof}
-
-\begin{remark}
-The flip of $\delta_w^1$ is sequential (for the first flip, all points below $\delta_w^1$ are vertices of the star below~$\delta_w^1$ and we can determine which of these angles see each other; we have not worked out the other flips yet).
-In contrast, the flip of~$\delta_w^i$ is not sequential for~$i \in \{2, \dots, k-1\}$ (since the common bisector is still of length~$k+1$).
-\end{remark}
-
-\begin{remark}
-This is just an example of non-sequential flips on a cylinder. We need to understand all flips on a cylinder.
-\end{remark}
-
-
-\subsection{multi-triangulations of the half-cylinder with only one star}
-
-\begin{theorem}\label{thm:uniStarSaturated}
-Any multi-triangulation of a half-cylinder with only one star is saturated.
-\end{theorem} 
-
-Let $\mathcal{C}$ be a cylinder with $p$ points $(v_i)_{i\in\mathcal{Z}/p\mathcal{Z}}$ on one border and no point on the other border. Let $T$ be a $k$-triangulation of $\mathcal{C}$. Suppose $T$ only have $1$ $k$-star $S$.
-
-The length of an edge of $T$ has to be greater or equal to $k$ ($k$-relevant) and smaller or equal to $pk$ (otherwise $k+1$ successive copies of this edges 
-form a $k+1$-crossing).
-
-We represent edges of $T$ as symbols on a square lattice.
-Let $e$ be an edge of $T$. Suppose the left point of $e$ is $v_i$, and $e$ has length $l$. 
-We define a symbol $\sigma(e)$ as being $\vee$ if $S$ is only on the upper side of $e$, $\wedge$ if it is only on the lower side, and $\times$ if it is on both sides.
-Then $e$ is represented by the symbol $\sigma(e)$ at position $(i,l)$.
-Additionally we add a symbol $\circ$ at every empty position which is directly under a symbol $\wedge$ or $\times$ and directly over a symbol $\vee$ or $\times$.
-Note that this representation is entirely contained in a $p\times pk$ rectangle.
-
-The star $S$ can be represented on the lattice by an excursion from symbol to symbol corresponding to a counter-clockwise tour of $S$.
-In such a tour, whenever you reach an edge $(i,l)$ from an edge with smaller length, the next edge to follow is $(i,l')$ where $l'$ is the biggest length of an edge starting at vertex $v_i$, which is smaller than $l$.
-Similarly, whenever you reach an edge $(i,l)$ from an edge with higher length, the next edge to follow is $(j,l')$ where $l'$ is the smallest length of an edge $(j,l')$ finishing at vertex $v_{i+l}$, which is bigger than $l$. In case there is no such edge, then you have to follow the edge $(i+l,l')$ where $l'$ is maximal (red edge).
-
-By consequence the walk can be entirely deduced from the disposition of the points. see \cref{fig:exLattice}.
-
-\begin{figure}\label{fig:exLattice}
-\includegraphics[width=.98\linewidth]{latticeRepresentation}
-\caption{example of the lattice representation of $7$-triangulation with a unique star, on the half-cylinder with $4$ points.}
-\end{figure}
-
-%Since there is only one star, all $k$-border edges have to be part of the star. 
-We denote $l_{min}$ and $l_{\max}$ the minimal and maximal length of an edge of $S$.
-
-A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
-
-We group edges by successive pairs: an edge followed by a smaller edge. This corresponds in the lattice to a vertical descending edge. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a lenght corresponding to its length. In the end of the tour, you have to get back to your initial condition.
-
-By consequence, the total length of blue vertical edges, denoted $\Delta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
-
-NB (to be proved): an excursion in the lattice corresponds to a $k$-star if and only if it has length $k+1$ and exactly $1$ red point/edge, and $\Delta=h$.
-
-
-Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of this sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
-
-Let $l$ be a length such that $l_{min}<l<l_{max}$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq l_{max}-l_{min}-1$.
-
-By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<L$.  Note also that $l_{min}\geq k$.
-
-By grouping everything together we obtain:
-
-\begin{align}
-0&=\Delta-h \\
-&=n_\wedge+n_\times+n_\circ-h\\
-&=k+n_\circ-h\\
-&=(k-l_{min})+(l_{min}+n_\circ-l_{max}+1)+(l_{max}-1-h)
-\end{align}
-
-$k-l_{min}$ EST À L'ENVERS...  
-
-By consequence: $l_{min}=k$, $n_\circ=L-k-1$ and $h=L-1$.
-
-We showed that at each level between $k+1$ and $h$, there is exactly one point where the blue line goes through vertically. We can show in the exact same way that there is exactly one point where the blue line goes through diagonally.
-
-If we count the special edge, each star has exactly $1$ vertical edge and 1 diagonal edge at all level $l>k$.
-
-
-Note that we did not use the fact that the star is unique, so that this is true for any star of a triangulation of the half-cylinder. In particular, the number of star of such a triangulation is strictly smaller than $p$. see \cref{fig:2stars}.
-
-
-\begin{figure}\label{fig:2stars}
-\includegraphics[width=.98\linewidth,page=3]{latticeRepresentation}
-\caption{an example of a $2$-triangulation of t	he half cylinder with $2$ points and $2$ stars.}
-\end{figure}
-
-\medskip
-
-NOT TRUE ANYMORE, BECAUSE THEY ARE NOT $K$-TRIANGULATIONS (see ultrafat edges on picture) ET D'AILLEURS L_MAX>KP.
-However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffices to exchange a blue crossing with a $\circ$ (as illustrated in the second row of \cref{fig:problem}). 
-
-\begin{figure}\label{fig:problem}
-\includegraphics[width=.98\linewidth,page=2]{latticeRepresentation}
-\caption{problems may occur...}
-\end{figure}
-
-
-
-
-
-
 \section{Multitriangulations of a general surface}
 
 \subsection{definitions}
@@ -442,34 +265,6 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 	\label{fig:torus}
 \end{figure}
 
-\subsection{Non-sequential flips and restriction to the cylinder}
-
-Consider a $k$-triangulation~$T$ of a surface~$\surface$.
-Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
-We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
-The natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in~$\bar T$.
-However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
-We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
-
-\begin{example}
-A non sequential flip.
-\end{example}
-
-
-The goal of this section is to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a cylinder~$\cylinder$.
-For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
-We distinguish three cases:\mathias{3?}
-\begin{itemize}
-\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
-\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\pi$ be the homomorphism of~$\bar\surface$ such that~$\pi(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\pi^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\pi$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
-\end{itemize}
-
-\begin{theorem}
-\label{thm:decompCylinder}
-The surface obtained this way is a half-cylinder.
-\end{theorem}
-
-Combined with \cref{thm:flipSaturated,thm:uniStarSaturated}, we obtain the following:
 
 \begin{theorem}
 \label{generalFlip}
@@ -669,6 +464,211 @@ A \ef \ktg of a \nbd is not necessarily \vf.
 \begin{proof}
 k=1
 \end{proof}
+
+\section{multi-triangulations of the half-cylinder}
+
+\begin{definition}
+A \defn{half-cylinder} is a cylinder with no point on the upper border.
+\end{definition}
+
+\subsection{Flips of a saturated multi-triangulation of a half-cylinder}
+
+\subsection{Half-cylinder with $2$ marked points}
+
+Consider the situation where the surface~$\surface$ is a cylinder with two points~$a,b$ on one boundary and none on the other.
+\mathias{to be extended}
+The universal cover is an infinite band, with points~$a_{\ell}, b_{\ell}$ for~$\ell \in \Z$ alternating on one boundary (so that~$a_\ell+1 = b_\ell = a_{\ell+1}-1$).
+For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k \eqdef  \in \{a,b\}^k$, consider a set~$T_w$ of diagonals of~$\surface$ formed by
+\begin{itemize}
+\item the diagonals~$(w^i_\ell, w^i_{\ell}+k+i)$ for all~$i \in [k]$ and~$\ell \in \Z$,
+\item all $k$-boundary and $k$-irrelevant diagonals~$(\epsilon_{\ell}, \epsilon_{\ell}+i)$ for~$i \in [k]$, $\epsilon \in \{a,b\}$ and~$\ell \in \Z$.
+%\item the outer $k$-boundary diagonals~$(a_{\ell}, a_{\ell}+2k)$ for~$\ell \in \Z$.
+\end{itemize}
+\vincent{Picture}
+
+\begin{lemma}
+\label{lem:noTwoDiagonalsEachLevel}
+The sets
+\begin{itemize}
+\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\epsilon \in \{a,b\} \text{ and } \ell \in \Z}$ for any~$i \in [k]$,
+\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\ell \in \Z}$ for any~$\epsilon \in \{a,b\}$ and~$i \ge k+1$,
+\end{itemize}
+all contain a $(k+1)$-crossing.
+\end{lemma}
+
+\begin{proposition}
+For any~$k \ge 1$ and~$w \eqdef  \in \{a,b\}^k$, the set~$T_w$ is a $k$-triangulation of~$\surface$.
+\end{proposition}
+
+\begin{proof}
+The maximality is immediate from \cref{lem:noTwoDiagonalsEachLevel}.
+To see that~$T_w$ is $(k+1)$-crossing-free, we use the following strategy:
+\begin{itemize}
+\item the set of diagonals~$\set{(\epsilon_\ell, \epsilon_\ell+2k)}{\ell \in \Z}$ has no $(k+1)$-crossing for any~$\epsilon \in \{a,b\}$,
+\item given any set~$X$ of pairwise crossing diagonals in~$T_w$, we can construct a new set~$X'$ of pairwise crossing diagonals in~$T_w$ by increasing the length of the smallest diagonal~$(u,v)$ of~$X$, provided this length is not~$2k$. Indeed, we just need to observe that the vertices~$u-1$ and~$v-1$ cannot be incident to diagonals of~$X$.
+\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+\label{coro:allkTriangCyclinder}
+The set of $k$-triangulations of~$\surface$ is~$\set{T_w}{w \in \{a,b\}^k}$.
+\end{corollary}
+
+\begin{proof}
+Any $(k+1)$-crossing free set of diagonals of~$\surface$ is a subset of a certain~$T_w$ by \cref{lem:noTwoDiagonalsEachLevel}.
+\end{proof}
+
+We denote by~$\delta_w^i$ the diagonal of~$\surface$ which lifts to the diagonals~$(w^i_\ell, w^i_{\ell}+k+1+i)$.
+
+\begin{proposition}
+%For any~$w \in \{a,b\}^k$ and~$i \in [k]$, the diagonal~$\delta_w^i$ of the $k$-triangulation~$T_w$ can be fli
+For any~$w, w' \in \{a,b\}^k$ which only differ at position~$i \in [k]$, the $k$-triangulations~$T_w$ and~$T_w'$ are the only two $k$-triangulations~$\surface$ which contain~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$. In other words, any diagonal~$\delta_w^i$ in the $k$-triangulation~$T_w$ can be uniquely flipped.
+\end{proposition}
+
+\begin{proof}
+By definition of~$T_w$ and~$T_{w'}$, we have~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$ so that the flip is possible.
+It is unique by \cref{coro:allkTriangCyclinder}.
+\end{proof}
+
+\begin{remark}
+The flip of $\delta_w^1$ is sequential (for the first flip, all points below $\delta_w^1$ are vertices of the star below~$\delta_w^1$ and we can determine which of these angles see each other; we have not worked out the other flips yet).
+In contrast, the flip of~$\delta_w^i$ is not sequential for~$i \in \{2, \dots, k-1\}$ (since the common bisector is still of length~$k+1$).
+\end{remark}
+
+\begin{remark}
+This is just an example of non-sequential flips on a cylinder. We need to understand all flips on a cylinder.
+\end{remark}
+
+
+\begin{definition}
+Let $T$ be a \ktg of the half-cylinder with $p$ points. We denote $n_T^l$ the number of edges of length $l$ in $T$. We say that $T$ is \defn{saturated} if there exists $L>k$ such that:
+\begin{itemize}
+\item $n_T^l=p$, for any $l\leq k$ (these are $k$-irrelevant and $k$-boundary edges),
+\item $n_T^l=p-1$ for $l\in[k+1,L-1]$,
+\item $n_T^l=0$ for $l>L.$ 
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+\label{thm:flipSaturated}
+Any $k$-relevant edges of a saturated multi-triangulation of the half-cylinder can be flipped.
+\end{theorem}
+
+\subsection{multi-triangulations of the half-cylinder with only one star}
+
+\begin{theorem}\label{thm:uniStarSaturated}
+Any multi-triangulation of a half-cylinder with only one star is saturated.
+\end{theorem} 
+
+Let $\mathcal{C}$ be a cylinder with $p$ points $(v_i)_{i\in\mathcal{Z}/p\mathcal{Z}}$ on one border and no point on the other border. Let $T$ be a $k$-triangulation of $\mathcal{C}$. Suppose $T$ only have $1$ $k$-star $S$.
+
+The length of an edge of $T$ has to be greater or equal to $k$ ($k$-relevant) and smaller or equal to $pk$ (otherwise $k+1$ successive copies of this edges 
+form a $k+1$-crossing).
+
+We represent edges of $T$ as symbols on a square lattice.
+Let $e$ be an edge of $T$. Suppose the left point of $e$ is $v_i$, and $e$ has length $l$. 
+We define a symbol $\sigma(e)$ as being $\vee$ if $S$ is only on the upper side of $e$, $\wedge$ if it is only on the lower side, and $\times$ if it is on both sides.
+Then $e$ is represented by the symbol $\sigma(e)$ at position $(i,l)$.
+Additionally we add a symbol $\circ$ at every empty position which is directly under a symbol $\wedge$ or $\times$ and directly over a symbol $\vee$ or $\times$.
+Note that this representation is entirely contained in a $p\times pk$ rectangle.
+
+The star $S$ can be represented on the lattice by an excursion from symbol to symbol corresponding to a counter-clockwise tour of $S$.
+In such a tour, whenever you reach an edge $(i,l)$ from an edge with smaller length, the next edge to follow is $(i,l')$ where $l'$ is the biggest length of an edge starting at vertex $v_i$, which is smaller than $l$.
+Similarly, whenever you reach an edge $(i,l)$ from an edge with higher length, the next edge to follow is $(j,l')$ where $l'$ is the smallest length of an edge $(j,l')$ finishing at vertex $v_{i+l}$, which is bigger than $l$. In case there is no such edge, then you have to follow the edge $(i+l,l')$ where $l'$ is maximal (red edge).
+
+By consequence the walk can be entirely deduced from the disposition of the points. see \cref{fig:exLattice}.
+
+\begin{figure}\label{fig:exLattice}
+\includegraphics[width=.98\linewidth]{latticeRepresentation}
+\caption{example of the lattice representation of $7$-triangulation with a unique star, on the half-cylinder with $4$ points.}
+\end{figure}
+
+%Since there is only one star, all $k$-border edges have to be part of the star. 
+We denote $l_{min}$ and $l_{\max}$ the minimal and maximal length of an edge of $S$.
+
+A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
+
+We group edges by successive pairs: an edge followed by a smaller edge. This corresponds in the lattice to a vertical descending edge. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a lenght corresponding to its length. In the end of the tour, you have to get back to your initial condition.
+
+By consequence, the total length of blue vertical edges, denoted $\Delta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
+
+NB (to be proved): an excursion in the lattice corresponds to a $k$-star if and only if it has length $k+1$ and exactly $1$ red point/edge, and $\Delta=h$.
+
+
+Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of this sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
+
+Let $l$ be a length such that $l_{min}<l<l_{max}$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq l_{max}-l_{min}-1$.
+
+By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<L$.  Note also that $l_{min}\geq k$.
+
+By grouping everything together we obtain:
+
+\begin{align}
+0&=\Delta-h \\
+&=n_\wedge+n_\times+n_\circ-h\\
+&=k+n_\circ-h\\
+&=(k-l_{min})+(l_{min}+n_\circ-l_{max}+1)+(l_{max}-1-h)
+\end{align}
+
+$k-l_{min}$ EST À L'ENVERS...  
+
+By consequence: $l_{min}=k$, $n_\circ=L-k-1$ and $h=L-1$.
+
+We showed that at each level between $k+1$ and $h$, there is exactly one point where the blue line goes through vertically. We can show in the exact same way that there is exactly one point where the blue line goes through diagonally.
+
+If we count the special edge, each star has exactly $1$ vertical edge and 1 diagonal edge at all level $l>k$.
+
+
+Note that we did not use the fact that the star is unique, so that this is true for any star of a triangulation of the half-cylinder. In particular, the number of star of such a triangulation is strictly smaller than $p$. see \cref{fig:2stars}.
+
+
+\begin{figure}\label{fig:2stars}
+\includegraphics[width=.98\linewidth,page=3]{latticeRepresentation}
+\caption{an example of a $2$-triangulation of t	he half cylinder with $2$ points and $2$ stars.}
+\end{figure}
+
+\medskip
+
+NOT TRUE ANYMORE, BECAUSE THEY ARE NOT $K$-TRIANGULATIONS (see ultrafat edges on picture) ET D'AILLEURS L_MAX>KP.
+However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffices to exchange a blue crossing with a $\circ$ (as illustrated in the second row of \cref{fig:problem}). 
+
+\begin{figure}\label{fig:problem}
+\includegraphics[width=.98\linewidth,page=2]{latticeRepresentation}
+\caption{problems may occur...}
+\end{figure}
+
+\subsection{Non-sequential flips and restriction to the cylinder}
+
+Consider a $k$-triangulation~$T$ of a surface~$\surface$.
+Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
+We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
+The natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in~$\bar T$.
+However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
+We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
+
+\begin{example}
+A non sequential flip.
+\end{example}
+
+
+The goal of this section is to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a cylinder~$\cylinder$.
+For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
+We distinguish three cases:\mathias{3?}
+\begin{itemize}
+\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
+\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\pi$ be the homomorphism of~$\bar\surface$ such that~$\pi(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\pi^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\pi$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
+\end{itemize}
+
+\begin{theorem}
+\label{thm:decompCylinder}
+The surface obtained this way is a half-cylinder.
+\end{theorem}
+
+Combined with \cref{thm:flipSaturated,thm:uniStarSaturated}, we obtain \cref{generalFlip}.
+
+
+
 
 
 
