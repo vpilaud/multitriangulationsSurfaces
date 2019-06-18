@@ -118,7 +118,7 @@
 \begin{document}
 
 \begin{abstract}
-We extend previous work on the structure of $k$-stars of a multi-triangulation on a convex polygon to the case of multi-triangulations on any surface, orientable or not. 
+We extend previous work on the structure of $k$-stars and flips of a multi-triangulation on a convex polygon to the case of multi-triangulations on any surface, orientable or not. 
 
 To that extent, we use the universal cover construction, that makes a map on a surface into a periodic map of an infinite polygon. We generalize the work of Pilaud and Santos to multi-triangulation of an infinite polygon, with some additional constraints, and then conclude about the case of multi-triangulations on any surface.
 \end{abstract}
@@ -190,7 +190,7 @@ A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\se
 \end{definition}
 
 \begin{definition}
-An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if none of its diagonals is $k$-irrelevant. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
+An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
 \end{definition}
 
 One of the objectives of this paper is to prove the following structural results on infinite multitriangulations
@@ -259,13 +259,16 @@ k=1
 \subsection{definitions}
 
 \begin{definition}
-Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary, with at least one marked point on each boundary component. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
+Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
 \end{definition}
 \mathias{Why should we disallow arcs homotopic to a boundary segment of~$\surface$? are they not just $k$-irrelevant diagonals of length $1$?}
 
 \begin{remark}
 We could also consider the case of a surface with no marked points on some boundaries. Be careful that the definition of $k$-relevant, $k$-boundary and $k$-irrelevant diagonals are not clear anymore in that case.
 \end{remark}
+
+In this section, we will use representation of the surfaces as quotients of the hyperbolic plane by Fuchsian groups.
+As we only use the combinatorial aspects of this description, we take the liberty to remain quite informal on this representation.
 
 \begin{definition}
 Universal cover~$\pi : \bar\surface \to \surface$.
