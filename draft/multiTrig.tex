@@ -257,7 +257,7 @@ k=1
 
 %%%%%%%%%%%%
 
-\subsection{definitions}
+\subsection{Surfaces, universal cover, $(k+1)$-crossings and $k$-triangulations}
 
 \begin{definition}
 Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
@@ -511,7 +511,6 @@ A \defn{half-cylinder} is a cylinder with no point on the upper border.
 \subsection{Half-cylinder with $2$ marked points}
 
 Consider the situation where the surface~$\surface$ is a cylinder with two points~$a,b$ on one boundary and none on the other.
-\mathias{to be extended}
 The universal cover is an infinite band, with points~$a_{\ell}, b_{\ell}$ for~$\ell \in \Z$ alternating on one boundary (so that~$a_\ell+1 = b_\ell = a_{\ell+1}-1$).
 For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k \eqdef  \in \{a,b\}^k$, consider a set~$T_w$ of diagonals of~$\surface$ formed by
 \begin{itemize}
@@ -519,7 +518,13 @@ For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k \eqdef  \in \{a,b\}^k$, conside
 \item all $k$-boundary and $k$-irrelevant diagonals~$(\epsilon_{\ell}, \epsilon_{\ell}+i)$ for~$i \in [k]$, $\epsilon \in \{a,b\}$ and~$\ell \in \Z$.
 %\item the outer $k$-boundary diagonals~$(a_{\ell}, a_{\ell}+2k)$ for~$\ell \in \Z$.
 \end{itemize}
-\vincent{Picture}
+
+\begin{figure}
+	\capstart
+	\includegraphics[page=2, scale=.5, clip, trim=2cm 3cm 0.5cm 1cm]{FNSk3p2}
+	\caption{An example of a $3$-triangulation of a half cylinder where the flip of the red edge is non-sequential.}
+	\label{fig:nonsequential}
+\end{figure}
 
 \begin{lemma}
 \label{lem:noTwoDiagonalsEachLevel}
