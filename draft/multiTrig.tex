@@ -596,6 +596,9 @@ Any $k$-relevant edges of a saturated multi-triangulation of the half-cylinder c
 \begin{theorem}\label{thm:uniStarSaturated}
 Any multi-triangulation of a half-cylinder with only one star is saturated.
 \end{theorem} 
+
+
+%%%%%%%%%%%
 %
 %Let $\mathcal{C}$ be a cylinder with $p$ points $(v_i)_{i\in\mathcal{Z}/p\mathcal{Z}}$ on one border and no point on the other border. Let $T$ be a $k$-triangulation of $\mathcal{C}$. Suppose $T$ only have $1$ $k$-star $S$.
 %
@@ -616,7 +619,7 @@ Any multi-triangulation of a half-cylinder with only one star is saturated.
 %By consequence the walk can be entirely deduced from the disposition of the points. see \cref{fig:exLattice}.
 %
 %\begin{figure}\label{fig:exLattice}
-%\includegraphics[width=.98\linewidth]{latticeRepresentation}
+%\includegraphics[scale=1]{latticeRepresentation}
 %\caption{example of the lattice representation of $7$-triangulation with a unique star, on the half-cylinder with $4$ points.}
 %\end{figure}
 %
@@ -625,18 +628,18 @@ Any multi-triangulation of a half-cylinder with only one star is saturated.
 %
 %A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
 %
-%We group edges by successive pairs: an edge followed by a smaller edge. This corresponds in the lattice to a vertical descending edge. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a lenght corresponding to its length. In the end of the tour, you have to get back to your initial condition.
+%We group edges by successive pairs: an edge followed by a smaller edge. This corresponds in the lattice to a vertical descending edge, and in the cylinder to a left angle of the star. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a length corresponding to the height of the red point. In the end of the tour, you have to get back to your initial position.
 %
 %By consequence, the total length of blue vertical edges, denoted $\Delta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
 %
 %NB (to be proved): an excursion in the lattice corresponds to a $k$-star if and only if it has length $k+1$ and exactly $1$ red point/edge, and $\Delta=h$.
 %
 %
-%Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of this sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
+%Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of these sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
 %
 %Let $l$ be a length such that $l_{min}<l<l_{max}$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq l_{max}-l_{min}-1$.
 %
-%By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<L$.  Note also that $l_{min}\geq k$.
+%By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<l_{max}$.  Note also that $l_{min}\geq k$.
 %
 %By grouping everything together we obtain:
 %
@@ -668,6 +671,7 @@ Any multi-triangulation of a half-cylinder with only one star is saturated.
 %
 %NOT TRUE ANYMORE, BECAUSE THEY ARE NOT $K$-TRIANGULATIONS (see ultrafat edges on picture) ET D'AILLEURS L_MAX>KP.
 %However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffices to exchange a blue crossing with a $\circ$ (as illustrated in the second row of \cref{fig:problem}). 
+%DANS CES EXEMPLES ON A 	$l_{max}>kp$...
 %
 %\begin{figure}\label{fig:problem}
 %\includegraphics[width=.98\linewidth,page=2]{latticeRepresentation}
@@ -706,7 +710,7 @@ The surface obtained this way is a half-cylinder.
 Combined with \cref{thm:flipSaturated,thm:uniStarSaturated}, we obtain \cref{generalFlip}.
 
 
-
+Existe-t-il des mutlitriangulations avec plusieurs étoiles, dont une qui touche sa copie +1, et qui touhce tous les points.
 
 
 
