@@ -43,6 +43,7 @@
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{notation}[theorem]{Notation}
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}[section]
@@ -601,30 +602,61 @@ Any $k$-relevant edges of a saturated multi-triangulation of the half-cylinder c
 
 %%%%%%%%%%%%
 
-\subsection{multi-triangulations of the half-cylinder with only one star}
+\subsection{multi-triangulations of the half-cylinder}
 
-\begin{theorem}\label{thm:uniStarSaturated}
-Any multi-triangulation of a half-cylinder with only one star is saturated.
-\end{theorem} 
+
+Let $\mathcal{C}_p$ be a cylinder with $p$ points $(v_i)_{i\in\mathbb{Z}/p\mathbb{Z}}$ on one border and no point on the other border. 
+The successive copies of a point $v_i$ in $\overline{\mathcal{C}_p}$ are denoted $v_i^j$ for $j\in\mathbb{Z}$.
+
+Let D be a $(k+1)$-crossing-free set of non-$k$-irrelevant diagonals of $\mathcal{C}_p$ containing (at least) the $k$-boundary diagonals of $\mathcal{C}_p$, and $d$ be a $k$-relevant diagonal of $D$. We denote $l_d$, $i_d$ and $j_d$ the length, and the index of the left and right extremities of $d$. Note that $l_d\geq k$ because $d$ is $k$-relevant, and $l_d\leq kp$ because $D$ is $(k+1)$-crossing-free. Note also that $i_d+l_d-j_d=0$ (in $\mathbb{Z}/p\mathbb{Z}$) by definition.
+
+We represent $\mathcal{C}_p$ by a rectangular grid $G$ of width $p$ and height $kp-p+1$, where each column, indexed by $\mathbb{Z}/p\mathbb{Z}$, represent a point, and each column, indexed by $[k,kp]$ represent a length.
+We represent each edge $d$ of $D$ by a symbol $\bullet$ at position $(i_d,l_d)$ in $G$.
+We associate a directed lattice to the grid $G$, made of an edge going from any point $i,l$ to the point $i-1,l+1$, and an edge from any point $i,l+1$ to the point $i,l$, for $l<kp$ and $i\in\mathbb{Z}/p\mathbb{Z}$, as well as an edge going from point $i,kp$ to point $i,kp$ for any $i\in\mathbb{Z}/p\mathbb{Z}$.
+We naturally call these edges the \emph{upper outgoing}, \emph{upper ingoing}, \emph{lower outgoing}, \emph{lower ingoing} edges of a point. Note that points of the form $i,k$ have no lower edges.
+
+A face of $D$ is made of a succession of \emph{top} diagonals (that are above the face), and \emph{bottom} diagonals (that are below the face). Around a face, their can be $2$ successive bottom edges, but no $2$ successive top edges. An angle between two bottom diagonals is called \emph{upper angle}, an angle between a top and a bottom diagonals is called \emph{lower angle}.
+The \emph{counterclockwise tour} of a face $f$ of $D$ is computed by the following procedure. Start from any diagonal $d$ of $f$, and perform the following operation until you get back to this original diagonal.
+\begin{enumerate}
+\item If $d$ is a top diagonal, set $d$ to be longest diagonal starting from $v_{i_d}$ and having length less than $l_d$. Note that this is well defined because $D$ contains the $k$-boundary diagonals, and a $k$-boundary diagonals cannot be a top diagonal.
+\item Else, if $d$ is a bottom diagonal, and $l_d$ is the maximum length of an edge ending on point~$v_{j_d}$, then set $d$ to be the longest diagonal starting on point~$v_{i_d}$.
+\item Else, set $d$ to be the shorted diagonal ending on point $v_{j_d}$ and having length more than~$l_d$.
+\end{enumerate}
+If this procedure does not terminates, it means that the corresponding face is not finite, but rather infinite and periodic.
+
+This procedure can easily be performed graphically in the grid representation, by following the edges of the lattice. Step $1$ corresponds to following lower outgoing edges until meeting a $\bullet$; step $3$ corresponds to following upper outgoing edges until meeting a $\bullet$; and step $2$ corresponds to following upper outgoing edges until reaching height $kp$, and then following lower outgoing edges until meeting a $\bullet$.
+In the grid representation, this procedure necessarily ends with a cycle $C_f$.
+
+We call \emph{drift} the integer $\delta_f$ equal the total length of top diagonals of $C_f$ minus the total length of bottom diagonals of $C_f$.
+Then $f$ is finite if and only if $\delta_f=0$.
+
+%%% rédigé correctement = off
+
+\begin{conjecture}
+$D$ is a $k$-triangulation if and only if it has $p-1$ faces, who all have finite drift and length $2k+1$.
+\end{conjecture}
+
+also, faces have $k$ top and $k+1$ bottom edges, in other words, only $1$ upper angle.
+
+\begin{proof}[tentative proof]
+If $D$ is a $k$-triangulation, then its faces have finite drift and length $2k+1$ because of \cref{thm:structureInfinite}.
+
+We can give an example of a $k$-triangulations with $p-1$ $k$-stars. If we can prove that all $k$-triangulations of a surface have the same number of $k$-stars, then we proved the direct implication.
+
+Now suppose $D$ has $p-1$ faces, who all have finite drift and length $2k+1$. 
+If we can prove that all $k$-triangulations of a surface have the same number of $k$-stars, then $D$ is maximal. I can also give an enumerative argument for maximality, counting the number of $\bullet$ and empty spaces that we have to fill in the $p\times kp$ grid.
+
+What's missing is to prove that $D$ has no $(k+1)$-crossing.
+\end{proof}
+
+%%% rédigé correctement = on
+
+Let $T$ be a $k$-triangulation of $\mathcal{C}_p$, and $d$ 
 
 
 %%%%%%%%%%%
 %
-%Let $\mathcal{C}$ be a cylinder with $p$ points $(v_i)_{i\in\mathcal{Z}/p\mathcal{Z}}$ on one border and no point on the other border. Let $T$ be a $k$-triangulation of $\mathcal{C}$. Suppose $T$ only have $1$ $k$-star $S$.
-%
-%The length of an edge of $T$ has to be greater or equal to $k$ ($k$-relevant) and smaller or equal to $pk$ (otherwise $k+1$ successive copies of this edges 
-%form a $k+1$-crossing).
-%
-%We represent edges of $T$ as symbols on a square lattice.
-%Let $e$ be an edge of $T$. Suppose the left point of $e$ is $v_i$, and $e$ has length $l$. 
-%We define a symbol $\sigma(e)$ as being $\vee$ if $S$ is only on the upper side of $e$, $\wedge$ if it is only on the lower side, and $\times$ if it is on both sides.
-%Then $e$ is represented by the symbol $\sigma(e)$ at position $(i,l)$.
-%Additionally we add a symbol $\circ$ at every empty position which is directly under a symbol $\wedge$ or $\times$ and directly over a symbol $\vee$ or $\times$.
-%Note that this representation is entirely contained in a $p\times pk$ rectangle.
-%
-%The star $S$ can be represented on the lattice by an excursion from symbol to symbol corresponding to a counter-clockwise tour of $S$.
-%In such a tour, whenever you reach an edge $(i,l)$ from an edge with smaller length, the next edge to follow is $(i,l')$ where $l'$ is the biggest length of an edge starting at vertex $v_i$, which is smaller than $l$.
-%Similarly, whenever you reach an edge $(i,l)$ from an edge with higher length, the next edge to follow is $(j,l')$ where $l'$ is the smallest length of an edge $(j,l')$ finishing at vertex $v_{i+l}$, which is bigger than $l$. In case there is no such edge, then you have to follow the edge $(i+l,l')$ where $l'$ is maximal (red edge).
+%%%% rewrote begining above
 %
 %By consequence the walk can be entirely deduced from the disposition of the points. see \cref{fig:exLattice}.
 %
