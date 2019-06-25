@@ -287,9 +287,21 @@ Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossin
 \vincent{Todo.}
 \end{remark}
 
+\begin{example}
+
+\end{example}
+
+
 %%%%%%%%%%%%
 
 \subsection{Structural properties}
+
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderStars}}
+	\caption{A $2$-triangulation of a cylinder, where $2$-relevant edges are red while $2$-boundary edges are orange (left) and its decomposition into $2$-stars (right).}
+	\label{fig:starsSurface}
+\end{figure}
 
 \begin{theorem}
 \label{thm:structureSurface}
@@ -304,13 +316,13 @@ Start from a $k$-triangulation~$T$ of a surface~$\surface$ with at least~$2k+1$ 
 If~$T$ has no $k$-relevant edge, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
 Otherwise, pick an arbitrary $k$-relevant edge~$e$ of~$T$.
 Cut along~$e$, create $k-1$ new marked points on each side of~$e$, and rearrange the branches of the stars that cross~$e$ to these new marked points (there is a unique way to do this rearrangement).
-This operation, illustrated in \cref{fig:cutAlongEdge}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
+This operation, illustrated in \cref{fig:cutSurface}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
 %
 \begin{figure}[t]
 	\capstart
 	\centerline{\includegraphics[scale=.5]{2triangCylinderCut}}
-	\caption{Cutting a $2$-triangulation of a cylinder along an edge.}
-	\label{fig:cutAlongEdge}
+	\caption{Cutting a $2$-triangulation of a cylinder along a $2$-relevant edge.}
+	\label{fig:cutSurface}
 \end{figure}
 %
 We obtain a new $k$-triangulation~$T'$ on a new surface~$\surface'$ (not necessarily connected).
@@ -334,7 +346,7 @@ I am working on another proof, but I can't yet make it work correctly.
 Once we know the number of $k$-stars, the number of $k$-relevant edges immediately follows by double counting.
 Indeed, since
 \begin{itemize}
-\item each $k$-relevant edge belongs to $2$ $k$-stars while each $k$-boundary edge belongs to one $k$-star,
+\item each $k$-relevant edge belongs to two $k$-stars while each $k$-boundary edge belongs to one $k$-star,
 \item each $k$-star contains $2k+1$ edges which are all either $k$-relevant of $k$-boundary,
 \item there are precisely $n$ $k$-boundary edges,
 \end{itemize}
@@ -348,6 +360,14 @@ r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
 \qedhere
 \]
 \end{proof}
+
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
+	\caption{A flip of a $2$-relevant edge in a $2$-triangulation of a cylinder.}
+	\label{fig:flipSurface}
+\end{figure}
+
 
 \begin{remark}
 \begin{itemize}
