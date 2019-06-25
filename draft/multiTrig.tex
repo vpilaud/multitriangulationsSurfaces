@@ -134,6 +134,35 @@ To that extent, we use the universal cover construction, that makes a map on a s
 	\label{fig:UCtorus}
 \end{figure}
 
+Triangulations are fundamental tools to understand and manipulate topological spaces.
+Triangulations of surfaces are particularly interesting as they feature strong enumerative and structural combinatorial properties.
+On the enumerative side, triangulated maps on surfaces are counted by surprising product formulas. % line of research started analytically by W.~Tutte in the sixties and actively developed by bijective approaches.
+On the structural side, crossing-free collections of arcs between marked points on a given surface define a pure simplicial complex, whose facets are triangulations.
+In particular, triangulations admit a natural flip operation that exchanges an arc~$\alpha$ with the other diagonal of the quadrangle formed by the two triangles containing~$\alpha$.
+These structural properties were used for instance to provide a large and relevant family of examples of cluster algebras whose combinatorics is driven by the triangulations of a surface and the flips between them.
+
+Triangulations can be interpreted as maximal crossing-free collections of arcs connecting a fixed collection of marked points on the surface.
+An interesting line of research arises when considering maximal collections of arcs with ``few crossings''.
+There are various relevant ways to restrict crossings.
+One can require for instance that the arcs have at most $\ell$ crossings in total, or that there is no subset of $\ell+2$ mutually crossing arcs, or that each arc crosses at most $\ell$ other arcs, etc.
+All these conditions translate natural restrictions forcing the intersection graph of the arcs to be a ``small graph''.
+Namely, it corresponds to an intersection graph with at most $\ell$ edges, with no $(\ell+2)$-clique, or with maximal degree~$\ell$.
+Note that all these restrictions specialize to classical triangulations when~$\ell = 0$.
+The first restriction (at most $\ell$ crossings) has been studied in details in~\cite{PilaudRue}.
+In this note, we consider the second restriction (no subset of mutually crossing arcs)., which were already considered in the literature in the case of a disk.
+
+A \defn{$k$-triangulation} of a convex $n$-gon is a maximal set of diagonals with no subset of $k+1$ mutually crossing diagonals.
+They were introduced in~\cite{CapoyleasPach} and particularly studied in~\cite{Nakayama, DressKoolenMoulten, Jonsson, SerranoStump, PilaudSantos-multitriangulations}.
+They feature some strong structural properties, which naturally generalize classical properties of the triangulations ($k=1$):
+\begin{enumerate}[(i)]
+\item All $k$-triangulations of the $n$-gon have $k(n-2k-1)$ edges~\cite{CapoyleasPach, Nakayama, DressKoolenMoulten}.
+\item Any edge of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakayama, DressKoolenMoulten}.
+\item Any $k$-triangulation decomposes into a complex of $k$-stars~\cite{PilaudSantos-multitriangulations}.
+\item The set of $k$-triangulations of the $n$-gon is enumerated by determinant of Catalan numbers~\cite{Jonsson}. It is in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
+\end{enumerate}
+
+The objective of this note is to introduce the good notion of $k$-triangulation on a surface such that properties (i) to (iii) above hold.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Multitriangulations of infinite polygons}
