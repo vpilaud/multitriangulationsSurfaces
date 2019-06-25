@@ -296,6 +296,58 @@ Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossin
 Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
 \end{theorem}
 
+\begin{proof}
+There are various possible proofs of this statement, none of them is really clean at the moment.
+
+The first (original) proof is based on cutting along edges.
+Start from a $k$-triangulation~$T$ of a surface~$\surface$ with at least~$2k+1$ marked points, genus~$g$ and $b$ boundaries.
+If~$T$ has no $k$-relevant edge, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
+Otherwise, pick an arbitrary $k$-relevant edge~$e$ of~$T$.
+Cut along~$e$, create $k-1$ new marked points on each side of~$e$, and rearrange the branches of the stars that cross~$e$ to these new marked points (there is a unique way to do this rearrangement).
+This operation, illustrated in \cref{fig:cutAlongEdge}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
+%
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderCut}}
+	\caption{Cutting a $2$-triangulation of a cylinder along an edge.}
+	\label{fig:cutAlongEdge}
+\end{figure}
+%
+We obtain a new $k$-triangulation~$T'$ on a new surface~$\surface'$ (not necessarily connected).
+Note that
+\begin{enumerate}
+\item the $k$-triangulations~$T$ and~$T'$ have the same number of $k$-stars,
+\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$e$ and we have created $2k-2$ new marked points),
+\item the genius~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$e$:
+	\begin{itemize}
+	\item if the endpoints of~$e$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
+	\item if the endpoints of~$e$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
+	\end{itemize}
+	But in both cases, $2g'+b' = 2g+b-1$.
+\end{enumerate}
+We conclude that $T'$ has indeed $n + 2k(2g + b -2) = n' + 2k(2g' + b - 2)$ $k$-stars.
+
+\medskip
+I am working on another proof, but I can't yet make it work correctly.
+
+\medskip
+Once we know the number of $k$-stars, the number of $k$-relevant edges immediately follows by double counting.
+Indeed, since
+\begin{itemize}
+\item each $k$-relevant edge belongs to $2$ $k$-stars while each $k$-boundary edge belongs to one $k$-star,
+\item each $k$-star contains $2k+1$ edges which are all either $k$-relevant of $k$-boundary,
+\item there are precisely $n$ $k$-boundary edges,
+\end{itemize}
+we obtain that the number $s$ of $k$-stars and the number $r$ of $k$-relevant edges in a $k$-triangulation are related by
+\(
+2r + n = (2k+1) s
+\)
+from which we derive that
+\[
+r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
+\qedhere
+\]
+\end{proof}
 
 \begin{remark}
 \begin{itemize}
@@ -310,7 +362,7 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 \begin{figure}[h]
 	\capstart
 	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
-	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}}
+	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}.}
 	\label{fig:torus}
 \end{figure}
 
