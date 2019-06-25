@@ -94,6 +94,9 @@
 
 \graphicspath{{../figures/}}
 
+\newcommand{\ie}{\textit{i.e.}~} % id est
+\newcommand{\eg}{\textit{e.g.}~} % exempli gratia
+
 % marginal comments
 \usepackage{todonotes}
 \newcommand{\vincent}[1]{\todo[color=blue!30]{#1 \\ \hfill --- V.}}
@@ -146,12 +149,12 @@ An interesting line of research arises when considering maximal collections of a
 There are various relevant ways to restrict crossings.
 One can require for instance that the arcs have at most $\ell$ crossings in total, or that there is no subset of $\ell+2$ mutually crossing arcs, or that each arc crosses at most $\ell$ other arcs, etc.
 All these conditions translate natural restrictions forcing the intersection graph of the arcs to be a ``small graph''.
-Namely, it corresponds to an intersection graph with at most $\ell$ edges, with no $(\ell+2)$-clique, or with maximal degree~$\ell$.
+Namely, it corresponds to an intersection graph with at most $\ell$ edges, with no $(\ell+2)$-clique, or with maximal degree~$\ell$, etc.
 Note that all these restrictions specialize to classical triangulations when~$\ell = 0$.
 The first restriction (at most $\ell$ crossings) has been studied in details in~\cite{PilaudRue}.
 In this note, we consider the second restriction (no subset of mutually crossing arcs)., which were already considered in the literature in the case of a disk.
 
-A \defn{$k$-triangulation} of a convex $n$-gon is a maximal set of diagonals with no subset of $k+1$ mutually crossing diagonals.
+A \defn{$k$-triangulation} of a convex $n$-gon is a maximal set of diagonals with no $(k+1)$-crossing, \ie no subset of $k+1$ mutually crossing diagonals.
 They were introduced in~\cite{CapoyleasPach} and particularly studied in~\cite{Nakayama, DressKoolenMoulten, Jonsson, SerranoStump, PilaudSantos-multitriangulations}.
 They feature some strong structural properties, which naturally generalize classical properties of the triangulations ($k=1$):
 \begin{enumerate}[(i)]
@@ -161,7 +164,19 @@ They feature some strong structural properties, which naturally generalize class
 \item The set of $k$-triangulations of the $n$-gon is enumerated by determinant of Catalan numbers~\cite{Jonsson}. It is in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
 \end{enumerate}
 
-The objective of this note is to introduce the good notion of $k$-triangulation on a surface such that properties (i) to (iii) above hold.
+The objective of this note is to introduce the good notion of $k$-triangulations on a surface such that properties (i) to (iii) above hold.
+For this, we start from a surface~$\surface$ with boundaries and fix some marked points on its boundaries.
+We then consider collections of arcs (up to homotopy) joining marked points with no $(k+1)$-crossing.
+The right notion of $(k+1)$-crossings requires to consider the universal cover~$\bar\surface$ of the surface~$\surface$.
+Namely, a $(k+1)$-crossing in~$\surface$ is the projection of a set of $k+1$ mutually crossing arcs in the universal cover~$\bar\surface$.
+The subtlety here is that there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives on the universal cover~$\bar\surface$.
+Armed with this solid notion of $k$-triangulations on~$\surface$, we are able to prove analogues of properties (i) and (iii) above, and to discuss property (ii).
+
+In fact, our approach is to first consider $k$-triangulations on a disk with infinitely many vertices (see \cref{sec:infiniteMultitriangulations}).
+Under rather weak assumptions that ensure a sort of local finiteness, we show that these infinite $k$-triangulations decompose into $k$-stars and admit a flip operation.
+We then consider $k$-triangulations on surfaces as quotients of periodic infinite $k$-triangulations by Fuchsian groups (see \cref{sec:multitriangulationsSurfaces}).
+Most structural properties of infinite triangulations are preserved by this quotient.
+As discussed at the end of this note, the main difficulty remains in the behavior of the periodicity under the flip operation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -284,7 +299,8 @@ k=1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Multitriangulations of a general surface}
-
+\label{sec:multitriangulationsSurfaces}
+ 
 %%%%%%%%%%%%
 
 \subsection{Surfaces, universal cover, $(k+1)$-crossings and $k$-triangulations}
