@@ -123,9 +123,9 @@
 \begin{document}
 
 \begin{abstract}
-We partially extend previous work on the structure of $k$-stars and flips of a multitriangulation on a convex polygon to the case of multitriangulations on any surface, orientable or not. 
-
-To that extent, we use the universal cover construction, that makes a map on a surface into a periodic map of an infinite polygon. We generalize the work of V.~Pilaud and F.~Santos to multitriangulation of an infinite polygon, with some additional constraints, and then conclude about the case of multitriangulations on any surface.
+This note partially extends the structural properties of $k$-stars and diagonal flips of $k$-triangulations on a convex polygon to the case of $k$-triangulations on any surface with marked points on the boundary. 
+To that extent, we use the universal cover of the surface to transform a graph embedded on a surface into a periodic graph of an infinite polygon.
+We generalize the work of V.~Pilaud and F.~Santos to $k$-triangulations of an infinite polygon with some weak additional constraints, and we finally derive properties of $k$-triangulations on any surface.
 \end{abstract}
 
 \maketitle
@@ -133,7 +133,7 @@ To that extent, we use the universal cover construction, that makes a map on a s
 \begin{figure}[h]
 	\capstart
 	\centerline{\includegraphics[scale=.42]{torus}}
-	\caption{The universal cover of the $2$-triangulation of a torus with one hole and one marked point, represented in \cref{fig:torus}. It has $5$ $2$-stars and all flips are sequential.}
+	\caption{The universal cover of the $2$-triangulation of a torus with one hole and one marked point, represented in \cref{fig:torus}. It has five $2$-stars and all flips are sequential.}
 	\label{fig:UCtorus}
 \end{figure}
 
@@ -161,7 +161,7 @@ They feature some strong structural properties, which naturally generalize class
 \item All $k$-triangulations of the $n$-gon have $k(n-2k-1)$ edges~\cite{CapoyleasPach, Nakayama, DressKoolenMoulten}.
 \item Any edge of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakayama, DressKoolenMoulten}.
 \item Any $k$-triangulation decomposes into a complex of $k$-stars~\cite{PilaudSantos-multitriangulations}.
-\item The set of $k$-triangulations of the $n$-gon is enumerated by determinant of Catalan numbers~\cite{Jonsson}. It is in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
+\item The set of $k$-triangulations of the $n$-gon is enumerated by a determinant of Catalan numbers~\cite{Jonsson}. It is thus in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
 \end{enumerate}
 
 The objective of this note is to introduce the good notion of $k$-triangulations on a surface such that properties (i) to (iii) above hold.
@@ -183,11 +183,18 @@ As discussed at the end of this note, the main difficulty remains in the behavio
 \section{Multitriangulations of infinite polygons}
 \label{sec:infiniteMultitriangulations}
 
+The objective of this section is to study $k$-triangulations of an infinite polygon.
+The key property here is the existence of the $k$-star decomposition established for $k$-triangulations of a convex $n$-gon in~\cite{PilaudSantos-multitriangulations}.
+In fact, many arguments of~\cite{PilaudSantos-multitriangulations} easily adapt to the case of an infinite polygon assuming some sort of local finiteness properties that we present first.
+
 %%%%%%%%%%%%
 
 \subsection{Infinite polygons}
 
+We now provide a proper definition of infinite polygon (\cref{def:infinitePolygon}) and of two local finiteness conditions (\cref{def:tidyPolygon,def:EV-finite}) that will be relevant later.
+
 \begin{definition}
+\label{def:infinitePolygon}
 A \defn{polygon}~$P$ is a cyclically ordered set, that might be finite or infinite.
 We write~$a \cl b \cl c$ for the cyclic order.
 The elements of~$P$ are called \defn{points} and pairs of elements of~$P$ are called \defn{diagonals}.
@@ -196,19 +203,17 @@ Two diagonals~$(a,c)$ and~$(b,d)$ of~$P$ \defn{cross} if~$a \cl b \cl c \cl d$.
 \end{definition}
 
 \begin{definition}
+\label{def:tidyPolygon}
 If $x$ and $y$ are two points of a polygon~$P$ such that the interval~$]x,y[$ is empty, we say that~$x$ is the \defn{predecessor} of~$y$ and that~$y$ is the \defn{successor} of~$x$, and we use the notations~$y = x+1$ and~$x = y-1$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
 \end{definition}
 
 \begin{definition}
+\label{def:EV-finite}
 A set~$X$ of diagonals of a polygon~$P$ is 
 \begin{itemize}
 \item \defn{\ef} if each diagonal of~$X$ is crossed by a finite number of diagonals of~$X$,
 \item \defn{\vf} if each vertex of~$P$ is incident to finitely many diagonals of~$X$.
 \end{itemize}
-\end{definition}
-
-\begin{definition}[periodic]
-
 \end{definition}
 
 %%%%%%%%%%%%
@@ -239,7 +244,7 @@ A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\se
 An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
 \end{definition}
 
-One of the objectives of this paper is to prove the following structural results on infinite multitriangulations
+One of the objectives of this paper is to prove the following structural results on infinite $k$-triangulations
 
 \begin{theorem}
 \label{thm:structureInfinite}
@@ -266,181 +271,35 @@ We prove \cref{thm:structureInfinite} (1-3) in \cref{sec:prfInfinite}.
 
 %%%%%%%%%%%%
 
-\subsection{Some counter-examples}
-
-\begin{ce}
-The polygon of a periodic \ktg is not necessarily a \nbd.
-\end{ce}
-\begin{proof}
-
-\end{proof}
-
-\begin{ce}
-A periodic \ef \ktg may have angles that are not crossed by a $(k-1)$-crossing.
-\end{ce}
-\begin{proof}
-
-\end{proof}
-
-\begin{ce} 
-A periodic \ktg may not be \ef.
-\end{ce}
-\begin{proof}
-
-\end{proof}
-
-\begin{ce}
-A \ef \ktg of a \nbd is not necessarily \vf.
-\end{ce}
-\begin{proof}
-k=1
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Multitriangulations of a general surface}
-\label{sec:multitriangulationsSurfaces}
- 
-%%%%%%%%%%%%
-
-\subsection{Surfaces, universal cover, $(k+1)$-crossings and $k$-triangulations}
-
-\begin{definition}
-Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
-\end{definition}
-
-%\begin{remark}
-%We could also consider the case of a surface with no marked points on some boundaries. Be careful that the definition of $k$-relevant, $k$-boundary and $k$-irrelevant diagonals are not clear anymore in that case.
-%\end{remark}
-
-In this section, we will use the representation of surfaces as quotients of the hyperbolic plane by Fuchsian groups.
-As we only use the combinatorial aspects of this description, we take the liberty to remain quite informal on this representation.
-Any surface~$\surface$ can be constructed from a polygon~$P$ by glueing some of its edges (the unglued edges of the polygon form the boundary of the surface~$\surface$).
-When the surface has genus~$g > 1$ and no boundary, there is a subgroup~$\Gamma$ of isometries of the hyperbolic disk~$\disk$ so that this polygon~$P$ is the fundamental domain of~$\Gamma$, the surface~$\surface$ is isomorphic to the quotient~$\disk/\Gamma$, and the disk~$\disk$ is the universal cover of the surface~$\surface$.
-When the surface has boundaries, we use a similar representation.
-We embed $P$ in the hyperbolic disk~$\disk$ and we consider the subgroup~$\Gamma$ of isometries of the hyperbolic disk~$\disk$ generated by the identifications of the edges of~$P$ dictated by the surface~$\surface$.
-The universal cover of the surface~$\surface$ is then the part~$\bar\surface$ of the hyperbolic disk~$\disk$ tiled by all images of~$P$ by~$\Gamma$.
-This representation is illustrated for instance in \cref{fig:UCtorus}.
-
-\begin{definition}
-A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\bar\alpha_1, \dots, \bar\alpha_k$ in the universal cover~$\bar\surface$.
-A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
-\end{definition}
-
-\begin{remark}
-Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossing arcs of~$\surface$. Namely, there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives. The simplest examples are self-crossing arcs, whose representation may not be self-crossing. Further examples are given in \cref{fig:notkcrossing}.
-\vincent{Todo.}
-\end{remark}
-
-\begin{example}
-
-\end{example}
-
-
-%%%%%%%%%%%%
-
-\subsection{Structural properties}
-
-\begin{figure}[t]
-	\capstart
-	\centerline{\includegraphics[scale=.5]{2triangCylinderStars}}
-	\caption{A $2$-triangulation of a cylinder, where $2$-relevant edges are red while $2$-boundary edges are orange (left) and its decomposition into $2$-stars (right).}
-	\label{fig:starsSurface}
-\end{figure}
-
-\begin{theorem}
-\label{thm:structureSurface}
-Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
-\end{theorem}
-
-\begin{proof}
-There are various possible proofs of this statement, none of them is really clean at the moment.
-
-The first (original) proof is based on cutting along edges.
-Start from a $k$-triangulation~$T$ of a surface~$\surface$ with at least~$2k+1$ marked points, genus~$g$ and $b$ boundaries.
-If~$T$ has no $k$-relevant edge, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
-Otherwise, pick an arbitrary $k$-relevant edge~$e$ of~$T$.
-Cut along~$e$, create $k-1$ new marked points on each side of~$e$, and rearrange the branches of the stars that cross~$e$ to these new marked points (there is a unique way to do this rearrangement).
-This operation, illustrated in \cref{fig:cutSurface}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
+%\subsection{Some counter-examples}
 %
-\begin{figure}[t]
-	\capstart
-	\centerline{\includegraphics[scale=.5]{2triangCylinderCut}}
-	\caption{Cutting a $2$-triangulation of a cylinder along a $2$-relevant edge.}
-	\label{fig:cutSurface}
-\end{figure}
+%\begin{ce}
+%The polygon of a periodic \ktg is not necessarily a \nbd.
+%\end{ce}
+%\begin{proof}
 %
-We obtain a new $k$-triangulation~$T'$ on a new surface~$\surface'$ (not necessarily connected).
-Note that
-\begin{enumerate}
-\item the $k$-triangulations~$T$ and~$T'$ have the same number of $k$-stars,
-\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$e$ and we have created $2k-2$ new marked points),
-\item the genius~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$e$:
-	\begin{itemize}
-	\item if the endpoints of~$e$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
-	\item if the endpoints of~$e$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
-	\end{itemize}
-	But in both cases, $2g'+b' = 2g+b-1$.
-\end{enumerate}
-We conclude that $T'$ has indeed $n + 2k(2g + b -2) = n' + 2k(2g' + b - 2)$ $k$-stars.
-
-\medskip
-I am working on another proof, but I can't yet make it work correctly.
-
-\medskip
-Once we know the number of $k$-stars, the number of $k$-relevant edges immediately follows by double counting.
-Indeed, since
-\begin{itemize}
-\item each $k$-relevant edge belongs to two $k$-stars while each $k$-boundary edge belongs to one $k$-star,
-\item each $k$-star contains $2k+1$ edges which are all either $k$-relevant of $k$-boundary,
-\item there are precisely $n$ $k$-boundary edges,
-\end{itemize}
-we obtain that the number $s$ of $k$-stars and the number $r$ of $k$-relevant edges in a $k$-triangulation are related by
-\(
-2r + n = (2k+1) s
-\)
-from which we derive that
-\[
-r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
-\qedhere
-\]
-\end{proof}
-
-\begin{figure}[t]
-	\capstart
-	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
-	\caption{A flip of a $2$-relevant edge in a $2$-triangulation of a cylinder.}
-	\label{fig:flipSurface}
-\end{figure}
-
-
-\begin{remark}
-\begin{itemize}
-\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
-\item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
-\item duality? Line space of the surface?
-\item punctures?
-\end{itemize}
-\end{remark}
-
-
-\begin{figure}[h]
-	\capstart
-	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
-	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}.}
-	\label{fig:torus}
-\end{figure}
-
-\begin{theorem}
-\label{generalFlip}
-Any $k$-relevant edge of a $k$-triangulation on a surface can be flipped.
-\end{theorem}
-
-%%%%%%%%%%%%
-
-\subsection{Examples}
-
-An example of non-sequential flip
+%\end{proof}
+%
+%\begin{ce}
+%A periodic \ef \ktg may have angles that are not crossed by a $(k-1)$-crossing.
+%\end{ce}
+%\begin{proof}
+%
+%\end{proof}
+%
+%\begin{ce} 
+%A periodic \ktg may not be \ef.
+%\end{ce}
+%\begin{proof}
+%
+%\end{proof}
+%
+%\begin{ce}
+%A \ef \ktg of a \nbd is not necessarily \vf.
+%\end{ce}
+%\begin{proof}
+%k=1
+%\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -609,6 +468,152 @@ cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any add
   \caption{Illustrations of the flattening of a boundary $k$-star, with $k=3$.}
   \label{fig:exProofStar}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Multitriangulations of a general surface}
+\label{sec:multitriangulationsSurfaces}
+ 
+%%%%%%%%%%%%
+
+\subsection{Surfaces, universal cover, $(k+1)$-crossings and $k$-triangulations}
+
+\begin{definition}
+Consider a connected surface~$\surface$ with boundary and a set~$V$ of marked points on the boundary. An \defn{arc} of~$\surface$ is a curve on~$\surface$ connecting two points of~$V$ and whose interior is disjoint from the boundary of~$\surface$. We consider arcs up to homotopy relative to their endpoints in~$\surface$ and we disallow arcs homotopic to a boundary segment of~$\surface$.
+\end{definition}
+
+%\begin{remark}
+%We could also consider the case of a surface with no marked points on some boundaries. Be careful that the definition of $k$-relevant, $k$-boundary and $k$-irrelevant diagonals are not clear anymore in that case.
+%\end{remark}
+
+In this section, we will use the representation of surfaces as quotients of the hyperbolic plane by Fuchsian groups.
+As we only use the combinatorial aspects of this description, we take the liberty to remain quite informal on this representation.
+Any surface~$\surface$ can be constructed from a polygon~$P$ by glueing some of its edges (the unglued edges of the polygon form the boundary of the surface~$\surface$).
+When the surface has genus~$g > 1$ and no boundary, there is a subgroup~$\Gamma$ of isometries of the hyperbolic disk~$\disk$ so that this polygon~$P$ is the fundamental domain of~$\Gamma$, the surface~$\surface$ is isomorphic to the quotient~$\disk/\Gamma$, and the disk~$\disk$ is the universal cover of the surface~$\surface$.
+When the surface has boundaries, we use a similar representation.
+We embed $P$ in the hyperbolic disk~$\disk$ and we consider the subgroup~$\Gamma$ of isometries of the hyperbolic disk~$\disk$ generated by the identifications of the edges of~$P$ dictated by the surface~$\surface$.
+The universal cover of the surface~$\surface$ is then the part~$\bar\surface$ of the hyperbolic disk~$\disk$ tiled by all images of~$P$ by~$\Gamma$.
+This representation is illustrated for instance in \cref{fig:UCtorus}.
+
+\begin{definition}
+A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\bar\alpha_1, \dots, \bar\alpha_k$ in the universal cover~$\bar\surface$.
+A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
+\end{definition}
+
+\begin{remark}
+Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossing arcs of~$\surface$. Namely, there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives. The simplest examples are self-crossing arcs, whose representation may not be self-crossing. Further examples are given in \cref{fig:notkcrossing}.
+\vincent{Todo.}
+\end{remark}
+
+\begin{example}
+
+\end{example}
+
+
+%%%%%%%%%%%%
+
+\subsection{Structural properties}
+
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderStars}}
+	\caption{A $2$-triangulation of a cylinder, where $2$-relevant edges are red while $2$-boundary edges are orange (left) and its decomposition into $2$-stars (right).}
+	\label{fig:starsSurface}
+\end{figure}
+
+\begin{theorem}
+\label{thm:structureSurface}
+Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
+\end{theorem}
+
+\begin{proof}
+There are various possible proofs of this statement, none of them is really clean at the moment.
+
+The first (original) proof is based on cutting along edges.
+Start from a $k$-triangulation~$T$ of a surface~$\surface$ with at least~$2k+1$ marked points, genus~$g$ and $b$ boundaries.
+If~$T$ has no $k$-relevant edge, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
+Otherwise, pick an arbitrary $k$-relevant edge~$e$ of~$T$.
+Cut along~$e$, create $k-1$ new marked points on each side of~$e$, and rearrange the branches of the stars that cross~$e$ to these new marked points (there is a unique way to do this rearrangement).
+This operation, illustrated in \cref{fig:cutSurface}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
+%
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderCut}}
+	\caption{Cutting a $2$-triangulation of a cylinder along a $2$-relevant edge.}
+	\label{fig:cutSurface}
+\end{figure}
+%
+We obtain a new $k$-triangulation~$T'$ on a new surface~$\surface'$ (not necessarily connected).
+Note that
+\begin{enumerate}
+\item the $k$-triangulations~$T$ and~$T'$ have the same number of $k$-stars,
+\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$e$ and we have created $2k-2$ new marked points),
+\item the genius~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$e$:
+	\begin{itemize}
+	\item if the endpoints of~$e$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
+	\item if the endpoints of~$e$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
+	\end{itemize}
+	But in both cases, $2g'+b' = 2g+b-1$.
+\end{enumerate}
+We conclude that $T'$ has indeed $n + 2k(2g + b -2) = n' + 2k(2g' + b - 2)$ $k$-stars.
+
+\medskip
+I am working on another proof, but I can't yet make it work correctly.
+
+\medskip
+Once we know the number of $k$-stars, the number of $k$-relevant edges immediately follows by double counting.
+Indeed, since
+\begin{itemize}
+\item each $k$-relevant edge belongs to two $k$-stars while each $k$-boundary edge belongs to one $k$-star,
+\item each $k$-star contains $2k+1$ edges which are all either $k$-relevant of $k$-boundary,
+\item there are precisely $n$ $k$-boundary edges,
+\end{itemize}
+we obtain that the number $s$ of $k$-stars and the number $r$ of $k$-relevant edges in a $k$-triangulation are related by
+\(
+2r + n = (2k+1) s
+\)
+from which we derive that
+\[
+r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
+\qedhere
+\]
+\end{proof}
+
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
+	\caption{A flip of a $2$-relevant edge in a $2$-triangulation of a cylinder.}
+	\label{fig:flipSurface}
+\end{figure}
+
+
+\begin{remark}
+\begin{itemize}
+\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
+\item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
+\item duality? Line space of the surface?
+\item punctures?
+\end{itemize}
+\end{remark}
+
+
+\begin{figure}[h]
+	\capstart
+	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
+	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}.}
+	\label{fig:torus}
+\end{figure}
+
+\begin{theorem}
+\label{generalFlip}
+Any $k$-relevant edge of a $k$-triangulation on a surface can be flipped.
+\end{theorem}
+
+%%%%%%%%%%%%
+
+\subsection{Examples}
+
+An example of non-sequential flip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
