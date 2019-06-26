@@ -9,13 +9,13 @@
 \usepackage{changepage}%indentation
 
 \usepackage{xcolor}
-\usepackage{amsfonts,amsthm,amssymb,amsmath}
+\usepackage{amsfonts, amsthm, amssymb, amsmath}
 \usepackage{mathtools}
 \usepackage{wasysym}
 \usepackage{xspace}
 \usepackage{graphicx}
 \usepackage[notcite,notref]{showkeys} % shows labels 
-\usepackage{breqn}
+%\usepackage{breqn}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{tabularx}
@@ -23,7 +23,7 @@
 \usepackage[english]{babel} %gestion des langues
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{paralist}
+\usepackage{paralist, enumerate}
 \usepackage{multirow}
 
 \usepackage{hyperref}
@@ -155,13 +155,13 @@ The first restriction (at most $\ell$ crossings) has been studied in details in~
 In this note, we consider the second restriction (no subset of mutually crossing arcs)., which were already considered in the literature in the case of a disk.
 
 A \defn{$k$-triangulation} of a convex $n$-gon is a maximal set of diagonals with no $(k+1)$-crossing, \ie no subset of $k+1$ mutually crossing diagonals.
-They were introduced in~\cite{CapoyleasPach} and particularly studied in~\cite{Nakayama, DressKoolenMoulten, Jonsson, SerranoStump, PilaudSantos-multitriangulations}.
+They were introduced in~\cite{CapoyleasPach} and particularly studied in~\cite{Nakamigawa, DressKoolenMoulton, Jonsson1, Jonsson2, SerranoStump, PilaudSantos-multitriangulations}.
 They feature some strong structural properties, which naturally generalize classical properties of the triangulations ($k=1$):
 \begin{enumerate}[(i)]
-\item All $k$-triangulations of the $n$-gon have $k(n-2k-1)$ edges~\cite{CapoyleasPach, Nakayama, DressKoolenMoulten}.
-\item Any edge of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakayama, DressKoolenMoulten}.
+\item All $k$-triangulations of the $n$-gon have $k(n-2k-1)$ edges~\cite{CapoyleasPach, Nakamigawa, DressKoolenMoulton}.
+\item Any edge of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakamigawa, DressKoolenMoulton}.
 \item Any $k$-triangulation decomposes into a complex of $k$-stars~\cite{PilaudSantos-multitriangulations}.
-\item The set of $k$-triangulations of the $n$-gon is enumerated by a determinant of Catalan numbers~\cite{Jonsson}. It is thus in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
+\item The set of $k$-triangulations of the $n$-gon is enumerated by a determinant of Catalan numbers~\cite{Jonsson1, Jonsson2}. It is thus in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
 \end{enumerate}
 
 The objective of this note is to introduce the good notion of $k$-triangulations on a surface such that properties (i) to (iii) above hold.
@@ -220,6 +220,8 @@ A set~$X$ of diagonals of a polygon~$P$ is
 
 \subsection{Infinite multitriangulations}
 
+We now define $k$-triangulations of infinite polygons exactly as those of finite convex polygons.
+
 \begin{definition}
 A \defn{$k$-crossing} of a polygon~$P$ is a set of~$k$ pairwise crossing diagonals of~$P$.
 A \defn{$k$-triangulation} of~$P$ is an inclusion-maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
@@ -231,43 +233,44 @@ A diagonal~$(a,b)$ with~$\ell(a,b) > k$ (resp.~$\ell(a,b) = k$, resp.~$\ell(a,b)
 \end{definition}
 
 \begin{remark}
+\label{rem:kboundary}
 Observe that a diagonal contained in a $(k+1)$-crossing must be $k$-relevant.
 Therefore, any \ktg contains all $k$-irrelevant and $k$-boundary diagonals by maximality.
 \end{remark}
 
+As observed in~\cite{PilaudSantos-multitriangulations}, many combinatorial properties of $k$-triangulations are better understood from their decompositions into $k$-stars, which generalize triangles in triangulations.
 
 \begin{definition}
-A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 \cl \dots \cl s_{2k}$ (the indices are understood modulo~$2k+1$).
+A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 \cl \dots \cl s_{2k}$ (where the indices are understood modulo~$2k+1$).
 \end{definition}
 
 \begin{definition}
-An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
+An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant or $k$-boundary edges. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
 \end{definition}
 
-One of the objectives of this paper is to prove the following structural results on infinite $k$-triangulations
+One of the objectives of this paper is to prove the following structural results on infinite $k$-triangulations.
 
 \begin{theorem}
 \label{thm:structureInfinite}
-Let~$T$ be a \ef \ktg of a tidy polygon~$P$.
+Let~$T$ be a \ef \ktg of a tidy polygon~$P$. Then:
 \begin{enumerate}
 \item Each $k$-relevant angle of~$T$ is contained in precisely one $k$-star of~$T$.
-\item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of~$P$ is contained in precisely two (resp.~one, resp.~none) $k$-stars of~$T$.
+\item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 \item For any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation. The diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
 \item Let~$P'$ denote a polygon obtained by replacing $k+1$ consecutive points of~$P$ by~$k$ points. Then there exists a flattening (resp.~inflating) operation that transforms the \ktg{}s of~$P$ into the \ktg{}s of~$P'$ (resp.~and \viceversa).
-\item For any point~$p$ of the plane, the $k$-depth of~$p$ in~$P$ is equal to the sum of the winding numbers around~$p$ of the $k$-stars of~$T$.
-\vincent{Vrai ?}
+%\item For any point~$p$ of the plane, the $k$-depth of~$p$ in~$P$ is equal to the sum of the winding numbers around~$p$ of the $k$-stars of~$T$.
 \end{enumerate}
 \end{theorem}
 
-We prove \cref{thm:structureInfinite} (1-3) in \cref{sec:prfInfinite}.
-
-\begin{remark}
-\begin{itemize}
-\item flip graph connected? Increasing flip graph?
-\item duality with pseudoline arrangements?
-\item $k$-arboresence? connection to $k$-edge-connected but not locally $(k+1)$-edge-connected.
-\end{itemize}
-\end{remark}
+%We prove \cref{thm:structureInfinite} in \cref{subsec:prfInfinite}.
+%
+%\begin{remark}
+%\begin{itemize}
+%\item flip graph connected? Increasing flip graph?
+%\item duality with pseudoline arrangements?
+%\item $k$-arboresence? connection to $k$-edge-connected but not locally $(k+1)$-edge-connected.
+%\end{itemize}
+%\end{remark}
 
 %%%%%%%%%%%%
 
@@ -301,24 +304,33 @@ We prove \cref{thm:structureInfinite} (1-3) in \cref{sec:prfInfinite}.
 %k=1
 %\end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Proof of \cref{thm:structureInfinite}}
-\label{sec:prfInfinite}
-
 %%%%%%%%%%%%
 
-\subsection{$(k-1)$-crossings crossing an angle}
+\subsection{Proof of \cref{thm:structureInfinite}}
+\label{subsec:prfInfinite}
 
-We say that a $(k-1)$-crossing~$A = \{a_1, \dots, a_{k-1}\}$ crosses an angle~$\angle(u,v,w)$ if each diagonal~$a_i$ crosses both~$(u,v)$ and~$(v,w)$. We stick to the convention to label the diagonals of~$A$ in such a way that $u \cl a^\bullet_1 \cl \dots \cl a^\bullet_{k-1} \cl v \cl a^\circ_1 \cl \dots \cl a^\circ_{k-1} \cl w$. We use this convention throughout this section without further notice.
+The end of this section is devoted to the proof of \cref{thm:structureInfinite}.
+We follow the ideas of the proof of~\cite{PilaudSantos-multitriangulations} in the case of finite convex polygons, but we adapt the arguments to show that the conditions of $E$-finiteness and tidiness suffice to obtain the same result in the case of infinite polygons.
+
+%%%
+
+\subsubsection{$(k-1)$-crossings crossing an angle}
+
+We first study the $(k-1)$-crossings that cross a given angle in a $k$-triangulation.
+
+\begin{definition}
+A $(k-1)$-crossing~$A = \{a_1, \dots, a_{k-1}\}$ \defn{crosses} an angle~$\angle(u,v,w)$ if each diagonal~$a_i$ crosses both diagonals~$(u,v)$ and~$(v,w)$.
+\end{definition}
+
+We stick to the convention to label the diagonals of~$A$ by~$a_i \eqdef (a^\bullet_i, a^\circ_i)$ in such a way that $u \cl a^\bullet_1 \cl \dots \cl a^\bullet_{k-1} \cl v \cl a^\circ_1 \cl \dots \cl a^\circ_{k-1} \cl w$. We use this convention throughout this section without further notice.
 
 \begin{lemma}
 \label{lem:tidyExists}
-In a \ktg of a tidy polygon, any $k$-relevant angle is crossed by a $(k-1)$-crossing.
+In a \ktg $T$ of a tidy polygon, any $k$-relevant angle is crossed by a $(k-1)$-crossing.
 \end{lemma}
 
 \begin{proof}
-Any angle~$\angle(u,v,w)$ is crossed by the $(k-1)$-crossing~$\set{(v-k+i, v+i)}{i \in [k-1]}$ of $k$-boundary diagonals, which belongs to the \ktg.
+Any angle~$\angle(u,v,w)$ is crossed by the $(k-1)$-crossing~$\set{(v-k+i, v+i)}{i \in [k-1]}$ of $k$-boundary diagonals, which belongs to the \ktg $T$ by \cref{rem:kboundary}.
 \end{proof}
 
 \begin{definition}
@@ -357,9 +369,11 @@ Combining \cref{lem:tidyExists,lem:efMax}, we obtain the following statement.
 In a \ef \ktg of a tidy polygon, for any angle~$\angle(u,v,w)$, there exists a $v$-farthest $(k-1)$-crossing that crosses~$\angle(u,v,w)$.
 \end{corollary}
 
-%%%%%%%%%%%%
+%%%
 
-\subsection{Any angle belongs to a $k$-star}
+\subsubsection{Any $k$-relevant angle belongs to a $k$-star}
+
+We now use the existence of a $v$-farthest $(k-1)$-crossing to show that the angle~$\angle(u,v,w)$ belongs to a $k$-star.
 
 \begin{proposition}
 \label{prop:angleBelongStar}
@@ -369,10 +383,10 @@ For any angle~$\angle(u,v,w)$ of a \ktg, if there is a $v$-farthest $(k-1)$-cros
 \begin{proof}
 The proof follows the same lines as that of~\cite[Thm.~4.1]{PilaudSantos-multitriangulations}. We repeat the argument here for the convenience of the reader.
 
-Let $E=\{e_1, \dots , e_{k-1}\}$ be the $v$-maximal $(k-1)$-crossing that crosses $\angle(u, v, w)$.
+Let $E=\{e_1, \dots , e_{k-1}\}$ be the $v$-farthest $(k-1)$-crossing that crosses $\angle(u, v, w)$.
 We will prove that the diagonals $(u, e^\circ_1), (e^\bullet_1, e^\circ_2) \dots (e^\bullet_{k-2}, e^\circ_{k-1}), (e^\bullet_{k-1}, w)$ are in $T$ such that the points $u$, $e^\bullet_1, \dots, e^\bullet_{k-1}$, $v$, $e^\circ_1, \dots, e^\circ_{k-1}$, $w$ are the vertices of a $k$-star of $T$ containing the angle $\angle(u, v, w)$. 
 
-To get this result, we use two steps, illustrated in \cref{fig:exProofStar}: first we prove that $\angle(e^\bullet_1, e^\circ_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2, \dots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e^\bullet_1, e^\circ_1, u)$ and $e^\circ_1$-maximal (so that we can reiterate the argument).
+To get this result, we use two steps, illustrated in \cref{fig:exProofStar}: first we prove that $\angle(e^\bullet_1, e^\circ_1, u)$ is an angle of $T$, and then we prove that the diagonals $e_2, \dots, e_{k-1}, (v, w)$ form a $(k-1)$-crossing intersecting $\angle(e^\bullet_1, e^\circ_1, u)$ and $e^\circ_1$-farthest (so that we can reiterate the argument).
 
 
 \begin{figure}
@@ -420,40 +434,68 @@ Note first that~$f_k = (v,w)$. Indeed, since~$f_k$ is $e^\circ_1$-farther than~$
 Since~$f_k = (v,w)$, we obtain that~$\{e_1, f_2, \dots, f_{k-1}\}$ is a $(k-1)$-crossing that crosses~$\angle(u,v,w)$. For any $i \in [2,k-1]$, the diagonal~$f_i$ is $e^\circ_1$-farther than~$e_i$, and thus also $v$-farther than~$e_i$. Therefore, $\{e_1, f_2, \dots, f_{k-1}\}$ is $v$-farther than~$E$, contradicting the maximality of~$E$.
 \end{proof}
 
-Combining \cref{coro:farthestTidy} and \cref{prop:angleBelongStar}, we obtain the proof of \cref{thm:structureInfinite}\,(1):
+Combining \cref{coro:farthestTidy} and \cref{prop:angleBelongStar}, we obtain the proof of \cref{thm:structureInfinite}\,(1).
 
 \begin{corollary}
+\label{coro:angleInStar}
 In a \ef \ktg of a tidy polygon, any $k$-relevant angle belongs to a $k$-star.
 \end{corollary}
 
-%%%%%%%%%%%%
+%%%
 
-\subsection{Any $k$-relevant diagonal belongs to $2$ $k$-stars, and can be flipped}
+\subsubsection{Any $k$-relevant diagonal belongs to two $k$-stars}
+
+We now use $k$-relevant angles to show that any $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of a $k$-triangulation~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 
 \begin{lemma}
-When $k\geq 2$, any \ef \ktg of a \nbd is \vf.
+When $k\geq 2$, any \ef \ktg of a tidy polygon is also \vf.
 \end{lemma}
+
 \begin{proof}
-Any diagonal of the $k$-border surrounding a given vertex intersects all diagonals adjacent to this vertex.
+Any $k$-boundary diagonal~$e$ surrounding a given vertex~$v$ intersects all diagonals adjacent to~$v$.
+As the $k$-triangulation is \ef, the diagonal~$e$ intersects finitely many diagonals, thus~$v$ has finite degree.
+Note that the reverse implication is wrong: there are \vf $k$-triangulations that are not \ef.
 \end{proof}
 
 \begin{lemma}
-Any diagonal of a \vf \ktg belongs to $4$ angles.
+\label{lem:diagsInAngles}
+Any $k$-relevant (resp.~$k$-boundary) diagonal of a \vf \ktg belongs to four (resp.~two) $k$-relevant angles.
 \end{lemma}
+
 \begin{proof}
-The vertices adjacent to the diagonal have finite degree. Take the neighbours just before and after the other vertex. The $4$ hereby obtained diagonals form angles with the first one.
+Consider a $k$-relevant diagonal~$e$ in a \vf \ktg $T$.
+By \vf{}ness, both endpoints of~$e$ have finite degree.
+Then the diagonals just before and just after~$e$ around the endpoints of~$e$ are all either $k$-relevant or $k$-boundary diagonals and thus define four $k$-relevant angles containing~$e$.
+The proof is similar for a $k$-boundary diagonal, except only two of the incident angles are $k$-relevant
 \end{proof}
 
-\begin{lemma}
-Any diagonal belongs to $2$ $k$-stars.
-\end{lemma}
+Combining \cref{lem:diagsInAngles,coro:angleInStar}, we obtain the proof of \cref{thm:structureInfinite}\,(2).
+
+\begin{corollary}
+Any $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of a \ef $k$-triangulation~$T$ of a tidy polygon is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
+\end{corollary}
+
 \begin{proof}
+Any $k$-relevant diagonal~$e$ is contained in four $k$-relevant angles by \cref{lem:diagsInAngles}, each contained in a $k$-star of~$T$ by \cref{coro:angleInStar}.
+As the two angles on the same side of~$e$ belong to the same $k$-star of~$T$, we obtain precisely two $k$-stars of~$T$ containing~$e$.
+The proof is similar for a $k$-boundary diagonal, except that only one side gives rise to a $k$-star of~$T$.
+\end{proof}
+
+%%%
+
+\subsubsection{Mutual position of two $k$-stars}
+
+
+
+%%%
+
+\subsubsection{Flipping a $k$-relevant diagonal}
+
 cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any additional hypothesis. quite long though : section 3.
-\end{proof}
 
-%%%%%%%%%%%%
+%%%
 
-\subsection{Flattening a boundary $k$-star, inflating a boundary $k$-crossing}
+\subsubsection{Flattening a boundary $k$-star, inflating a boundary $k$-crossing}
 
 \begin{figure}
   \centering
@@ -589,7 +631,7 @@ r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
 
 \begin{remark}
 \begin{itemize}
-\item \cite[Lem.~7.10]{PilaudSantos}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
+\item \cite[Lem.~7.10]{PilaudSantos-multitriangulations}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
 \item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
 \item duality? Line space of the surface?
 \item punctures?
@@ -919,7 +961,7 @@ Existe-t-il des mutlitriangulations avec plusieurs étoiles, dont une qui touche
 
 
 
-\bibliographystyle{abbrv}
-\bibliography{../bibliography}
+\bibliographystyle{alpha}
+\bibliography{multiTrig}
 
 \end{document}
