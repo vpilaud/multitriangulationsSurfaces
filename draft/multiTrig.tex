@@ -256,7 +256,7 @@ Let~$T$ be a \ef \ktg of a tidy polygon~$P$. Then:
 \begin{enumerate}
 \item Each $k$-relevant angle of~$T$ is contained in precisely one $k$-star of~$T$.
 \item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
-\item For any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation. The diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
+\item For any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation (where~$\symdif$ denotes the symmetric difference). Moreover, the diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
 \item Let~$P'$ denote a polygon obtained by replacing $k+1$ consecutive points of~$P$ by~$k$ points. Then there exists a flattening (resp.~inflating) operation that transforms the \ktg{}s of~$P$ into the \ktg{}s of~$P'$ (resp.~and \viceversa).
 %\item For any point~$p$ of the plane, the $k$-depth of~$p$ in~$P$ is equal to the sum of the winding numbers around~$p$ of the $k$-stars of~$T$.
 \end{enumerate}
@@ -472,6 +472,7 @@ The proof is similar for a $k$-boundary diagonal, except only two of the inciden
 Combining \cref{lem:diagsInAngles,coro:angleInStar}, we obtain the proof of \cref{thm:structureInfinite}\,(2).
 
 \begin{corollary}
+\label{coro:edgeInStars}
 Any $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of a \ef $k$-triangulation~$T$ of a tidy polygon is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 \end{corollary}
 
@@ -485,13 +486,68 @@ The proof is similar for a $k$-boundary diagonal, except that only one side give
 
 \subsubsection{Mutual position of two $k$-stars}
 
+We now recall from~\cite[Sect.~3]{PilaudSantos-multitriangulations} structural properties of a pair of $k$-stars.
+As all the following statements deal with only finitely many diagonals, the proofs of~\cite{PilaudSantos-multitriangulations} are still valid in the situation of an infinite polygon.
 
+\begin{definition}
+A \defn{bisector} of an angle~$\angle(u,v,w)$ is a diagonal~$(v,t)$ for some~$w \cl t \cl u$.
+A \defn{bisector} of a $k$-star is a bisector of any of its angles.
+\end{definition}
+
+\begin{theorem}[{\cite[Thm.~3.5]{PilaudSantos-multitriangulations}}]
+\label{thm:uniqueCommonBisector}
+Any two $k$-stars whose union is $(k+1)$-crossing-free have a unique common bisector.
+\end{theorem}
+
+In the next statements, we consider two $k$-stars~$R$ and~$S$ in a $(k+1)$-crossing-free collection~$F$ of diagonals.
+We denote by $f = (r,s)$ the unique bisector of~$R$ and~$S$, by ${r_1 = (r^\bullet_1, r^\circ_1), \dots, r_k = (r^\bullet_k, r^\circ_k)}$ the $k$-crossing of~$R$ crossing~$(r,s)$ such that ${r \cl r^\bullet_1 \cl \dots \cl r^\bullet_k \cl s \cl r^\circ_1 \cl \dots \cl r^\circ_k \cl r}$, and similarly by~$s_1 = (s^\bullet_1, s^\circ_1), \dots, s_k = (s^\bullet_k, s^\circ_k)$ the $k$-crossing of~$S$ crossing~$(r,s)$ such that~$s \cl s^\circ_1 \cl \dots \cl s^\circ_k \cl r \cl s^\bullet_1 \cl \dots \cl s^\bullet_k \cl s$.
+Finally consider any $k$-crossing~$E \subseteq F$ crossing the diagonal~$f = (r,s)$ and let~$E = \{e_1 = (e^\bullet_1, e^\circ_1), \dots, e_k = (e^\bullet_k, e^\circ_k)\}$ such that~${r \cl e^\bullet_1 \cl \dots \cl e^\bullet_k \cl s \cl e^\circ_1 \cl \dots \cl e^\circ_k \cl r}$.
+
+\begin{lemma}[{\cite[Lems.~3.6 \& 3.7]{PilaudSantos-multitriangulations}}]
+\label{lem:crossingCommonBisector}
+Consider two $k$-stars~$R$ and~$S$ and a $k$-crossing~$E$ whose union is $(k+1)$-crossing free, with the notations described above and illustrated in \cref{fig:twoStars}. Then, for any~$i \in [k]$,
+\[
+r \cl r^\bullet_i \cle e^\bullet_i \cle s^\bullet_i \cl s \cl s^\circ_i \cle e^\circ_i  \cle r^\circ_i \cl r.
+\]
+In other words, the diagonals $r_i$ of~$R$ and~$s_i$ of~$S$ are parallel and the diagonal~$e_i$ must be in between $r_i$ and~$s_i$.
+\end{lemma}
 
 %%%
 
 \subsubsection{Flipping a $k$-relevant diagonal}
 
-cf Pilaud Santos. to be adapted to the infinite case, but shouldn't need any additional hypothesis. quite long though : section 3.
+The observations of the previous section enables us to prove the following statement.
+
+\begin{lemma}[{\cite[Lem.~3.8]{PilaudSantos-multitriangulations}}]
+\label{lem:flip}
+Let~$R$ and~$S$ be two $k$-stars of a $(k+1)$-crossing-free collection~$F$ of diagonals.
+Label the vertices of~$R$ by~$r \cl r^\bullet_1 \cl \dots \cl r^\bullet_k \cl r^\circ_1 \cl \dots \cl r^\circ_k$ and the vertices of~$S$ by~$s \cl s^\circ_1 \cl \dots \cl s^\circ_k \cl s^\bullet_1 \cl s^\bullet_k$ such that~$f = (r,s)$ is the common bisector of~$R$ and~$S$.
+If~$R$ and~$S$ share a common diagonal~$e$, then
+\begin{enumerate}[(i)]
+\item there exists~$i \in [k]$ such that~$e = r_i = s_i$,
+\item $F \symdif \{e,f\}$ is $(k+1)$-crossing-free (where~$\symdif$ denotes the symmetric difference),
+\item in $F \symdif \{e,f\}$, the vertices~$r, r^\circ_1, r^\bullet_1, \dots, r^\circ_i = s^\circ_i, s^\bullet_{i+1}, s^\circ_{i+1}, \dots, s$ form a $k$-star~$X$ while the vertices~$s, s^\bullet_1, s^\circ_1, \dots, s^\bullet_i = r^\bullet_i, r^\circ_{i+1}, r^\bullet_{i+1}, \dots, r$ form a $k$-star~$Y$,
+\item $X$ and~$Y$ share a common diagonal~$f$ and have common bisector~$e$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Again, the proof of~\cite[Lem.~3.8]{PilaudSantos-multitriangulations} applies to the infinite case.
+The main argument is that any $k$-crossing of~$E$ that prevents~$e$ being in~$E$ contains the diagonal~$f$ by~\cref{lem:crossingCommonBisector}, so that~$e$ can be safely added to~$E \ssm \{f\}$.
+\end{proof}
+
+We are finally ready to prove \cref{thm:structureInfinite}\,(3).
+
+\begin{corollary}
+For any \ef \ktg~$T$ of a tidy polygon~$P$ and any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation. The diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
+\end{corollary}
+
+\begin{proof}
+By \cref{coro:edgeInStars}, the diagonal~$e$ is contained in two $k$-stars~$R$ and~$S$ of~$T$.
+By \cref{thm:uniqueCommonBisector}, the $k$-stars~$R$ and~$S$ have a unique common bisector~$f$.
+By \cref{lem:flip}, the collection of diagonals~$T \symdif \{e,f\}$ is $(k+1)$-crossing-free.
+Finally, $T \symdif \{e,f\}$ must be maximal: otherwise, it is contained in a $k$-triangulation~$T'$ and~$T' \symdif \{e,f\}$ is $(k+1)$-crossing-free and properly contains~$T$.
+\end{proof}
 
 %%%
 
