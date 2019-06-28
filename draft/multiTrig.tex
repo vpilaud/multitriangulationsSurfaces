@@ -46,8 +46,8 @@
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{notation}[theorem]{Notation}
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}[section]
-\newtheorem{example}{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 \newtheorem{algo}{Algorithm}
 \newtheorem*{example*}{Example}
 
@@ -130,12 +130,12 @@ We generalize the work of V.~Pilaud and F.~Santos to $k$-triangulations of an in
 
 \maketitle
 
-\begin{figure}[h]
-	\capstart
-	\centerline{\includegraphics[scale=.42]{torus}}
-	\caption{The universal cover of the $2$-triangulation of a torus with one hole and one marked point, represented in \cref{fig:torus}. It has five $2$-stars and all flips are sequential.}
-	\label{fig:UCtorus}
-\end{figure}
+%\begin{figure}[h]
+%	\capstart
+%	\centerline{\includegraphics[scale=.42]{torus/torusEdges}}
+%	\caption{The universal cover of the $2$-triangulation of a torus with one hole and one marked point, represented in \cref{fig:torus}. It has five $2$-stars and all flips are sequential.}
+%	\label{fig:UCtorus}
+%\end{figure}
 
 Triangulations are fundamental tools to understand and manipulate topological spaces.
 Triangulations of surfaces are particularly interesting as they feature strong enumerative and structural combinatorial properties.
@@ -238,6 +238,18 @@ Observe that a diagonal contained in a $(k+1)$-crossing must be $k$-relevant.
 Therefore, any \ktg contains all $k$-irrelevant and $k$-boundary diagonals by maximality.
 \end{remark}
 
+\begin{example}
+\cref{fig:torusEdges} represents an example of a $2$-triangulation of an infinite tidy polygon.
+In all pictures, we only represent diagonals until a certain depth, and we leave it to the reader to complete the picture when needed.
+
+\begin{figure}[h]
+	\capstart
+	\centerline{\includegraphics[scale=.42]{torus/torusEdges}}
+	\caption{A $2$-triangulation of an infinite polygon.}
+	\label{fig:torusEdges}
+\end{figure}
+\end{example}
+
 As observed in~\cite{PilaudSantos-multitriangulations}, many combinatorial properties of $k$-triangulations are better understood from their decompositions into $k$-stars, which generalize triangles in triangulations.
 
 \begin{definition}
@@ -261,6 +273,17 @@ Let~$T$ be a \ef \ktg of a tidy polygon~$P$. Then:
 %\item For any point~$p$ of the plane, the $k$-depth of~$p$ in~$P$ is equal to the sum of the winding numbers around~$p$ of the $k$-stars of~$T$.
 \end{enumerate}
 \end{theorem}
+
+\begin{example}
+\cref{fig:torusStars} shows the decomposition into $2$-stars of the $2$-triangulation of \cref{fig:torusEdges}.
+
+\begin{figure}[h]
+	\capstart
+	\centerline{\includegraphics[scale=.42]{torus/torusStars}}
+	\caption{The decomposition into $2$-stars of the $2$-triangulation of \cref{fig:torusEdges}.}
+	\label{fig:torusStars}
+\end{figure}
+\end{example}
 
 %We prove \cref{thm:structureInfinite} in \cref{subsec:prfInfinite}.
 %
@@ -502,10 +525,18 @@ Any two $k$-stars whose union is $(k+1)$-crossing-free have a unique common bise
 In the next statements, we consider two $k$-stars~$R$ and~$S$ in a $(k+1)$-crossing-free collection~$F$ of diagonals.
 We denote by $f = (r,s)$ the unique bisector of~$R$ and~$S$, by ${r_1 = (r^\bullet_1, r^\circ_1), \dots, r_k = (r^\bullet_k, r^\circ_k)}$ the $k$-crossing of~$R$ crossing~$(r,s)$ such that ${r \cl r^\bullet_1 \cl \dots \cl r^\bullet_k \cl s \cl r^\circ_1 \cl \dots \cl r^\circ_k \cl r}$, and similarly by~$s_1 = (s^\bullet_1, s^\circ_1), \dots, s_k = (s^\bullet_k, s^\circ_k)$ the $k$-crossing of~$S$ crossing~$(r,s)$ such that~$s \cl s^\circ_1 \cl \dots \cl s^\circ_k \cl r \cl s^\bullet_1 \cl \dots \cl s^\bullet_k \cl s$.
 Finally consider any $k$-crossing~$E \subseteq F$ crossing the diagonal~$f = (r,s)$ and let~$E = \{e_1 = (e^\bullet_1, e^\circ_1), \dots, e_k = (e^\bullet_k, e^\circ_k)\}$ such that~${r \cl e^\bullet_1 \cl \dots \cl e^\bullet_k \cl s \cl e^\circ_1 \cl \dots \cl e^\circ_k \cl r}$.
+These notations are illustrated in \cref{fig:combisector}.
+
+\begin{figure}
+	\capstart
+	\centerline{\includegraphics[scale=.8]{combisector}}
+	\caption{The common bisector~$(r,s)$ of two stars~$R$ and~$S$ (left) and a $k$-crossing crossing~$(r,s)$. Picture adapted from~\cite[Fig.~4]{PilaudSantos-multitriangulations}.}
+	\label{fig:combisector}
+\end{figure}
 
 \begin{lemma}[{\cite[Lems.~3.6 \& 3.7]{PilaudSantos-multitriangulations}}]
 \label{lem:crossingCommonBisector}
-Consider two $k$-stars~$R$ and~$S$ and a $k$-crossing~$E$ whose union is $(k+1)$-crossing free, with the notations described above and illustrated in \cref{fig:twoStars}. Then, for any~$i \in [k]$,
+Consider two $k$-stars~$R$ and~$S$ and a $k$-crossing~$E$ whose union is $(k+1)$-crossing free, with the notations described above and illustrated in \cref{fig:combisector}. Then, for any~$i \in [k]$,
 \[
 r \cl r^\bullet_i \cle e^\bullet_i \cle s^\bullet_i \cl s \cl s^\circ_i \cle e^\circ_i  \cle r^\circ_i \cl r.
 \]
@@ -517,6 +548,16 @@ In other words, the diagonals $r_i$ of~$R$ and~$s_i$ of~$S$ are parallel and the
 \subsubsection{Flipping a $k$-relevant diagonal}
 
 The observations of the previous section enables us to prove the following statement.
+It is illustrated on \cref{fig:flip}.
+
+
+\begin{figure}
+	\capstart
+	\centerline{\includegraphics[scale=.8]{flip}}
+	\caption{Flipping a diagonal common to two $k$-stars into their common bisector. Picture adapted from~\cite[Fig.~5]{PilaudSantos-multitriangulations}.}
+	\label{fig:flip}
+\end{figure}
+
 
 \begin{lemma}[{\cite[Lem.~3.8]{PilaudSantos-multitriangulations}}]
 \label{lem:flip}
@@ -553,7 +594,7 @@ Finally, $T \symdif \{e,f\}$ must be maximal: otherwise, it is contained in a $k
 
 \subsubsection{Flattening a boundary $k$-star, inflating a boundary $k$-crossing}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \begin{subfigure}[b]{.48\textwidth}
 	\centering
@@ -569,6 +610,7 @@ Finally, $T \symdif \{e,f\}$ must be maximal: otherwise, it is contained in a $k
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
 \section{Multitriangulations of a general surface}
 \label{sec:multitriangulationsSurfaces}
 
@@ -598,7 +640,14 @@ When the surface has genus~$g > 1$ and no boundary, there is a subgroup~$\Gamma$
 When the surface has boundaries, we use a similar representation.
 We embed $P$ in the hyperbolic disk~$\disk$ and we consider the subgroup~$\Gamma$ of isometries of the hyperbolic disk~$\disk$ generated by the identifications of the edges of~$P$ dictated by the surface~$\surface$.
 The universal cover of the surface~$\surface$ is then the part~$\bar\surface$ of the hyperbolic disk~$\disk$ tiled by all images of~$P$ by~$\Gamma$.
-This representation is illustrated for instance in \cref{fig:UCtorus}.
+This representation is illustrated for instance in \cref{fig:torusGroup}.
+
+\begin{figure}
+	\capstart
+	\centerline{\includegraphics[scale=.42]{torus/torusGroup}}
+	\caption{The torus with one hole, represented as the quotient of its universal cover by a Fuchsian group.}
+	\label{fig:torusGroup}
+\end{figure}
 
 \begin{definition}
 A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\bar\alpha_1, \dots, \bar\alpha_k$ in the universal cover~$\bar\surface$.
