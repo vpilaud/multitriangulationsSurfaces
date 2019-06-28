@@ -670,10 +670,27 @@ Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossin
 
 \subsection{Structural properties}
 
+We now explore structural properties of $k$-triangulations of a surface.
+Our approach is again through $k$-stars.
+
+\begin{definition}
+A \defn{$k$-star} on a surface~$\surface$ is the projection on~$\surface$ of a $k$-star of the universal cover~$\bar\surface$.
+\end{definition}
+
+There are other equivalent ways to define $k$-stars on the surface.
+\vincent{Which ones?}
+%For instance, one can define an angle of a collection~$T$ of arcs on~$\surface$ as a pair of consecutive arcs around a common vertex.
+%A $k$-star of~$\surface$ can then be defined as a cyclic collection of $2k+1$ arcs~$a_0, \dots, a_{2k+1}$ arcs of~$\surface$ such that any two consecutive ones~$a_i$ and~$a_{i+1}$ (including~$a_{2k+1}$ and~$a_0$) form an angle of~$\surface$.
+
 \begin{theorem}
-Stars.
+For any $k$-triangulation~$T$ of a surface~$\surface$, each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) arc of~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 \end{theorem}
 
+\begin{proof}
+Let~$\bar T$ be the $k$-triangulation of~$\bar\surface$ which projects to the $k$-triangulation~$T$ of~$\surface$.
+Since~$\bar T$ is an \ef $k$-triangulation of a tidy polygon, we can apply \cref{thm:structureInfinite} and obtain that each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) arc of~$\bar T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$\bar T$.
+The statement thus follows by projection of~$\bar T$ to~$T$.
+\end{proof}
 
 \begin{figure}[t]
 	\capstart
