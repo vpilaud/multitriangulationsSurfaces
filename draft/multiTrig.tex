@@ -919,14 +919,6 @@ For instance, we have represented the sets~$T_{aba}$ and~$T_{aaa}$ in \cref{fig:
 	\label{fig:nonsequential}
 \end{figure}
 
-\begin{figure}
-	\capstart
-	\mbox{\includegraphics[page=6, scale=.5, clip, trim=21.2cm 0cm 24cm 6cm]{FNSk3p2} \quad \raisebox{1.7cm}{\includegraphics[page=4, scale=.5]{FNSk3p2}}} \\[.5cm]
-	\mbox{\includegraphics[page=7, scale=.5, clip, trim=21.2cm 0cm 24cm 6cm]{FNSk3p2} \quad \raisebox{1.7cm}{\includegraphics[page=5, scale=.5]{FNSk3p2}}}
-	\caption{The V (left) and H (right) representations of the $3$-triangulations of \cref{fig:nonsequential}.}
-	\label{fig:nonsequentialVHrep}
-\end{figure}
-
 \begin{lemma}
 \label{lem:noTwoDiagonalsEachLevel}
 The sets
@@ -1013,6 +1005,14 @@ Any edge of a $k$-triangulation of a half-cylinder can be flipped.
 
 To approach this statement, we need to introduce a convenient representation of collections of diagonals on the half-cylinder~$\cylinder_p$, illustrated in \cref{fig:nonsequentialVHrep}.
 Let $D$ be a $(k+1)$-crossing-free set of $k$-irrelevant or $k$-boundary diagonals of $\cylinder_p$ containing (at least) the $k$-boundary diagonals of $\cylinder_p$, and $d$ be a $k$-relevant diagonal of $D$. We denote $l_d$, $i_d$ and $j_d$ the length, and the index of the left and right extremities of $d$. Note that $l_d\geq k$ because $d$ is $k$-relevant, and $l_d \le kp$ because $D$ is $(k+1)$-crossing-free. Note also that $i_d+l_d-j_d=0$ (in $\Z/p\Z$) by definition.
+
+\begin{figure}[b]
+	\capstart
+	\mbox{\includegraphics[page=6, scale=.5, clip, trim=21.2cm 0cm 24cm 6cm]{FNSk3p2} \quad \raisebox{1.7cm}{\includegraphics[page=4, scale=.5]{FNSk3p2}}} \\[.5cm]
+	\mbox{\includegraphics[page=7, scale=.5, clip, trim=21.2cm 0cm 24cm 6cm]{FNSk3p2} \quad \raisebox{1.7cm}{\includegraphics[page=5, scale=.5]{FNSk3p2}}}
+	\caption{The V (left) and H (right) representations of the $3$-triangulations of \cref{fig:nonsequential}.}
+	\label{fig:nonsequentialVHrep}
+\end{figure}
 
 We represent $\cylinder_p$ by a cylindric grid $G$ of width $p$ and height $kp-p+1$, where each column, indexed by $\Z/p\Z$, represent a point, and each row, indexed by $[k,kp]$ represent a diagonal length.
 We represent each edge $d$ of $D$ by a symbol $\bullet$ at position $(i_d,l_d)$ in $G$.
