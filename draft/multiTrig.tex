@@ -621,7 +621,7 @@ The naive definition (no $(k+1)$-subset of pairwise crossing arcs on the surface
  
 %%%%%%%%%%%%
 
-\subsection{Surfaces, universal cover, $(k+1)$-crossings and $k$-triangulations}
+\subsection{Surfaces and their universal covers}
 
 We start with the equivalents of vertices and diagonals on a surface.
 
@@ -652,50 +652,91 @@ This representation is illustrated for instance in \cref{fig:torusGroup}.
 	\label{fig:torusGroup}
 \end{figure}
 
-For an arc~$\alpha$ on the surface~$\surface$, we denote by~$\bar\alpha \eqdef \pi^{-1}(\alpha)$ its fiber under the projection~$\pi$.
-We call \defn{representative} of the arc~$\alpha$ in the universal cover~$\bar\surface$ any arc~$\tilde\alpha$ in~$\bar\surface$ such that~$\pi(\tilde\alpha) = \alpha$.
-For a collection~$T$ of arcs, we also denote by~$\bar T \eqdef \pi^{-1}(T) = \bigcup_{\alpha \in T} \bar\alpha$.
+%%%%%%%%%%%%
+
+\subsection{$k$-crossings, $k$-stars and $k$-triangulations on surfaces}
+
+We now define $k$-crossings, $k$-stars and $k$-triangulations on a surface~$\surface$ by projection down to~$\surface$ of the same objects in the universal cover~$\bar\surface$.
 
 \begin{definition}
-A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\tilde\alpha_1, \dots, \tilde\alpha_k$ in the universal cover~$\bar\surface$.
-A \defn{$k$-triangulation} of~$P$ is an inclusion maximal set of diagonals of~$P$ with no $(k+1)$-crossing.
+\label{def:crossingsStarsTriangulationsSurfaces}
+Let~$\surface$ be a surface, let~$\Gamma$ the corresponding subgroup of isometries of the hyperbolic disk~$\disk$, let~$\bar\surface$ be its universal cover, and let~$\pi : \bar\surface \to \surface$ be the canonical projection.
+\begin{enumerate}[(i)]
+\item A \defn{$k$-crossing} on~$\surface$ is the projection~$\pi(\bar\alpha_1), \dots, \pi(\bar\alpha_k)$ of a $k$-crossing~$\bar\alpha_1, \dots, \bar\alpha_1$ of~$\bar\surface$.
+\item A \defn{$k$-star} on~$\surface$ is the projection~$\pi(\bar S)$ of a $k$-star~$\bar S$ of~$\bar\surface$.
+\item A \defn{$k$-triangulation} of~$\surface$ is the projection~$\pi(\bar T)$ of a $\Gamma$-periodic $k$-triangulation~$\bar T$ of~$\bar\surface$.
+\end{enumerate}
 \end{definition}
 
 \begin{remark}
-Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossing arcs of~$\surface$. Namely, there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives. The simplest examples are self-crossing arcs, whose representation may not be self-crossing. Further examples are given in \cref{fig:notkcrossing}.
-\vincent{Todo.}
+Be careful: a $k$-crossing on~$\surface$ is NOT a collection of pairwise crossing arcs of~$\surface$. Namely, there are collections of pairwise crossing arcs of~$\surface$ which do not admit pairwise crossing representatives in~$\bar\surface$. The simplest examples are self-crossing arcs, whose representation may not be self-crossing. 
+%Further examples are given in \cref{fig:notkcrossing}.
+%\vincent{Todo.}
 \end{remark}
 
-\begin{example}
+\begin{remark}
+By definition, a $k$-triangulation of a surface~$\surface$ is a maximal collection of arcs of~$\surface$ with no $(k+1)$-crossing (in the sense of \cref{def:crossingsStarsTriangulationsSurfaces}\,(ii)).
+We conjecture that this characterizes $k$-triangulations of~$\surface$.
+Indeed, note that the fiber of such a maximal $(k+1)$-crossing free collection~$T$ of arcs of~$\surface$ is always by definition a $(k+1)$-crossing free collection~$\bar T$ of diagonals of~$\bar\surface$, but it is not clear to us that it is always maximal in~$\bar\surface$.
+\end{remark}
 
-\end{example}
-
-Our main tool to study $k$-triangulations of a surface~$\surface$ is to study their universal cover.
-
-\begin{proposition}
-\label{prop:surfaceToPolygon}
-Let~$T$ be a $k$-triangulation of a surface~$\surface$ and let~$\bar T$ denote the corresponding set of arcs in the universal cover~$\bar\surface$.
-Then~$\bar T$ is an \ef $k$-triangulation of a tidy polygon.
-\end{proposition}
+\begin{lemma}
+\label{lem:surfaceToPolygon}
+If~$T$ is a $k$-triangulation of~$\surface$, then its covering $k$-triangulation~$\bar T$ of~$\bar\surface$ is an \ef $k$-triangulation of a tidy polygon.
+\end{lemma}
 
 \begin{proof}
-
+For any diagonal~$\bar\alpha$ in~$\bar T$, the sequence~$\bar\alpha_1, \dots, \bar\alpha_p$ of arcs crossed by~$\bar\alpha$ projects down to the sequence~$\pi(\bar\alpha_1), \dots, \pi(\bar\alpha_p)$ crossed by~$\pi(\bar\alpha)$. Thus, $\bar\alpha$ crosses only finitely many arcs and~$\bar T$ is \ef.
+The polygon is tidy since each marked point in~$\bar\surface$ has for predecessor (resp.~successor) the previous (resp.~next) point along the boundary of~$\surface$. 
 \end{proof}
+
+\begin{figure}[b]
+	\capstart
+	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
+	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:torusEdges}.}
+	\label{fig:torus}
+\end{figure}
+
+%For an arc~$\alpha$ on the surface~$\surface$, we denote by~$\bar\alpha \eqdef \pi^{-1}(\alpha)$ its fiber under the projection~$\pi$.
+%We call \defn{representative} of the arc~$\alpha$ in the universal cover~$\bar\surface$ any arc~$\tilde\alpha$ in~$\bar\surface$ such that~$\pi(\tilde\alpha) = \alpha$.
+%For a collection~$T$ of arcs, we also denote by~$\bar T \eqdef \pi^{-1}(T) = \bigcup_{\alpha \in T} \bar\alpha$.
+%
+%\begin{definition}
+%A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\tilde\alpha_1, \dots, \tilde\alpha_k$ in the universal cover~$\bar\surface$.
+%A \defn{$k$-triangulation} of~$\surface$ is an inclusion maximal set of arcs of~$\surface$ with no $(k+1)$-crossing.
+%\end{definition}
+%
+%\begin{example}
+%
+%\end{example}
+%
+%Our main tool to study $k$-triangulations of a surface~$\surface$ is to study their universal cover.
+%
+%\begin{proposition}
+%\label{prop:surfaceToPolygon}
+%Let~$T$ be a $k$-triangulation of a surface~$\surface$ and let~$\bar T$ denote the corresponding set of arcs in the universal cover~$\bar\surface$.
+%Then~$\bar T$ is an \ef $k$-triangulation of a tidy polygon.
+%\end{proposition}
+%
+%\begin{proof}
+%
+%\end{proof}
 
 
 %%%%%%%%%%%%
 
+\newpage
 \subsection{Structural properties}
 
 We now explore structural properties of $k$-triangulations of a surface.
 Our approach is again through $k$-stars.
 
-\begin{definition}
-A \defn{$k$-star} on a surface~$\surface$ is the projection on~$\surface$ of a $k$-star of the universal cover~$\bar\surface$.
-\end{definition}
+%\begin{definition}
+%A \defn{$k$-star} on a surface~$\surface$ is the projection on~$\surface$ of a $k$-star of the universal cover~$\bar\surface$.
+%\end{definition}
 
-There are other equivalent ways to define $k$-stars on the surface.
-\vincent{Which ones?}
+%There are other equivalent ways to define $k$-stars on the surface.
+%\vincent{Which ones?}
 %For instance, one can define an angle of a collection~$T$ of arcs on~$\surface$ as a pair of consecutive arcs around a common vertex.
 %A $k$-star of~$\surface$ can then be defined as a cyclic collection of $2k+1$ arcs~$a_0, \dots, a_{2k+1}$ arcs of~$\surface$ such that any two consecutive ones~$a_i$ and~$a_{i+1}$ (including~$a_{2k+1}$ and~$a_0$) form an angle of~$\surface$.
 
@@ -705,14 +746,14 @@ For any $k$-triangulation~$T$ of a surface~$\surface$, each $k$-relevant (resp.~
 
 \begin{proof}
 Let~$\bar T$ be collection of arcs of~$\bar\surface$ which projects to the $k$-triangulation~$T$ of~$\surface$.
-Since~$\bar T$ is an \ef $k$-triangulation of a tidy polygon by \cref{prop:surfaceToPolygon}, we can apply \cref{thm:structureInfinite} and obtain that each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) arc of~$\bar T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$\bar T$.
+Since~$\bar T$ is an \ef $k$-triangulation of a tidy polygon by \cref{lem:surfaceToPolygon}, we can apply \cref{thm:structureInfinite} and obtain that each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) arc of~$\bar T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$\bar T$.
 The statement thus follows by projection of~$\bar T$ to~$T$.
 \end{proof}
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\capstart
 	\centerline{\includegraphics[scale=.5]{2triangCylinderStars}}
-	\caption{A $2$-triangulation of a cylinder, where $2$-relevant edges are red while $2$-boundary edges are orange (left) and its decomposition into $2$-stars (right).}
+	\caption{A $2$-triangulation of a cylinder, where $2$-relevant arcs are red while $2$-boundary arcs are orange (left) and its decomposition into $2$-stars (right).}
 	\label{fig:starsSurface}
 \end{figure}
 
@@ -722,19 +763,20 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 \end{theorem}
 
 \begin{proof}
-There are various possible proofs of this statement, none of them is really clean at the moment.
-
-The first (original) proof is based on cutting along edges.
+%There are various possible proofs of this statement, none of them is really clean at the moment.
+%
+%The first (original) proof is based on cutting along arcs.
+We sketch a proof based on cutting along arcs.
 Start from a $k$-triangulation~$T$ of a surface~$\surface$ with at least~$2k+1$ marked points, genus~$g$ and $b$ boundaries.
-If~$T$ has no $k$-relevant edge, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
-Otherwise, pick an arbitrary $k$-relevant edge~$e$ of~$T$.
-Cut along~$e$, create $k-1$ new marked points on each side of~$e$, and rearrange the branches of the stars that cross~$e$ to these new marked points (there is a unique way to do this rearrangement).
+If~$T$ has no $k$-relevant arc, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
+Otherwise, pick an arbitrary $k$-relevant arc~$\alpha$ of~$T$.
+Cut along~$\alpha$, create $k-1$ new marked points on each side of~$\alpha$, and rearrange the branches of the stars that cross~$\alpha$ to these new marked points (there is a unique way to do this rearrangement).
 This operation, illustrated in \cref{fig:cutSurface}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
 %
-\begin{figure}[t]
+\begin{figure}[b]
 	\capstart
 	\centerline{\includegraphics[scale=.5]{2triangCylinderCut}}
-	\caption{Cutting a $2$-triangulation of a cylinder along a $2$-relevant edge.}
+	\caption{Cutting a $2$-triangulation of a cylinder along a $2$-relevant arc.}
 	\label{fig:cutSurface}
 \end{figure}
 %
@@ -742,28 +784,27 @@ We obtain a new $k$-triangulation~$T'$ on a new surface~$\surface'$ (not necessa
 Note that
 \begin{enumerate}
 \item the $k$-triangulations~$T$ and~$T'$ have the same number of $k$-stars,
-\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$e$ and we have created $2k-2$ new marked points),
-\item the genius~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$e$:
+\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$\alpha$ and we have created $2k-2$ new marked points),
+\item the genius~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$\alpha$:
 	\begin{itemize}
-	\item if the endpoints of~$e$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
-	\item if the endpoints of~$e$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
+	\item if the endpoints of~$\alpha$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
+	\item if the endpoints of~$\alpha$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
 	\end{itemize}
 	But in both cases, $2g'+b' = 2g+b-1$.
 \end{enumerate}
 We conclude that $T'$ has indeed $n + 2k(2g + b -2) = n' + 2k(2g' + b - 2)$ $k$-stars.
 
+%\medskip
+%I am working on another proof, but I can't yet make it work correctly.
 \medskip
-I am working on another proof, but I can't yet make it work correctly.
-
-\medskip
-Once we know the number of $k$-stars, the number of $k$-relevant edges immediately follows by double counting.
+Once we know the number of $k$-stars, the number of $k$-relevant arcs immediately follows by double counting.
 Indeed, since
 \begin{itemize}
-\item each $k$-relevant edge belongs to two $k$-stars while each $k$-boundary edge belongs to one $k$-star,
-\item each $k$-star contains $2k+1$ edges which are all either $k$-relevant of $k$-boundary,
-\item there are precisely $n$ $k$-boundary edges,
+\item each $k$-relevant arc belongs to two $k$-stars while each $k$-boundary arc belongs to one $k$-star,
+\item each $k$-star contains $2k+1$ arcs which are all either $k$-relevant of $k$-boundary,
+\item there are precisely $n$ $k$-boundary arcs,
 \end{itemize}
-we obtain that the number $s$ of $k$-stars and the number $r$ of $k$-relevant edges in a $k$-triangulation are related by
+we obtain that the number $s$ of $k$-stars and the number $r$ of $k$-relevant arcs in a $k$-triangulation are related by
 \(
 2r + n = (2k+1) s
 \)
@@ -777,38 +818,52 @@ r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
 \begin{figure}[t]
 	\capstart
 	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
-	\caption{A flip of a $2$-relevant edge in a $2$-triangulation of a cylinder.}
+	\caption{A flip of a $2$-relevant arc in a $2$-triangulation of a cylinder.}
 	\label{fig:flipSurface}
 \end{figure}
 
+%\begin{remark}
+%\begin{itemize}
+%\item \cite[Lem.~7.10]{PilaudSantos-multitriangulations}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
+%\item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
+%\item duality? Line space of the surface?
+%\item punctures?
+%\end{itemize}
+%\end{remark}
 
-\begin{remark}
+Our last structural property concerns flips in $k$-triangulations of surfaces.
+The remaining of this note discusses the following conjecture.
+
+\begin{conjecture}
+\label{conj:generalFlip}
+Any $k$-relevant arc of a $k$-triangulation on a surface can be flipped.
+\end{conjecture}
+
+%Consider a $k$-triangulation~$T$ of a surface~$\surface$.
+%Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
+%We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
+Consider a $k$-relevant
+The natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in~$\bar T$.
+However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
+We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
+
+\begin{example}
+A non sequential flip.
+\end{example}
+
+
+The goal of this section is to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a cylinder~$\cylinder$.
+For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
+We distinguish three cases:\mathias{3?}
 \begin{itemize}
-\item \cite[Lem.~7.10]{PilaudSantos-multitriangulations}: Any $k$-triangulation of the $n$-gon contains at most $k(n-2p-1)$ $p$-relevant diagonals. Extension for surfaces.
-\item flip graph connected? Increasing flip graph? Is it a lattice? (use bracket vectors)
-\item duality? Line space of the surface?
-\item punctures?
+\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
+\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\pi$ be the homomorphism of~$\bar\surface$ such that~$\pi(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\pi^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\pi$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
 \end{itemize}
-\end{remark}
-
-
-\begin{figure}[h]
-	\capstart
-	\centerline{\includegraphics[scale=.42]{exTorusSquare}}
-	\caption{A $2$-triangulation of a torus with a hole (in blue), whose universal cover is represented in \cref{fig:UCtorus}.}
-	\label{fig:torus}
-\end{figure}
 
 \begin{theorem}
-\label{generalFlip}
-Any $k$-relevant edge of a $k$-triangulation on a surface can be flipped.
+\label{thm:decompCylinder}
+The surface obtained this way is a half-cylinder.
 \end{theorem}
-
-%%%%%%%%%%%%
-
-\subsection{Examples}
-
-An example of non-sequential flip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1077,42 +1132,6 @@ Since $S'$ is made of the same paths as $S$, it as well has drift $0$ and length
 %\includegraphics[width=.98\linewidth,page=2]{latticeRepresentation}
 %\caption{problems may occur...}
 %\end{figure}
-
-%%%%%%%%%%%%
-
-\subsection{Non-sequential flips and restriction to the cylinder}
-
-Consider a $k$-triangulation~$T$ of a surface~$\surface$.
-Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
-We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
-The natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in~$\bar T$.
-However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
-We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
-
-\begin{example}
-A non sequential flip.
-\end{example}
-
-
-The goal of this section is to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a cylinder~$\cylinder$.
-For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
-We distinguish three cases:\mathias{3?}
-\begin{itemize}
-\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
-\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\pi$ be the homomorphism of~$\bar\surface$ such that~$\pi(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\pi^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\pi$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
-\end{itemize}
-
-\begin{theorem}
-\label{thm:decompCylinder}
-The surface obtained this way is a half-cylinder.
-\end{theorem}
-
-Combined with \cref{thm:flipSaturated,thm:uniStarSaturated}, we obtain \cref{generalFlip}.
-
-
-Existe-t-il des mutlitriangulations avec plusieurs étoiles, dont une qui touche sa copie +1, et qui touhce tous les points.
-
-
 
 \bibliographystyle{alpha}
 \bibliography{multiTrig}
