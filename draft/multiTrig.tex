@@ -889,13 +889,11 @@ As mentioned, the study of multitriangulations of half-cylinders has two relevan
 %\includegraphics[scale=1]{saturatedHC}
 %\caption{representation...}
 %\end{figure}
-\vincent{I removed the picture saturatedHC.}
 
 %%%%%%%%%%%%
 
 \subsection{Half-cylinder with $2$ marked points}
 
-\vincent{Could we start with only one point on the boundary?}
 We start with the case of multitriangulations of the half-cylinder with only two points on the lower boundary.
 This case already provides relevant examples of non-sequencial flips that will enable us to settle some conventions of representations (see \cref{fig:nonsequential,fig:nonsequentialVHrep}).
 
@@ -972,36 +970,16 @@ In contrast, the flip of~$\delta_w^i$ is not sequential for~$i \in \{2, \dots, k
 
 %%%%%%%%%%%%
 
-\subsection{Saturated multitriangulation of a half-cylinder}
-
-\vincent{Can I remove this section? It seems an old version.}
-
-\begin{definition}
-Let $T$ be a \ktg of the half-cylinder with $p$ points. We denote $n_T^l$ the number of edges of length $l$ in $T$. We say that $T$ is \defn{saturated} if there exists $L>k$ such that:
-\begin{itemize}
-\item $n_T^l=p$, for any $l \le k$ (these are $k$-irrelevant and $k$-boundary edges),
-\item $n_T^l=p-1$ for $l\in[k+1,L-1]$,
-\item $n_T^l=0$ for $l>L.$ 
-\end{itemize}
-\end{definition}
-
-\begin{theorem}
-\label{thm:flipSaturated}
-Any $k$-relevant edges of a saturated multitriangulation of the half-cylinder can be flipped.
-\end{theorem}
-
-%%%%%%%%%%%%
-
 \subsection{All half-cylinders}
 
 We now consider an arbitrary half-cylinder~$\cylinder_p$ with $p$ points $(v_i)_{i \in \Z/p\Z}$ on the lower boundary and no point on the upper boundary. 
 The successive copies of a point $v_i$ in the universal cover~$\overline{\cylinder_p}$ (which is an infinite band) are denoted by~$v_i^j$ for~$j \in \Z$.
-The objective of this section is to show the following statement extending~\cite{prop:flip2halfCylinder}.
+The objective of this section is to discuss the following conjecture extending~\ref{prop:flip2halfCylinder}.
 
-\begin{theorem}
+\begin{conjecture}
 \label{thm:flipHalfCylinder}
 Any edge of a $k$-triangulation of a half-cylinder can be flipped.
-\end{theorem}
+\end{conjecture}
 
 To approach this statement, we need to introduce a convenient representation of collections of diagonals on the half-cylinder~$\cylinder_p$, illustrated in \cref{fig:nonsequentialVHrep}.
 Let $D$ be a $(k+1)$-crossing-free set of $k$-irrelevant or $k$-boundary diagonals of $\cylinder_p$ containing (at least) the $k$-boundary diagonals of $\cylinder_p$, and $d$ be a $k$-relevant diagonal of $D$. We denote $l_d$, $i_d$ and $j_d$ the length, and the index of the left and right extremities of $d$. Note that $l_d\geq k$ because $d$ is $k$-relevant, and $l_d \le kp$ because $D$ is $(k+1)$-crossing-free. Note also that $i_d+l_d-j_d=0$ (in $\Z/p\Z$) by definition.
@@ -1042,7 +1020,7 @@ $D$ is a $k$-triangulation if and only if it has $p-1$ faces, which all have dri
 
 also, faces have $k$ top and $k+1$ bottom edges, in other words, only $1$ upper angle.
 
-\begin{proof}[tentative proof]
+\begin{proof}[Tentative proof]
 If $D$ is a $k$-triangulation, then its faces have drift $0$ and length $2k+1$ because of \cref{thm:structureInfinite}.
 
 We can give an example of a $k$-triangulations with $p-1$ $k$-stars. If we can prove that all $k$-triangulations of a surface have the same number of $k$-stars, then we proved the direct implication.
@@ -1069,13 +1047,13 @@ l'un est pair, l'autre impair et passe par l'infini.
 The cycles $C_{S,d}^1$ and $C_{S,d}^2$ have exactly $2$ intersection points.
 \end{conjecture}
 
-\begin{proof}[tentative proof]
+\begin{proof}[Tentative proof]
 The number of intersection points of two cycles on a cylinder is necessarily even. By definition, the $\bullet$ corresponding to $d$ is a point of intersection.
 
 We need to prove that there cannot be more than $2$ intersection points.
 \end{proof}
 
-\begin{proof}[proof of \cref{thm:flipHalfCylinder}]
+\begin{proof}[Proof of \cref{thm:flipHalfCylinder}]
 Let $T$ be a triangulation of $\cylinder_p$, and $d$ a diagonal of $T$.
 If $d$ is adjacent to two different stars, then it can be flipped in a sequential manner.
 
@@ -1089,70 +1067,6 @@ Since $S'$ is made of the same paths as $S$, it as well has drift $0$ and length
 \end{proof}
 
 %%%%%%%%%%%
-%
-%%%% rewrote begining above
-%
-%By consequence the walk can be entirely deduced from the disposition of the points. see \cref{fig:exLattice}.
-%
-%\begin{figure}\label{fig:exLattice}
-%\includegraphics[scale=1]{latticeRepresentation}
-%\caption{example of the lattice representation of $7$-triangulation with a unique star, on the half-cylinder with $4$ points.}
-%\end{figure}
-%
-%%Since there is only one star, all $k$-border edges have to be part of the star. 
-%We denote $l_{min}$ and $l_{\max}$ the minimal and maximal length of an edge of $S$.
-%
-%A $k$-star has $2k+1$ edges: $n_\vee+n_\wedge+2n_\times=2k+1$. It is on the upper side of $k+1$ of them and the lower side of $k$ of them: $n_\vee+n_\times=k+1$ and $n_\wedge+n_\times=k$.
-%
-%We group edges by successive pairs: an edge followed by a smaller edge. This corresponds in the lattice to a vertical descending edge, and in the cylinder to a left angle of the star. Only the red edge remain unmatched. When doing a tour of $S$, each pair makes you go to the left by a length corresponding to the height of the corresponding vertical edge, and the edge corresponding to the red point makes you go to the right by a length corresponding to the height of the red point. In the end of the tour, you have to get back to your initial position.
-%
-%By consequence, the total length of blue vertical edges, denoted $\diskelta$, has to be equal to the length of the edge corresponding to the red vertex, denoted $h$.
-%
-%NB (to be proved): an excursion in the lattice corresponds to a $k$-star if and only if it has length $k+1$ and exactly $1$ red point/edge, and $\diskelta=h$.
-%
-%
-%Over any symbol $\vee$, there is a sequence of $\circ$ and $\times$, ended by a $\wedge$ or a red $\times$ (and potentially followed by another sequence). Inside each of these sequence,  we know that all vertical edges are visited by the excursion. By consequence: $\Delta=n_\wedge+n_\times+n_\circ$. 
-%
-%Let $l$ be a length such that $l_{min}<l<l_{max}$. Since the star is represented by a (connected) excursion, there exists a vertex $i$ such that $(i,l)$ has symbol $\circ$. By consequence, $n_\circ\geq l_{max}-l_{min}-1$.
-%
-%By unicity of the red $\times$, the symbol coming just after the red $\times$ has to have length strictly bigger. By consequence $h<l_{max}$.  Note also that $l_{min}\geq k$.
-%
-%By grouping everything together we obtain:
-%
-%\begin{align}
-%0&=\diskelta-h \\
-%&=n_\wedge+n_\times+n_\circ-h\\
-%&=k+n_\circ-h\\
-%&=(k-l_{min})+(l_{min}+n_\circ-l_{max}+1)+(l_{max}-1-h)
-%\end{align}
-%
-%$k-l_{min}$ EST À L'ENVERS...  
-%
-%By consequence: $l_{min}=k$, $n_\circ=L-k-1$ and $h=L-1$.
-%
-%We showed that at each level between $k+1$ and $h$, there is exactly one point where the blue line goes through vertically. We can show in the exact same way that there is exactly one point where the blue line goes through diagonally.
-%
-%If we count the special edge, each star has exactly $1$ vertical edge and 1 diagonal edge at all level $l>k$.
-%
-%
-%Note that we did not use the fact that the star is unique, so that this is true for any star of a triangulation of the half-cylinder. In particular, the number of star of such a triangulation is strictly smaller than $p$. see \cref{fig:2stars}.
-%
-%
-%\begin{figure}\label{fig:2stars}
-%\includegraphics[width=.98\linewidth,page=3]{latticeRepresentation}
-%\caption{an example of a $2$-triangulation of the half cylinder with $2$ points and $2$ stars.}
-%\end{figure}
-%
-%\medskip
-%
-%NOT TRUE ANYMORE, BECAUSE THEY ARE NOT $K$-TRIANGULATIONS (see ultrafat edges on picture) ET D'AILLEURS L_MAX>KP.
-%However it may be that there are more than $k$ $\vee$. See \cref{fig:problem}. The first line should be the smallest such configuration. However it has no flippable edge, unlike the second one. In the second configuration, it is still easy to flip the unique flippable edge. As always, it suffices to exchange a blue crossing with a $\circ$ (as illustrated in the second row of \cref{fig:problem}). 
-%DANS CES EXEMPLES ON A 	$l_{max}>kp$...
-%
-%\begin{figure}\label{fig:problem}
-%\includegraphics[width=.98\linewidth,page=2]{latticeRepresentation}
-%\caption{problems may occur...}
-%\end{figure}
 
 \bibliographystyle{alpha}
 \bibliography{multiTrig}
