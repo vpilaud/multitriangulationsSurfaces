@@ -129,7 +129,7 @@ To that extent, we use the universal cover of the surface to transform a graph e
 We generalize the work of V.~Pilaud and F.~Santos to $k$-triangulations of an infinite polygon with some weak additional constraints, and we finally derive properties of $k$-triangulations on any surface.
 \end{abstract}
 
-\vspace*{-.3cm}
+\vspace*{-.7cm}
 
 \maketitle
 
@@ -143,7 +143,7 @@ We generalize the work of V.~Pilaud and F.~Santos to $k$-triangulations of an in
 Triangulations are fundamental tools to understand and manipulate topological spaces.
 Triangulations of surfaces are particularly interesting as they feature strong enumerative and structural combinatorial properties.
 On the enumerative side, triangulated maps on surfaces are counted by surprising product formulas. % line of research started analytically by W.~Tutte in the sixties and actively developed by bijective approaches.
-On the structural side, crossing-free collections of arcs between marked points on a given surface form a pure and thin simplicial complex, whose facets are triangulations.
+On the structural side, crossing-free collections of arcs between marked points on the boundary of a given surface form a pure and thin simplicial complex, whose facets are triangulations.
 In particular, triangulations admit a natural flip operation that exchanges an arc~$a$ with the other diagonal of the quadrangle formed by the two triangles containing~$a$.
 These structural properties were used for instance to provide a large and relevant family of examples of cluster algebras whose combinatorics is driven by the triangulations of a surface and the flips between~them.
 
@@ -159,9 +159,9 @@ In this note, we consider the second restriction (no subset of mutually crossing
 
 A \defn{$k$-triangulation} of a convex $n$-gon is a maximal set of diagonals with no $(k+1)$-crossing, \ie no subset of $k+1$ mutually crossing diagonals.
 They were introduced in~\cite{CapoyleasPach} and particularly studied in~\cite{Nakamigawa, DressKoolenMoulton, Jonsson1, Jonsson2, SerranoStump, PilaudSantos-multitriangulations}.
-They feature some strong structural properties, which naturally generalize classical properties of the triangulations of a convex polygon~($k=1$):
+They feature some strong structural properties, which naturally generalize classical properties of the triangulations of a convex polygon~(corresponding to the case $k=1$):
 \begin{enumerate}[(i)]
-\item All $k$-triangulations of the $n$-gon have $k(2n-2k-1)$ diagonals~\cite{CapoyleasPach, Nakamigawa, DressKoolenMoulton}.\mathias{j'ai changé cette formule de n à 2n}
+\item All $k$-triangulations of the $n$-gon have $k(2n-2k-1)$ diagonals~\cite{CapoyleasPach, Nakamigawa, DressKoolenMoulton}.
 \item Any diagonal of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakamigawa, DressKoolenMoulton}.
 \item Any $k$-triangulation decomposes into a complex of $k$-stars~\cite{PilaudSantos-multitriangulations}.
 \item The set of $k$-triangulations of the $n$-gon is enumerated by a determinant of Catalan numbers~\cite{Jonsson1, Jonsson2}. It is thus in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
@@ -265,7 +265,7 @@ A \defn{$k$-star} of a polygon~$P$ is a set~$S$ of diagonals of~$P$ of the form~
 An \defn{angle} of a set~$D$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$D$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant or $k$-boundary diagonals. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
 \end{definition}
 
-One of the objectives of this paper is to prove the following structural results on infinite $k$-triangulations.
+One of the objectives of this paper is to prove the following structural results on infinite $k$-triangulations, generalizing the result of~\cite{PilaudSantos-multitriangulations}.
 
 \begin{theorem}
 \label{thm:structureInfinite}
@@ -273,7 +273,7 @@ Let~$T$ be a \ef \ktg of a tidy polygon~$P$. Then:
 \begin{enumerate}
 \item Each $k$-relevant angle of~$T$ is contained in precisely one $k$-star of~$T$.
 \item Each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
-\item For any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation (where~$\symdif$ denotes the symmetric difference). Moreover, the diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
+\item For any $k$-relevant diagonal~$e$ of~$T$, there exists a unique diagonal~$f$ not in~$T$ such that~$T \symdif \{e,f\}$ is another $k$-triangulation of~$P$ (where~$\symdif$ denotes the symmetric difference). Moreover, the diagonal~$f$ only depend on the two $k$-stars of~$T$ containing~$e$.
 \item Let~$P'$ denote a polygon obtained by replacing $k+1$ consecutive points of~$P$ by~$k$ points. Then there exists a flattening (resp.~inflating) operation that transforms the \ktg{}s of~$P$ into the \ktg{}s of~$P'$ (resp.~and \viceversa).
 %\item For any point~$p$ of the plane, the $k$-depth of~$p$ in~$P$ is equal to the sum of the winding numbers around~$p$ of the $k$-stars of~$T$.
 \end{enumerate}
@@ -653,7 +653,7 @@ This representation is illustrated for instance in \cref{fig:torusGroup}.
 \begin{figure}
 	\capstart
 	\centerline{\includegraphics[scale=.42]{torus/torusGroup}}
-	\caption{The torus with one hole, represented as the quotient of its universal cover by a Fuchsian group.}
+	\caption{The torus with one hole and one boundary, represented as the quotient of its universal cover by a Fuchsian group.}
 	\label{fig:torusGroup}
 \end{figure}
 
@@ -734,7 +734,7 @@ The polygon is tidy since each marked point in~$\bar\surface$ has for predecesso
 \subsection{Structural properties}
 
 We now explore structural properties of $k$-triangulations of a surface.
-Our approach is again through $k$-stars.
+Our approach is again through $k$-stars, as illustrated in \cref{fig:starsSurface}.
 
 %\begin{definition}
 %A \defn{$k$-star} on a surface~$\surface$ is the projection on~$\surface$ of a $k$-star of the universal cover~$\bar\surface$.
@@ -772,7 +772,7 @@ Consider a surface~$\surface$ of genus~$g$ with~$b$ boundaries and~$n$ marked po
 Then any \ktg of~$\surface$  has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Proof (sketch)]
 %There are various possible proofs of this statement, none of them is really clean at the moment.
 %
 %The first (original) proof is based on cutting along arcs.
@@ -830,24 +830,23 @@ We can now obtain the number of $k$-stars and $k$-relevant arcs for arbitrary su
 \begin{corollary}
 \label{coro:countingStarsArcsSurface}
 Consider a surface~$\surface$ of genus~$g$ with~$b$ boundaries and~$n$ marked points, such that $b^\circ$ boundaries have no marked points.
-Then any \ktg of~$\surface$  has $n + 2k(2g + b - 2) - b^\circ$ $k$-stars and $kn + k(2k + 1)(2g + b - 2) - kb^\circ$ $k$-relevant arcs.
+Then any \ktg of~$\surface$  has $n - b^\circ + 2k(2g + b - 2)$ $k$-stars and $k(n - b^\circ) + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
 \end{corollary}
 
-\begin{proof}
+\begin{proof}[Proof (sketch)]
 Let~$T$ be a $k$-triangulation of~$\surface$, and denote by $s$ its number of $k$-stars and by $r$ its number of $k$-relevant arcs.
-We can add to~$T$ a marked point, a $k$-star and $k$ $k$-relevant arcs to enclose each boundary of~$\surface$ with no marked point.
-The resulting surface~$\tilde\surface$ has genus~$\tilde g \eqdef g$, $\tilde b \eqdef b$ boundaries and $\tilde n \eqdef n+b^\circ$ marked points and there is at least one marked point on each boundary.
-The resulting $k$-triangulation~$\tilde T$ has~$\tilde s \eqdef s+b^\circ$ $k$-stars and~$\tilde r \eqdef r+kb^\circ$ $k$-relevant arcs.
+Consider a boundary~$\delta$ of~$\surface$ with no marked point.
+By maximality, the $k$-triangulation~$T$ contains a loop~$\ell$ around~$\delta$.
+By \cref{thm:countingStarsArcsSurface}, a cylinder with one marked point on each boundary admits a $k$-triangulation with two $k$-stars and $2k$ $k$-relevant arcs.
+We can thus add to~$T$ a marked point on~$\delta$, two $k$-stars and $2k$ $k$-relevant arcs to enclose the boundary~$\delta$.
+Repeating this operation at each marked point, we obtain a $k$-triangulation~$\tilde T$ of a surface~$\tilde\surface$ where:
+\begin{itemize}
+\item the resulting surface~$\tilde\surface$ has genus~$\tilde g \eqdef g$, $\tilde b \eqdef b$ boundaries and $\tilde n \eqdef n+b^\circ$ marked points and there is at least one marked point on each boundary,
+\item the resulting $k$-triangulation~$\tilde T$ has~$\tilde s \eqdef s+2b^\circ$ $k$-stars and~$\tilde r \eqdef r+2kb^\circ$ $k$-relevant arcs.
+\end{itemize}
 %By \cref{thm:countingStarsArcsSurface}, we obtain that~$\tilde s = \tilde n + 2k(2 \tilde g + \tilde b - 2)$ and $\tilde  r = k \tilde n + k(2k + 1)(2 \tilde g + \tilde b - 2)$.
 We conclude by \cref{thm:countingStarsArcsSurface}.
 \end{proof}
-
-\begin{figure}[b]
-	\capstart
-	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
-	\caption{A flip of a $2$-relevant arc in a $2$-triangulation of a cylinder.}
-	\label{fig:flipSurface}
-\end{figure}
 
 %\begin{remark}
 %\begin{itemize}
@@ -858,7 +857,7 @@ We conclude by \cref{thm:countingStarsArcsSurface}.
 %\end{itemize}
 %\end{remark}
 
-Our last structural property concerns flips in $k$-triangulations of surfaces.
+Our last structural property concerns flips in $k$-triangulations of surfaces, illustrated in \cref{fig:flipSurface}.
 The remaining of this note discusses the following conjecture.
 
 \begin{conjecture}
@@ -873,17 +872,24 @@ To flip a $k$-relevant arc~$a$ of the $k$-triangulation~$T$ of a surface~$\surfa
 However, this only works if, at any point of this procedure, the flip of any copy~$\bar a$ in~$\bar T$ does not modify the flip of the other copies of~$a$ in~$\bar T$.
 We say that the flip of~$a$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
 
+\begin{figure}[t]
+	\capstart
+	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
+	\caption{A flip of a $2$-relevant arc in a $2$-triangulation of a cylinder.}
+	\label{fig:flipSurface}
+\end{figure}
+
 \begin{example}
 For instance, all flips in the $2$-triangulation of \cref{fig:torusEdges} are sequential.
 We will see examples of non-sequencial flips in \cref{sec:halfCylinder}.
 \end{example}
 
 Our approach to \cref{conj:generalFlip} would be to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a half-cylinder~$\cylinder$.
-For this, consider an arc~$a$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$a$.
+For this, consider an arc~$a$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S$ and~$S'$ denote the two $k$-stars of~$T$ containing~$a$.
 We distinguish two cases:
 \begin{itemize}
 \item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $a$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar a$ of~$a$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar a$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar a$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar a$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar a$ in~$\bar T$ does not modify the flip of the other copies of~$a$ in~$\bar T$. Therefore the flip is sequential.
-\item Assume now that~$S = S'$ so that~$a$ appears twice in~$S$. Let~$\bar a$ and~$\bar a'$ be two copies of~$a$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\gamma \in \Gamma$ be the isomorphism of~$\bar\surface$ such that~$\gamma(\bar a) = \bar a'$. We consider the collection~$\bar U$ of arcs of the $k$-stars~$\gamma^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose isomorphism group is generated by~$\gamma$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
+\item Assume now that~$S = S'$ so that~$a$ appears twice in~$S$. Let~$\bar a$ and~$\bar a'$ be two copies of~$a$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\gamma \in \Gamma$ be the isometry of~$\bar\surface$ such that~$\gamma(\bar a) = \bar a'$. We consider the collection~$\bar U$ of arcs of the $k$-stars~$\gamma^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose isometry group is generated by~$\gamma$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
 \end{itemize}
 
 \begin{conjecture}
@@ -902,7 +908,7 @@ Although this approach is not yet settled, we believe that our presentation moti
 This section is devoted to multitriangulations of half-cylinders, defined as follows.
 
 \begin{definition}
-A \defn{half-cylinder} is a cylinder with some marked points on the lower boundary, but no point on the upper boundary.
+A \defn{half-cylinder} is a cylinder with some marked points on its lower boundary, but no point on its upper boundary.
 \end{definition}
 
 As mentioned, the study of multitriangulations of half-cylinders has two relevant purposes:
@@ -919,7 +925,7 @@ As mentioned, the study of multitriangulations of half-cylinders has two relevan
 
 %%%%%%%%%%%%
 
-\subsection{Half-cylinder with $2$ marked points}
+\subsection{Half-cylinder with two marked points}
 
 We start with the case of multitriangulations of the half-cylinder with only two points on the lower boundary.
 This case already provides relevant examples of non-sequencial flips that will enable us to settle some conventions of representations (see \cref{fig:nonsequential,fig:nonsequentialVHrep}).
@@ -1026,6 +1032,7 @@ Let $A$ be a $(k+1)$-crossing-free set of $k$-irrelevant or $k$-boundary arcs of
 We represent $\cylinder_n$ by a cylindric grid $G$ of width $n$ and height $kn-n+1$, where each column, indexed by $\Z/n\Z$, represent a point, and each row, indexed by $[k,kn]$ represent an arc length.
 We represent each arc $a$ of $A$ by a symbol $\bullet$ at position $(i_a,l_a)$ in $G$.
 We associate a directed lattice to the grid $G$, made of an edge going from any point $(i,l)$ to the point $(i-1,l+1)$, and an edge from any point $(i,l+1)$ to the point $(i,l)$, for $l<kn$ and $i \in \Z/n\Z$, as well as an edge going from point $(i,kn)$ to point $(i,kn)$ for any $i \in \Z/n\Z$.
+We call it the \defn{$H$-representation} of~$A$, see \cref{fig:nonsequentialVHrep}\,(right).
 We naturally call these edges the \emph{upper outgoing}, \emph{upper ingoing}, \emph{lower outgoing}, \emph{lower ingoing} edges of a point. Note that points of the form $(i,k)$ have no lower edges.
 
 A face of $A$ is made of a succession of \emph{top} arcs (that are above the face), and \emph{bottom} arcs (that are below the face). Around a face, their can be two consecutive bottom arcs, but no two consecutive top arcs. An angle between two bottom arcs is called \emph{upper angle}, an angle between a top and a bottom arcs is called \emph{lower angle}.
