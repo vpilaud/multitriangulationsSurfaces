@@ -31,7 +31,7 @@
 \usepackage{hypcap}
 
 \usepackage[noabbrev,capitalise]{cleveref}
-\usepackage{autonum}
+%\usepackage{autonum}
 \usepackage{xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,6 +53,7 @@
 
 \crefname{theorem}{Theorem}{Theorems}
 \crefname{lemma}{Lemma}{Lemmas}
+\crefname{conjecture}{Conjecture}{Conjectures}
 
 \definecolor{darkblue}{rgb}{0,0,0.7} % darkblue color
 \newcommand{\darkblue}{\color{darkblue}} % darkblue command
@@ -128,6 +129,8 @@ To that extent, we use the universal cover of the surface to transform a graph e
 We generalize the work of V.~Pilaud and F.~Santos to $k$-triangulations of an infinite polygon with some weak additional constraints, and we finally derive properties of $k$-triangulations on any surface.
 \end{abstract}
 
+\vspace*{-.3cm}
+
 \maketitle
 
 %\begin{figure}[h]
@@ -141,7 +144,7 @@ Triangulations are fundamental tools to understand and manipulate topological sp
 Triangulations of surfaces are particularly interesting as they feature strong enumerative and structural combinatorial properties.
 On the enumerative side, triangulated maps on surfaces are counted by surprising product formulas. % line of research started analytically by W.~Tutte in the sixties and actively developed by bijective approaches.
 On the structural side, crossing-free collections of arcs between marked points on a given surface form a pure and thin simplicial complex, whose facets are triangulations.
-In particular, triangulations admit a natural flip operation that exchanges an arc~$\alpha$ with the other diagonal of the quadrangle formed by the two triangles containing~$\alpha$.
+In particular, triangulations admit a natural flip operation that exchanges an arc~$a$ with the other diagonal of the quadrangle formed by the two triangles containing~$a$.
 These structural properties were used for instance to provide a large and relevant family of examples of cluster algebras whose combinatorics is driven by the triangulations of a surface and the flips between~them.
 
 Triangulations can be interpreted as maximal crossing-free collections of arcs connecting a fixed collection of marked points on the boundary of the surface.
@@ -158,8 +161,8 @@ A \defn{$k$-triangulation} of a convex $n$-gon is a maximal set of diagonals wit
 They were introduced in~\cite{CapoyleasPach} and particularly studied in~\cite{Nakamigawa, DressKoolenMoulton, Jonsson1, Jonsson2, SerranoStump, PilaudSantos-multitriangulations}.
 They feature some strong structural properties, which naturally generalize classical properties of the triangulations of a convex polygon~($k=1$):
 \begin{enumerate}[(i)]
-\item All $k$-triangulations of the $n$-gon have $k(n-2k-1)$ edges~\cite{CapoyleasPach, Nakamigawa, DressKoolenMoulton}.
-\item Any edge of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakamigawa, DressKoolenMoulton}.
+\item All $k$-triangulations of the $n$-gon have $k(n-2k-1)$ diagonals~\cite{CapoyleasPach, Nakamigawa, DressKoolenMoulton}.
+\item Any diagonal of length at least~$k + 1$ can be flipped and the graph of flips is regular and connected~\cite{Nakamigawa, DressKoolenMoulton}.
 \item Any $k$-triangulation decomposes into a complex of $k$-stars~\cite{PilaudSantos-multitriangulations}.
 \item The set of $k$-triangulations of the $n$-gon is enumerated by a determinant of Catalan numbers~\cite{Jonsson1, Jonsson2}. It is thus in bijection with families of $k$ mutually non-crossing Dyck paths~\cite{SerranoStump}.
 \end{enumerate}
@@ -196,25 +199,25 @@ We now provide a proper definition of infinite polygon (\cref{def:infinitePolygo
 \begin{definition}
 \label{def:infinitePolygon}
 A \defn{polygon}~$P$ is a cyclically ordered set, that might be finite or infinite.
-We write~$a \cl b \cl c$ for the cyclic order.
+We write~$u \cl v \cl w$ for the cyclic order.
 The elements of~$P$ are called \defn{points} and pairs of elements of~$P$ are called \defn{diagonals}.
-For two points~$a,b \in P$, let~$[a,b] \eqdef \set{c \in P}{a \le c \le b}$, and define similarly the intervals~$[a,b[$, $]a,b]$ and~$]a,b[$ (with open brackets for strict inequalitites).
-Two diagonals~$(a,c)$ and~$(b,d)$ of~$P$ \defn{cross} if~$a \cl b \cl c \cl d$.
+For two points~$u,w \in P$, let~$[u,w] \eqdef \set{v \in P}{u \le v \le w}$, and define similarly the intervals~$[u,w[$, $]u,w]$ and~$]u,w[$ (with open brackets for strict inequalitites).
+Two diagonals~$(t,u)$ and~$(v,w)$ of~$P$ \defn{cross} if~$t \cl v \cl u \cl w$ or $v \cl t \cl w \cl u$.
 \end{definition}
 
 \begin{definition}
 \label{def:tidyPolygon}
-If $x$ and $y$ are two points of a polygon~$P$ such that the interval~$]x,y[$ is empty, we say that~$x$ is the \defn{predecessor} of~$y$ and that~$y$ is the \defn{successor} of~$x$, and we use the notations~$y = x+1$ and~$x = y-1$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
+If $u$ and $v$ are two points of a polygon~$P$ such that the interval~$]u,v[$ is empty, we say that~$u$ is the \defn{predecessor} of~$v$ and that~$v$ is the \defn{successor} of~$u$, and we use the notations~$v = u+1$ and~$u = v-1$. A polygon~$P$ is \defn{tidy} if each point of~$P$ has both a predecessor and a successor. In particular, finite polygons are tidy.
 \end{definition}
 
 In particular, note that a tidy polygon is \defn{discrete}, meaning that each of its points is isolated. However, the converse is not true. For instance, the set $\{-1\}\cup \{1, \frac{1}{2},\frac{1}{3}\cdots\}$ is discrete, but not tidy, since $-1$ has no successor.
 
 \begin{definition}
 \label{def:EV-finite}
-A set~$X$ of diagonals of a polygon~$P$ is 
+A set~$D$ of diagonals of a polygon~$P$ is 
 \begin{itemize}
-\item \defn{\ef} if each diagonal of~$X$ is crossed by a finite number of diagonals of~$X$,
-\item \defn{\vf} if each vertex of~$P$ is incident to finitely many diagonals of~$X$.
+\item \defn{\ef} if each diagonal of~$D$ is crossed by a finite number of diagonals of~$D$,
+\item \defn{\vf} if each vertex of~$P$ is incident to finitely many diagonals of~$D$.
 \end{itemize}
 \end{definition}
 
@@ -230,8 +233,8 @@ A \defn{$k$-triangulation} of~$P$ is an inclusion-maximal set of diagonals of~$P
 \end{definition}
 
 \begin{definition}
-The \defn{length} of a diagonal~$(a,b)$ of a polygon~$P$ is the minimum~$\ell(a,b)$ of~$|{]a,b[}|$ and~$|{]b,a[}|$ (note that this might be infinite).
-A diagonal~$(a,b)$ with~$\ell(a,b) > k$ (resp.~$\ell(a,b) = k$, resp.~$\ell(a,b) < k$) is a \defn{$k$-relevant} (resp.~\defn{$k$-boundary}, resp.~\defn{$k$-irrelevant}) diagonal.
+The \defn{length} of a diagonal~$(u,v)$ of a polygon~$P$ is the minimum~$\ell(u,v)$ of~$|{]u,v[}|$ and~$|{]u,v[}|$ (note that this might be infinite).
+A diagonal~$(u,v)$ with~$\ell(u,v) > k$ (resp.~$\ell(u,v) = k$, resp.~$\ell(u,v) < k$) is a \defn{$k$-relevant} (resp.~\defn{$k$-boundary}, resp.~\defn{$k$-irrelevant}) diagonal.
 \end{definition}
 
 \begin{remark}
@@ -255,11 +258,11 @@ In all pictures, we only represent diagonals until a certain depth, and we leave
 As observed in~\cite{PilaudSantos-multitriangulations}, many combinatorial properties of $k$-triangulations are better understood from their decompositions into $k$-stars, which generalize triangles in triangulations.
 
 \begin{definition}
-A \defn{$k$-star} of a polygon~$P$ is a set of diagonals of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 \cl \dots \cl s_{2k}$ (where the indices are understood modulo~$2k+1$).
+A \defn{$k$-star} of a polygon~$P$ is a set~$S$ of diagonals of~$P$ of the form~$\set{(s_i, s_{i+k})}{0 \le i \le 2k}$ where~$s_0 \cl \dots \cl s_{2k}$ (where the indices are understood modulo~$2k+1$).
 \end{definition}
 
 \begin{definition}
-An \defn{angle} of a set~$X$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$X$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant or $k$-boundary edges. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
+An \defn{angle} of a set~$D$ of diagonals of a polygon~$P$ is a pair of diagonals~$\{(u,v), (v,w)\}$ with~$u \cl v \cl w$ such that~$D$ contains no diagonal of the form~$(v,t)$ with~$w \cl t \cl u$. The angle is denoted by~$\angle(u,v,w)$ and we say that~$v$ is the \defn{apex} of~$\angle(u,v,w)$. An angle is \defn{$k$-relevant} if its two diagonals are $k$-relevant or $k$-boundary diagonals. %A set~$Y$ of diagonals of~$P$ crosses the angle~$\angle(u,v,w)$ if each diagonal of~$Y$ crosses both~$(u,v)$ and~$(v,w)$. 
 \end{definition}
 
 One of the objectives of this paper is to prove the following structural results on infinite $k$-triangulations.
@@ -473,7 +476,7 @@ In a \ef \ktg of a tidy polygon, any $k$-relevant angle belongs to a $k$-star.
 We now use $k$-relevant angles to show that any $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of a $k$-triangulation~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 
 \begin{lemma}
-When $k\geq 2$, any \ef \ktg of a tidy polygon is also \vf.
+When $k \ge 2$, any \ef \ktg of a tidy polygon is also \vf.
 \end{lemma}
 
 \begin{proof}
@@ -497,7 +500,7 @@ The proof is similar for a $k$-boundary diagonal, except only two of the inciden
 Combining \cref{lem:diagsInAngles,coro:angleInStar}, we obtain the proof of \cref{thm:structureInfinite}\,(2).
 
 \begin{corollary}
-\label{coro:edgeInStars}
+\label{coro:diagonalInStars}
 Any $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) diagonal of a \ef $k$-triangulation~$T$ of a tidy polygon is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 \end{corollary}
 
@@ -532,7 +535,7 @@ These notations are illustrated in \cref{fig:combisector}.
 \begin{figure}
 	\capstart
 	\centerline{\includegraphics[scale=.8]{combisector}}
-	\caption{The common bisector~$(r,s)$ of two stars~$R$ and~$S$ (left) and a $k$-crossing crossing~$(r,s)$. Picture adapted from~\cite[Fig.~4]{PilaudSantos-multitriangulations}.}
+	\caption{The common bisector~$(r,s)$ of two $2$-stars~$R$ and~$S$ (left) and a $2$-crossing crossing~$(r,s)$. Picture adapted from~\cite[Fig.~4]{PilaudSantos-multitriangulations}.}
 	\label{fig:combisector}
 \end{figure}
 
@@ -586,7 +589,7 @@ For any \ef \ktg~$T$ of a tidy polygon~$P$ and any $k$-relevant diagonal~$e$ of~
 \end{corollary}
 
 \begin{proof}
-By \cref{coro:edgeInStars}, the diagonal~$e$ is contained in two $k$-stars~$R$ and~$S$ of~$T$.
+By \cref{coro:diagonalInStars}, the diagonal~$e$ is contained in two $k$-stars~$R$ and~$S$ of~$T$.
 By \cref{thm:uniqueCommonBisector}, the $k$-stars~$R$ and~$S$ have a unique common bisector~$f$.
 By \cref{lem:flip}, the collection of diagonals~$T \symdif \{e,f\}$ is $(k+1)$-crossing-free.
 Finally, $T \symdif \{e,f\}$ must be maximal: otherwise, it is contained in a $k$-triangulation~$T'$ and~$T' \symdif \{e,f\}$ is $(k+1)$-crossing-free and properly contains~$T$.
@@ -664,7 +667,7 @@ We now define $k$-crossings, $k$-stars and $k$-triangulations on a surface~$\sur
 \label{def:crossingsStarsTriangulationsSurfaces}
 Let~$\surface$ be a surface, let~$\Gamma$ the corresponding subgroup of isometries of the hyperbolic disk~$\disk$, let~$\bar\surface$ be its universal cover, and let~$\pi : \bar\surface \to \surface$ be the canonical projection.
 \begin{enumerate}[(i)]
-\item A \defn{$k$-crossing} on~$\surface$ is the projection~$\pi(\bar\alpha_1), \dots, \pi(\bar\alpha_k)$ of a $k$-crossing~$\bar\alpha_1, \dots, \bar\alpha_1$ of~$\bar\surface$.
+\item A \defn{$k$-crossing} on~$\surface$ is the projection~$\pi(\bar a_1), \dots, \pi(\bar a_k)$ of a $k$-crossing~$\bar a_1, \dots, \bar a_1$ of~$\bar\surface$.
 \item A \defn{$k$-star} on~$\surface$ is the projection~$\pi(\bar S)$ of a $k$-star~$\bar S$ of~$\bar\surface$.
 \item A \defn{$k$-triangulation} of~$\surface$ is the projection~$\pi(\bar T)$ of a $\Gamma$-periodic $k$-triangulation~$\bar T$ of~$\bar\surface$.
 \end{enumerate}
@@ -688,7 +691,7 @@ If~$T$ is a $k$-triangulation of~$\surface$, then its covering $k$-triangulation
 \end{lemma}
 
 \begin{proof}
-For any diagonal~$\bar\alpha$ in~$\bar T$, the sequence~$\bar\alpha_1, \dots, \bar\alpha_p$ of arcs crossed by~$\bar\alpha$ projects down to the sequence~$\pi(\bar\alpha_1), \dots, \pi(\bar\alpha_p)$ crossed by~$\pi(\bar\alpha)$. Thus, $\bar\alpha$ crosses only finitely many arcs and~$\bar T$ is \ef.
+For any diagonal~$\bar a$ in~$\bar T$, the sequence~$\bar a_1, \dots, \bar a_p$ of arcs crossed by~$\bar a$ projects down to the sequence~$\pi(\bar a_1), \dots, \pi(\bar a_p)$ crossed by~$\pi(\bar a)$. Thus, $\bar a$ crosses only finitely many arcs and~$\bar T$ is \ef.
 The polygon is tidy since each marked point in~$\bar\surface$ has for predecessor (resp.~successor) the previous (resp.~next) point along the boundary of~$\surface$. 
 \end{proof}
 
@@ -699,12 +702,12 @@ The polygon is tidy since each marked point in~$\bar\surface$ has for predecesso
 	\label{fig:torus}
 \end{figure}
 
-%For an arc~$\alpha$ on the surface~$\surface$, we denote by~$\bar\alpha \eqdef \pi^{-1}(\alpha)$ its fiber under the projection~$\pi$.
-%We call \defn{representative} of the arc~$\alpha$ in the universal cover~$\bar\surface$ any arc~$\tilde\alpha$ in~$\bar\surface$ such that~$\pi(\tilde\alpha) = \alpha$.
-%For a collection~$T$ of arcs, we also denote by~$\bar T \eqdef \pi^{-1}(T) = \bigcup_{\alpha \in T} \bar\alpha$.
+%For an arc~$a$ on the surface~$\surface$, we denote by~$\bar a \eqdef \pi^{-1}(a)$ its fiber under the projection~$\pi$.
+%We call \defn{representative} of the arc~$a$ in the universal cover~$\bar\surface$ any arc~$\tilde a$ in~$\bar\surface$ such that~$\pi(\tilde a) = a$.
+%For a collection~$T$ of arcs, we also denote by~$\bar T \eqdef \pi^{-1}(T) = \bigcup_{a \in T} \bar a$.
 %
 %\begin{definition}
-%A \defn{$k$-crossing} on~$\surface$ is a collection~$\alpha_1, \dots, \alpha_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\tilde\alpha_1, \dots, \tilde\alpha_k$ in the universal cover~$\bar\surface$.
+%A \defn{$k$-crossing} on~$\surface$ is a collection~$a_1, \dots, a_k$ (possibly with repetition) of $k$ arcs of~$\surface$ which admit pairwise crossing representatives~$\tilde a_1, \dots, \tilde a_k$ in the universal cover~$\bar\surface$.
 %A \defn{$k$-triangulation} of~$\surface$ is an inclusion maximal set of arcs of~$\surface$ with no $(k+1)$-crossing.
 %\end{definition}
 %
@@ -743,6 +746,7 @@ Our approach is again through $k$-stars.
 %A $k$-star of~$\surface$ can then be defined as a cyclic collection of $2k+1$ arcs~$a_0, \dots, a_{2k+1}$ arcs of~$\surface$ such that any two consecutive ones~$a_i$ and~$a_{i+1}$ (including~$a_{2k+1}$ and~$a_0$) form an angle of~$\surface$.
 
 \begin{theorem}
+\label{thm:arcInStar}
 For any $k$-triangulation~$T$ of a surface~$\surface$, each $k$-relevant (resp.~$k$-boundary, resp.~$k$-irrelevant) arc of~$T$ is contained in precisely two (resp.~one, resp.~no) $k$-stars of~$T$.
 \end{theorem}
 
@@ -759,9 +763,13 @@ The statement thus follows by projection of~$\bar T$ to~$T$.
 	\label{fig:starsSurface}
 \end{figure}
 
+Using \cref{thm:arcInStar}, we obtain the number of $k$-stars and $k$-relevant arcs in a $k$-triangulation.
+We start with the case of surfaces with at least one marked point on each connected component, for which we argue by a cutting argument.
+
 \begin{theorem}
-\label{thm:structureSurface}
-Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
+\label{thm:countingStarsArcsSurface}
+Consider a surface~$\surface$ of genus~$g$ with~$b$ boundaries and~$n$ marked points, such that there is at least one marked point on each boundary.
+Then any \ktg of~$\surface$  has precisely $n + 2k(2g + b - 2)$ $k$-stars and $kn + k(2k + 1)(2g + b - 2)$ $k$-relevant arcs.
 \end{theorem}
 
 \begin{proof}
@@ -771,11 +779,11 @@ Any \ktg of a surface of genus~$g$ with~$b$ boundaries and~$n$ marked points has
 We sketch a proof based on cutting along arcs.
 Start from a $k$-triangulation~$T$ of a surface~$\surface$ with at least~$2k+1$ marked points, genus~$g$ and $b$ boundaries.
 If~$T$ has no $k$-relevant arc, then~$T$ is the complete graph on $2k+1$ vertices, has a single $k$-star, and $\surface$ is a disk.
-Otherwise, pick an arbitrary $k$-relevant arc~$\alpha$ of~$T$.
-Cut along~$\alpha$, create $k-1$ new marked points on each side of~$\alpha$, and rearrange the branches of the stars that cross~$\alpha$ to these new marked points (there is a unique way to do this rearrangement).
+Otherwise, pick an arbitrary $k$-relevant arc~$a$ of~$T$.
+Cut along~$a$, create $k-1$ new marked points on each side of~$a$, and rearrange the branches of the $k$-stars that cross~$a$ to these new marked points (there is a unique way to do this rearrangement).
 This operation, illustrated in \cref{fig:cutSurface}, is easier to see on the disk, and can then be extended to surfaces using the universal cover.
 %
-\begin{figure}[b]
+\begin{figure}[t]
 	\capstart
 	\centerline{\includegraphics[scale=.5]{2triangCylinderCut}}
 	\caption{Cutting a $2$-triangulation of a cylinder along a $2$-relevant arc.}
@@ -786,11 +794,11 @@ We obtain a new $k$-triangulation~$T'$ on a new surface~$\surface'$ (not necessa
 Note that
 \begin{enumerate}
 \item the $k$-triangulations~$T$ and~$T'$ have the same number of $k$-stars,
-\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$\alpha$ and we have created $2k-2$ new marked points),
-\item the genius~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$\alpha$:
+\item the surface~$\surface'$ has $n' = n+2k$ marked points (as we have duplicated the endpoints of~$a$ and we have created $2k-2$ new marked points),
+\item the genus~$g'$ and number of boundaries~$b'$ of the surface~$\surface'$ depend on the choice of~$a$:
 	\begin{itemize}
-	\item if the endpoints of~$\alpha$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
-	\item if the endpoints of~$\alpha$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
+	\item if the endpoints of~$a$ belong to the same connected component of~$\surface$, then we cut a handle and thus~$g' = g-1$ and $b' = b+1$,
+	\item if the endpoints of~$a$ belong to distinct connected components of~$\surface$, then we cut a border and thus~$g' = g$ and~$b' = b-1$.
 	\end{itemize}
 	But in both cases, $2g'+b' = 2g+b-1$.
 \end{enumerate}
@@ -817,7 +825,24 @@ r = \big( (2k+1)s-n \big)/2 = kn + k(2k + 1)(2g + b - 2).
 \]
 \end{proof}
 
-\begin{figure}[t]
+We can now obtain the number of $k$-stars and $k$-relevant arcs for arbitrary surfaces.
+
+\begin{corollary}
+\label{coro:countingStarsArcsSurface}
+Consider a surface~$\surface$ of genus~$g$ with~$b$ boundaries and~$n$ marked points, such that $b^\circ$ boundaries have no marked points.
+Then any \ktg of~$\surface$  has $n + 2k(2g + b - 2) - b^\circ$ $k$-stars and $kn + k(2k + 1)(2g + b - 2) - kb^\circ$ $k$-relevant arcs.
+\end{corollary}
+
+\begin{proof}
+Let~$T$ be a $k$-triangulation of~$\surface$, and denote by $s$ its number of $k$-stars and by $r$ its number of $k$-relevant arcs.
+We can add to~$T$ a marked point, a $k$-star and $k$ $k$-relevant arcs to enclose each boundary of~$\surface$ with no marked point.
+The resulting surface~$\tilde\surface$ has genus~$\tilde g \eqdef g$, $\tilde b \eqdef b$ boundaries and $\tilde n \eqdef n+b^\circ$ marked points and there is at least one marked point on each boundary.
+The resulting $k$-triangulation~$\tilde T$ has~$\tilde s \eqdef s+b^\circ$ $k$-stars and~$\tilde r \eqdef r+kb^\circ$ $k$-relevant arcs.
+%By \cref{thm:countingStarsArcsSurface}, we obtain that~$\tilde s = \tilde n + 2k(2 \tilde g + \tilde b - 2)$ and $\tilde  r = k \tilde n + k(2k + 1)(2 \tilde g + \tilde b - 2)$.
+We conclude by \cref{thm:countingStarsArcsSurface}.
+\end{proof}
+
+\begin{figure}[b]
 	\capstart
 	\centerline{\includegraphics[scale=.5]{2triangCylinderFlip}}
 	\caption{A flip of a $2$-relevant arc in a $2$-triangulation of a cylinder.}
@@ -843,10 +868,10 @@ Any $k$-relevant arc of a $k$-triangulation on a surface can be flipped.
 
 %Consider a $k$-triangulation~$T$ of a surface~$\surface$.
 %Let~$\bar T$ be the corresponding infinite $k$-triangulation of the universal cover~$\bar \surface$.
-%We want to show that any $k$-relevant arc~$\alpha$ of~$T$ is flippable.
-To flip a $k$-relevant arc~$\alpha$ of the $k$-triangulation~$T$ of a surface~$\surface$, the natural idea is to flip sequentially all copies~$\bar\alpha$ of the arc~$\alpha$ in the $k$-triangulation~$\bar T$ of the universal cover~$\bar\surface$.
-However, this only works if, at any point of this procedure, the flip of any copy~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$.
-We say that the flip of~$\alpha$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
+%We want to show that any $k$-relevant arc~$a$ of~$T$ is flippable.
+To flip a $k$-relevant arc~$a$ of the $k$-triangulation~$T$ of a surface~$\surface$, the natural idea is to flip sequentially all copies~$\bar a$ of the arc~$a$ in the $k$-triangulation~$\bar T$ of the universal cover~$\bar\surface$.
+However, this only works if, at any point of this procedure, the flip of any copy~$\bar a$ in~$\bar T$ does not modify the flip of the other copies of~$a$ in~$\bar T$.
+We say that the flip of~$a$ in~$T$ is \defn{sequential} when this procedure works, and \defn{non-sequential} otherwise.
 
 \begin{example}
 For instance, all flips in the $2$-triangulation of \cref{fig:torusEdges} are sequential.
@@ -854,11 +879,11 @@ We will see examples of non-sequencial flips in \cref{sec:halfCylinder}.
 \end{example}
 
 Our approach to \cref{conj:generalFlip} would be to show that non-sequential flips in $k$-triangulations of any surface~$\surface$ just boil down to non-sequential flips of $k$-triangulations of a half-cylinder~$\cylinder$.
-For this, consider an arc~$\alpha$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$\alpha$.
+For this, consider an arc~$a$ of a $k$-triangulation~$T$ of~$\surface$, and let~$S,S'$ be the two $k$-stars of~$T$ containing~$a$.
 We distinguish two cases:
 \begin{itemize}
-\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $\alpha$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar\alpha$ of~$\alpha$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar\alpha$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar\alpha$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar\alpha$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar\alpha$ in~$\bar T$ does not modify the flip of the other copies of~$\alpha$ in~$\bar T$. Therefore the flip is sequential.
-\item Assume now that~$S = S'$ so that~$\alpha$ appears twice in~$S$. Let~$\bar\alpha$ and~$\bar\alpha'$ be two copies of~$\alpha$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\gamma \in \Gamma$ be the homomorphism of~$\bar\surface$ such that~$\gamma(\bar\alpha) = \bar\alpha'$. We consider the collection~$\bar U$ of arcs of stars~$\gamma^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\gamma$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
+\item If~$S$ and~$S'$ are distinct $k$-stars of~$T$, then $a$ appears only once in~$S$ and in~$S'$. Consider a copy~$\bar a$ of~$a$ in~$\bar T$ and the copy~$\bar S$ (resp.~$\bar S'$) of~$S$ (resp.~$S'$) in~$\bar T$ containing~$\bar a$. Remember from \cref{sec:infiniteMultitriangulations} that the flip of~$\bar a$ in~$\bar T$ only depends on and only modifies the two $k$-stars~$\bar S$ and~$\bar S'$. Since~$\bar a$ is not contained in any other copy of~$S$ and~$S'$ in~$\bar T$, the flip of~$\bar a$ in~$\bar T$ does not modify the flip of the other copies of~$a$ in~$\bar T$. Therefore the flip is sequential.
+\item Assume now that~$S = S'$ so that~$a$ appears twice in~$S$. Let~$\bar a$ and~$\bar a'$ be two copies of~$a$ in a copy~$\bar S$ of~$S$ in~$\bar T$. Let~$\gamma \in \Gamma$ be the homomorphism of~$\bar\surface$ such that~$\gamma(\bar a) = \bar a'$. We consider the collection~$\bar U$ of arcs of the $k$-stars~$\gamma^i(\bar S)$ for~$i \in \Z$. Perform all identifications of two consecutive vertices of~$\bar U$ that do not uncross any pairs of arcs of~$\bar U$. These identifications can be performed in any order. The result~$\bar V$ is a $k$-triangulation of an infinite polygon whose homomorphism group is generated by~$\gamma$. Therefore, $\bar V$ is a covering of a $k$-triangulation~$V$ of a cylinder~$\cylinder$.
 \end{itemize}
 
 \begin{conjecture}
@@ -899,23 +924,22 @@ As mentioned, the study of multitriangulations of half-cylinders has two relevan
 We start with the case of multitriangulations of the half-cylinder with only two points on the lower boundary.
 This case already provides relevant examples of non-sequencial flips that will enable us to settle some conventions of representations (see \cref{fig:nonsequential,fig:nonsequentialVHrep}).
 
-Consider the half-cylinder with two points~$a,b$ on one boundary and none on the other.
-The universal cover is an infinite band, with points~$a_{\ell}, b_{\ell}$ for~$\ell \in \Z$ alternating on one boundary (so that~$a_\ell+1 = b_\ell = a_{\ell+1}-1$).
+Consider the half-cylinder~$\cylinder$ with two points~$\{u,v\}$ on one boundary and none on the other.
+Its universal cover~$\bar\cylinder$ is an infinite band, with points~$u_j$ and~$v_j$ for~$j \in \Z$ alternating on one boundary (so that~$u_j+1 = v_j = u_{j+1}-1$).
 See \cref{fig:nonsequential}.
 
-For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k  \in \{a,b\}^k$, consider a set~$T_w$ of diagonals of~$\surface$ formed by
+For~$k \ge 1$ and a word~$w \eqdef w^1 \dots w^k  \in \{u,v\}^k$, consider a set~$\bar T_w$ of diagonals of~$\bar\cylinder$ formed by
 \begin{itemize}
-\item the diagonals~$(w^i_\ell, w^i_{\ell}+k+i)$ for all~$i \in [k]$ and~$\ell \in \Z$,
-\item all $k$-boundary and $k$-irrelevant diagonals~$(\epsilon_{\ell}, \epsilon_{\ell}+i)$ for~$i \in [k]$, $\epsilon \in \{a,b\}$ and~$\ell \in \Z$.
-%\item the outer $k$-boundary diagonals~$(a_{\ell}, a_{\ell}+2k)$ for~$\ell \in \Z$.
+\item the diagonals~$\bar a_w^i \eqdef (w^i_j, w^i_j+k+i)$ for all~$i \in [k]$ and~$j \in \Z$,
+\item all $k$-boundary and $k$-irrelevant diagonals~$(\epsilon_j, \epsilon_j+i)$ for~$i \in [k]$, $\epsilon \in \{u,v\}$ and~$j \in \Z$.
 \end{itemize}
-For instance, we have represented the sets~$T_{aba}$ and~$T_{aaa}$ in \cref{fig:nonsequential}.
+For instance, we have represented the sets~$\bar T_{uvu}$ and~$\bar T_{uuu}$ in \cref{fig:nonsequential}.
 
 \begin{figure}
 	\capstart
 	\includegraphics[page=2, scale=.5, clip, trim=15cm 0cm 17cm 0cm]{FNSk3p2} \\[.5cm]
 	\includegraphics[page=3, scale=.5, clip, trim=15cm 0cm 17cm 0cm]{FNSk3p2}
-	\caption{Two $3$-triangulations of a half cylinder related by a non-sequential flip. The edge~$a_ib_{i+2}$ is flipped to the edge~$b_ia_{i+3}$. These edges belong to two consecutive copies of the same $3$-star.}
+	\caption{Two $3$-triangulations of a half cylinder related by a non-sequential flip. The diagonal~$u_i v_{i+2}$ is flipped to the diagonal~$v_i u_{i+3}$. These diagonals belong to two consecutive copies of the same $3$-star.}
 	\label{fig:nonsequential}
 \end{figure}
 
@@ -923,68 +947,73 @@ For instance, we have represented the sets~$T_{aba}$ and~$T_{aaa}$ in \cref{fig:
 \label{lem:noTwoDiagonalsEachLevel}
 The sets
 \begin{itemize}
-\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\epsilon \in \{a,b\} \text{ and } \ell \in \Z}$ for any~$i \in [k]$,
-\item $\set{(\epsilon_\ell, \epsilon_\ell+k+i)}{\ell \in \Z}$ for any~$\epsilon \in \{a,b\}$ and~$i \ge k+1$,
+\item $\set{(\epsilon_j, \epsilon_j+k+i)}{\epsilon \in \{u,v\} \text{ and } j \in \Z}$ for any~$i \in [k]$,
+\item $\set{(\epsilon_j, \epsilon_j+k+i)}{j \in \Z}$ for any~$\epsilon \in \{u,v\}$ and~$i \ge k+1$,
 \end{itemize}
 all contain a $(k+1)$-crossing.
 \end{lemma}
 
 \begin{proposition}
-For any~$k \ge 1$ and~$w \eqdef  \in \{a,b\}^k$, the set~$T_w$ is a $k$-triangulation of~$\surface$.
+For any~$k \ge 1$ and~$w  \in \{u,v\}^k$, the set~$\bar T_w$ is a $k$-triangulation of~$\bar\surface$.
 \end{proposition}
 
 \begin{proof}
-The maximality is immediate from \cref{lem:noTwoDiagonalsEachLevel}.
-To see that~$T_w$ is $(k+1)$-crossing-free, we use the following strategy:
+The maximality is immediate from \cref{lem:noTwoDiagonalsEachLevel} or \cref{coro:countingStarsArcsSurface}.
+To see that~$\bar T_w$ is $(k+1)$-crossing-free, we use the following strategy:
 \begin{itemize}
-\item the set of diagonals~$\set{(\epsilon_\ell, \epsilon_\ell+2k)}{\ell \in \Z}$ has no $(k+1)$-crossing for any~$\epsilon \in \{a,b\}$,
-\item given any set~$X$ of pairwise crossing diagonals in~$T_w$, we can construct a new set~$X'$ of pairwise crossing diagonals in~$T_w$ by increasing the length of the smallest diagonal~$(u,v)$ of~$X$, provided this length is not~$2k$. Indeed, we just need to observe that the vertices~$u-1$ and~$v-1$ cannot be incident to diagonals of~$X$.
+\item the set of diagonals~$\set{(\epsilon_j, \epsilon_j+2k)}{j \in \Z}$ has no $(k+1)$-crossing for any~$\epsilon \in \{u,v\}$,
+\item given any set~$D$ of pairwise crossing diagonals in~$\bar T_w$, we can construct a new set~$D'$ of pairwise crossing diagonals in~$\bar T_w$ by increasing the length of the smallest diagonal~$(u,v)$ of~$D$, provided this length is not~$2k$. Indeed, we just need to observe that the vertices~$u-1$ and~$v-1$ cannot be incident to diagonals of~$D$.
 \qedhere
 \end{itemize}
 \end{proof}
 
 \begin{corollary}
 \label{coro:allkTriangCyclinder}
-The set of $k$-triangulations of~$\surface$ is~$\set{T_w}{w \in \{a,b\}^k}$.
+The set of $k$-triangulations of~$\bar\cylinder$ is~$\set{\bar T_w}{w \in \{u,v\}^k}$.
 \end{corollary}
 
 \begin{proof}
-Any $(k+1)$-crossing free set of diagonals of~$\surface$ is a subset of a certain~$T_w$ by \cref{lem:noTwoDiagonalsEachLevel}.
+Any $(k+1)$-crossing free set of diagonals of~$\bar\cylinder$ is a subset of a certain~$\bar T_w$ by \cref{lem:noTwoDiagonalsEachLevel}.
 \end{proof}
 
-We denote by~$\delta_w^i$ the diagonal of~$\surface$ which lifts to the diagonals~$(w^i_\ell, w^i_{\ell}+k+1+i)$.
+Consider now the projection~$\pi : \bar\cylinder \to \cylinder$. We denote by 
+\begin{itemize}
+\item $a_w^i$ the arc of~$\cylinder$ obtained by projection of any diagonal~$(w^i_j, w^i_j+k+1+i)$ of~$\bar\cylinder$ for~$j \in \Z$.
+\item $T_w$ the $k$-triangulation of~$\cylinder$ obtained by projection of the $k$-triangulation~$\bar T_w$ of~$\bar\cylinder$.
+\end{itemize}
 
 \begin{proposition}
 \label{prop:flip2halfCylinder}
-%For any~$w \in \{a,b\}^k$ and~$i \in [k]$, the diagonal~$\delta_w^i$ of the $k$-triangulation~$T_w$ can be fli
-For any~$w, w' \in \{a,b\}^k$ which only differ at position~$i \in [k]$, the $k$-triangulations~$T_w$ and~$T_w'$ are the only two $k$-triangulations~$\surface$ which contain~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$. In other words, any diagonal~$\delta_w^i$ in the $k$-triangulation~$T_w$ can be uniquely flipped.
+%For any~$w \in \{u,v\}^k$ and~$i \in [k]$, the diagonal~$a_w^i$ of the $k$-triangulation~$T_w$ can be fli
+For any~$w, w' \in \{u,v\}^k$ which only differ at position~$i \in [k]$, the $k$-triangulations~$T_w$ and~$T_w'$ are the only two $k$-triangulations~$\surface$ which contain~${T_w \ssm \{a_w^i\} = T_{w'} \ssm \{a_{w'}^i\}}$. In other words, any diagonal~$a_w^i$ in the $k$-triangulation~$T_w$ can be uniquely flipped.
 \end{proposition}
 
 \begin{proof}
-By definition of~$T_w$ and~$T_{w'}$, we have~${T_w \ssm \{\delta_w^i\} = T_{w'} \ssm \{\delta_{w'}^i\}}$ so that the flip is possible.
+By definition of~$T_w$ and~$T_{w'}$, we have~${T_w \ssm \{a_w^i\} = T_{w'} \ssm \{a_{w'}^i\}}$ so that the flip is possible.
 It is unique by \cref{coro:allkTriangCyclinder}.
 \end{proof}
 
 \begin{remark}
-The flip of $\delta_w^1$ is sequential (for the first flip, all points below $\delta_w^1$ are vertices of the star below~$\delta_w^1$ and we can determine which of these angles see each other; we have not worked out the other flips yet).
-In contrast, the flip of~$\delta_w^i$ is not sequential for~$i \in \{2, \dots, k-1\}$ (since the common bisector is still of length~$k+1$).
+The flip of $a_w^1$ is sequential (for the first flip, all points below $a_w^1$ are vertices of the $k$-star below~$a_w^1$ and we can determine which of these angles see each other; we have not worked out the other flips yet).
+In contrast, the flip of~$a_w^i$ is not sequential for~$i \in \{2, \dots, k-1\}$ (since the common bisector is still of length~$k+1$).
 \end{remark}
 
 %%%%%%%%%%%%
 
 \subsection{All half-cylinders}
 
-We now consider an arbitrary half-cylinder~$\cylinder_p$ with $p$ points $(v_i)_{i \in \Z/p\Z}$ on the lower boundary and no point on the upper boundary. 
-The successive copies of a point $v_i$ in the universal cover~$\overline{\cylinder_p}$ (which is an infinite band) are denoted by~$v_i^j$ for~$j \in \Z$.
-The objective of this section is to discuss the following conjecture extending~\ref{prop:flip2halfCylinder}.
+We now consider an arbitrary half-cylinder~$\cylinder_n$ with $n$ points $(v_i)_{i \in \Z/n\Z}$ on the lower boundary and no point on the upper boundary. 
+For a point~$v_i \in \cylinder_n$, we denote by~$(v_i^j)_{j \in \Z}$, its successive copies in the universal cover~$\overline{\cylinder_n}$ (which is an infinite band).
+The objective of this section is to discuss the following conjectural extension of~\cref{prop:flip2halfCylinder}.
 
 \begin{conjecture}
-\label{thm:flipHalfCylinder}
-Any edge of a $k$-triangulation of a half-cylinder can be flipped.
+\label{conj:flipHalfCylinder}
+Any arc of a $k$-triangulation of the half-cylinder~$\cylinder_n$ can be flipped.
 \end{conjecture}
 
-To approach this statement, we need to introduce a convenient representation of collections of diagonals on the half-cylinder~$\cylinder_p$, illustrated in \cref{fig:nonsequentialVHrep}.
-Let $D$ be a $(k+1)$-crossing-free set of $k$-irrelevant or $k$-boundary diagonals of $\cylinder_p$ containing (at least) the $k$-boundary diagonals of $\cylinder_p$, and $d$ be a $k$-relevant diagonal of $D$. We denote $l_d$, $i_d$ and $j_d$ the length, and the index of the left and right extremities of $d$. Note that $l_d\geq k$ because $d$ is $k$-relevant, and $l_d \le kp$ because $D$ is $(k+1)$-crossing-free. Note also that $i_d+l_d-j_d=0$ (in $\Z/p\Z$) by definition.
+To approach this statement, we need to introduce a convenient representation of collections of arcs on the half-cylinder~$\cylinder_n$, illustrated in \cref{fig:nonsequentialVHrep}.
+
+Let $A$ be a $(k+1)$-crossing-free set of $k$-irrelevant or $k$-boundary arcs of $\cylinder_n$ containing (at least) the $k$-boundary arcs of $\cylinder_n$, and $a$ be a $k$-relevant arc of $A$. We denote by $l_a$, $i_a$ and $j_a$ the length, and the indices of the left and right endpoints of $a$. Note that $l_a \ge k$ because $a$ is $k$-relevant, and $l_a \le kn$ because $A$ is $(k+1)$-crossing-free. Note also that $i_a+l_a-j_a=0$ (in $\Z/n\Z$) by definition.
 
 \begin{figure}[b]
 	\capstart
@@ -994,77 +1023,66 @@ Let $D$ be a $(k+1)$-crossing-free set of $k$-irrelevant or $k$-boundary diagona
 	\label{fig:nonsequentialVHrep}
 \end{figure}
 
-We represent $\cylinder_p$ by a cylindric grid $G$ of width $p$ and height $kp-p+1$, where each column, indexed by $\Z/p\Z$, represent a point, and each row, indexed by $[k,kp]$ represent a diagonal length.
-We represent each edge $d$ of $D$ by a symbol $\bullet$ at position $(i_d,l_d)$ in $G$.
-We associate a directed lattice to the grid $G$, made of an edge going from any point $i,l$ to the point $i-1,l+1$, and an edge from any point $i,l+1$ to the point $i,l$, for $l<kp$ and $i\in\Z/p\Z$, as well as an edge going from point $i,kp$ to point $i,kp$ for any $i\in\Z/p\Z$.
-We naturally call these edges the \emph{upper outgoing}, \emph{upper ingoing}, \emph{lower outgoing}, \emph{lower ingoing} edges of a point. Note that points of the form $i,k$ have no lower edges.
+We represent $\cylinder_n$ by a cylindric grid $G$ of width $n$ and height $kn-n+1$, where each column, indexed by $\Z/n\Z$, represent a point, and each row, indexed by $[k,kn]$ represent an arc length.
+We represent each arc $a$ of $A$ by a symbol $\bullet$ at position $(i_a,l_a)$ in $G$.
+We associate a directed lattice to the grid $G$, made of an edge going from any point $(i,l)$ to the point $(i-1,l+1)$, and an edge from any point $(i,l+1)$ to the point $(i,l)$, for $l<kn$ and $i \in \Z/n\Z$, as well as an edge going from point $(i,kn)$ to point $(i,kn)$ for any $i \in \Z/n\Z$.
+We naturally call these edges the \emph{upper outgoing}, \emph{upper ingoing}, \emph{lower outgoing}, \emph{lower ingoing} edges of a point. Note that points of the form $(i,k)$ have no lower edges.
 
-A face of $D$ is made of a succession of \emph{top} diagonals (that are above the face), and \emph{bottom} diagonals (that are below the face). Around a face, their can be $2$ successive bottom edges, but no $2$ successive top edges. An angle between two bottom diagonals is called \emph{upper angle}, an angle between a top and a bottom diagonals is called \emph{lower angle}.
-The \emph{counterclockwise tour} of a face $f$ of $D$ is computed by the following procedure. Start from any diagonal $d$ of $f$, and perform the following operation until you get back to this original diagonal.
+A face of $A$ is made of a succession of \emph{top} arcs (that are above the face), and \emph{bottom} arcs (that are below the face). Around a face, their can be two consecutive bottom arcs, but no two consecutive top arcs. An angle between two bottom arcs is called \emph{upper angle}, an angle between a top and a bottom arcs is called \emph{lower angle}.
+The \emph{counterclockwise tour} of a face $f$ of $A$ is computed by the following procedure. Start from any arc $a$ of $f$, and perform the following operation until you get back to this original arc~$a$.
 \begin{enumerate}
-\item If $d$ is a top diagonal, set $d$ to be longest diagonal starting from $v_{i_d}$ and having length less than $l_d$. Note that this is well defined because $D$ contains the $k$-boundary diagonals, and a $k$-boundary diagonals cannot be a top diagonal.
-\item Else, if $d$ is a bottom diagonal, and $l_d$ is the maximum length of an edge ending on point~$v_{j_d}$, then set $d$ to be the longest diagonal starting on point~$v_{i_d}$.
-\item Else, set $d$ to be the shorted diagonal ending on point $v_{j_d}$ and having length more than~$l_d$.
+\item If $a$ is a top arc, set $a$ to be longest arc starting from $v_{i_a}$ and having length less than $l_a$. Note that this is well defined because $A$ contains the $k$-boundary arcs, and a $k$-boundary arcs cannot be a top arc.
+\item Else, if $a$ is a bottom arc, and $l_a$ is the maximum length of an edge ending on point~$v_{j_a}$, then set $a$ to be the longest arc starting on point~$v_{i_a}$.
+\item Else, set $a$ to be the shorted arc ending on point $v_{j_a}$ and having length more than~$l_a$.
 \end{enumerate}
-If this procedure does not terminates, it means that the corresponding face is not finite, but rather infinite and periodic.
+If this procedure does not terminate, it means that the corresponding face is not finite, but rather infinite and periodic.
 
-This procedure can easily be performed graphically in the grid representation, by following the edges of the lattice. Step $1$ corresponds to following lower outgoing edges until meeting a $\bullet$; step $3$ corresponds to following upper outgoing edges until meeting a $\bullet$; and step $2$ corresponds to following upper outgoing edges until reaching height $kp$, and then following lower outgoing edges until meeting a $\bullet$.
+This procedure can easily be performed graphically in the grid representation, by following the edges of the lattice. Step $1$ corresponds to following lower outgoing edges until meeting a $\bullet$; step $3$ corresponds to following upper outgoing edges until meeting a $\bullet$; and step $2$ corresponds to following upper outgoing edges until reaching height $kn$, and then following lower outgoing edges until meeting a $\bullet$.
 In the grid representation, this procedure necessarily ends with a cycle $C_f$.
 
-We call \emph{drift} the integer $\delta_f$ equal the total length of top diagonals of $C_f$ minus the total length of bottom diagonals of $C_f$.
+We call \emph{drift} of the face~$f$ the integer $\delta_f$ equal the total length of top arcs of $C_f$ minus the total length of bottom arcs of $C_f$.
 Then $f$ is finite if and only if $\delta_f=0$.
 
 \begin{conjecture}
-$D$ is a $k$-triangulation if and only if it has $p-1$ faces, which all have drift $0$ and length $2k+1$.
+\label{conj:characterizationDots}
+A collection $A$ of arcs of~$\cylinder_n$ is a $k$-triangulation if and only if it has $n-1$ faces, which all have drift $0$ and length $2k+1$.
 \end{conjecture}
 
-%%% brouillon = on
-
-also, faces have $k$ top and $k+1$ bottom edges, in other words, only $1$ upper angle.
-
 \begin{proof}[Tentative proof]
-If $D$ is a $k$-triangulation, then its faces have drift $0$ and length $2k+1$ because of \cref{thm:structureInfinite}.
+For the direct direction, assume that~$A$ is a $k$-triangulation of the half-cylinder~$\cylinder_n$.
+By \cref{thm:structureInfinite,thm:arcInStar,coro:countingStarsArcsSurface}, it has $n-1$ $k$-stars, all of drift~$0$ and length $2k+1$.
 
-We can give an example of a $k$-triangulations with $p-1$ $k$-stars. If we can prove that all $k$-triangulations of a surface have the same number of $k$-stars, then we proved the direct implication.
-
-Now suppose $D$ has $p-1$ faces, who all have drift $0$ and length $2k+1$. 
-If we can prove that all $k$-triangulations of a surface have the same number of $k$-stars, then $D$ is maximal. I can also give an enumerative argument for maximality, counting the number of $\bullet$ and empty spaces that we have to fill in the $p\times kp$ grid.
-
-What's missing is to prove that $D$ has no $(k+1)$-crossing.
+Suppose now that $A$ has $n-1$ faces, all of drift $0$ and length $2k+1$. 
+Counting the number of~$\bullet$, we obtain that $A$ is maximal by \cref{coro:countingStarsArcsSurface}.
+The missing point is to prove that $A$ has no $(k+1)$-crossing.
 \end{proof}
 
-%%% brouillon = off
-
-Let $T$ be a $k$-triangulation of $\cylinder_p$, $S$ a star of $T$, and $d$ a diagonal adjacent to $S$ on both sides.
+Let $T$ be a $k$-triangulation of $\cylinder_n$, let $S$ be a $k$-star of $T$, and let $a$ be an arc adjacent to $S$ on both sides.
 Let $C_S$ be the cycle corresponding to $S$ in the grid representation.
-Let $C_{S,d}^1$ be the subcycle of $C$ starting from the upper outgoing edge of $d$, and finishing at the lower ingoing edge of $d$.
-Let $C_{S,d}^2$ be the subcycle of $C$ starting from the lower outgoing edge of $d$, and finishing at the upper ingoing edge of $d$.
+Let $C_{S,d}^1$ be the subcycle of $C$ starting from the upper outgoing edge of $a$, and finishing at the lower ingoing edge of $a$.
+Let $C_{S,d}^2$ be the subcycle of $C$ starting from the lower outgoing edge of $a$, and finishing at the upper ingoing edge of $a$.
 The cycle $C$ is made of the succession of $C_{S,d}^1$ and $C_{S,d}^2$.
 
-%%brouillon on
-l'un est pair, l'autre impair et passe par l'infini. 
-%%brouillon off
-
 \begin{conjecture}
+\label{conj:cycles}
 The cycles $C_{S,d}^1$ and $C_{S,d}^2$ have exactly $2$ intersection points.
 \end{conjecture}
 
 \begin{proof}[Tentative proof]
-The number of intersection points of two cycles on a cylinder is necessarily even. By definition, the $\bullet$ corresponding to $d$ is a point of intersection.
-
-We need to prove that there cannot be more than $2$ intersection points.
+The number of intersection points of two cycles on a cylinder is necessarily even. By definition, the $\bullet$ corresponding to $a$ is a point of intersection.
+We thus just need to prove that there cannot be more than $2$ intersection points.
 \end{proof}
 
-\begin{proof}[Proof of \cref{thm:flipHalfCylinder}]
-Let $T$ be a triangulation of $\cylinder_p$, and $d$ a diagonal of $T$.
-If $d$ is adjacent to two different stars, then it can be flipped in a sequential manner.
+\begin{proof}[Proof of \cref{conj:flipHalfCylinder} under \cref{conj:characterizationDots,conj:cycles}]
+Let $T$ be a triangulation of $\cylinder_n$, and let $a$ be an arc of $T$.
+If $a$ is adjacent to two different $k$-stars, then it can be flipped sequentially as discussed earlier.
 
-If $d$ is adjacent twice to the same star, then denote $d'$ the point of intersection between $C_{S,d}^1$ and $C_{S,d}^2$ which is not $d$.
-Denote $C_{S,d}^{1,1}$ and $C_{S,d}^{1,2}$ the subpaths of $C_{S,d}^1$ going from $d$ to $d'$, and from $d'$ to $d$.
-Denote $C_{S,d}^{2,1}$ and $C_{S,d}^{2,2}$ the subpaths of $C_{S,d}^2$ going from $d$ to $d'$, and from $d'$ to $d$.
+If $a$ is adjacent twice to the same $k$-star, then denote by $a'$ the point of intersection between $C_{S,d}^1$ and $C_{S,d}^2$ which is not $a$.
+Denote by $C_{S,d}^{1,1}$ and $C_{S,d}^{1,2}$ the subpaths of $C_{S,d}^1$ going from $a$ to $a'$, and from $a'$ to $a$.
+Denote by $C_{S,d}^{2,1}$ and $C_{S,d}^{2,2}$ the subpaths of $C_{S,d}^2$ going from $a$ to $a'$, and from $a'$ to $a$.
 The cycle $C$ is made of the cyclic concatenation of $C_{S,d}^{1,1}$, $C_{S,d}^{1,2}$, $C_{S,d}^{2,1}$, and $C_{S,d}^{2,2}$.
 
-Now remove $d$ and add in $d'$. This creates a new face $S'$, corresponding in the grid representation to a cycle $C'$ made of the cyclic concatenation of $C_{S,d}^{1,1}$, $C_{S,d}^{2,2}$, $C_{S,d}^{2,1}$, and $C_{S,d}^{1,2}$.
+Now remove $a$ and add in $a'$. This creates a new face $S'$, corresponding in the grid representation to a cycle $C'$ made of the cyclic concatenation of $C_{S,d}^{1,1}$, $C_{S,d}^{2,2}$, $C_{S,d}^{2,1}$, and $C_{S,d}^{1,2}$.
 Since $S'$ is made of the same paths as $S$, it as well has drift $0$ and length $2k+1$, so that what we obtain is a $k$-triangulation.
 \end{proof}
 
